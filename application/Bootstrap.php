@@ -15,4 +15,12 @@ $autoloader->registerNamespace('Mycsense_');
 class Bootstrap extends Mycsense_Bootstrap
 {
 
+	/**
+	 * Surcharge car on a pas besoin de BDD
+	 */
+	public function _initDb()
+	{
+
+	}
+
 }
