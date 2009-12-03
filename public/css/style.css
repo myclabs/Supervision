@@ -1,0 +1,1034 @@
+/*================================*/
+/*            Body  et Page       */
+/*================================*/
+body
+{
+	background: #ffffff none repeat scroll 0%;
+	font-family: Verdana,Tahoma,Arial,sans-serif;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	min-width: 600px;
+}
+
+#Page {
+	position: relative;
+	text-align: left;
+	background: #FFFFFF;
+}
+
+a {
+	color: #336699;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a img, a:hover img {
+	border: none;
+}
+
+
+/*================================*/
+/*            En-tete             */
+/*================================*/
+
+#EnTete {
+	position: fixed;
+	background-color: #B8C2C4; /* gris foncé */
+	color: #000099;
+	margin: 0px;
+	padding: 7px;
+	height: 48px; /* hauteur en-tête fixée */
+	width: 100%; 
+	z-index: 2;
+	top: 0px;
+	border-bottom: 1px solid #9C9C9C;
+}
+
+#EnTete #logoINSA {	
+	position: absolute;
+	left:10px;
+}
+
+#EnTete #logoINSA img {
+	height: 45px;
+	width: 84px;
+}
+
+#EnTete #imgMYCS {
+	position: absolute;
+	left: 120px;
+}
+
+#EnTete #imgMYCS img {
+	height: 48px;
+	width: 91px;
+}
+
+#EnTete #titre {
+	position: absolute;
+	top: 5px;
+	left: 240px;
+	font-size: 300%;
+	font-family: Impact;
+	white-space: nowrap;
+}
+
+#EnTete #deco {
+	position: fixed;
+	float: right;
+	font-size: 80%;
+	font-weight: bold;
+	color: #444948;
+	text-align: center;
+	right: 4px;
+	height: 20px;
+}
+
+#EnTete #deco span {
+	position: relative;
+	float: left;
+	height: 100%;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+#EnTete #CouleurPseudo {
+}
+
+#EnTete #boutonDeco img {
+	width: 20px;
+	height: 20px;
+}
+
+/*================================*/
+/*           Bloc login           */
+/*================================*/
+
+#identification {
+	border: 1px blue dashed;
+	padding: 20px;
+	background-color: #E3EAFF;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+}
+
+#identification td{
+	color:#336699;
+}
+
+#identification p.nomargin {
+	text-indent: 0px;
+	margin: 0;
+}
+
+/*================================*/
+/*           Menu   	          */
+/*================================*/
+
+#Menu {
+	position: fixed;
+	float: right;
+	top: 31px;
+	right: 6px;
+	z-index: 4;
+}
+
+/*================================*/
+/*    Ariane et langues           */
+/*================================*/
+
+#Ariane {
+	position: fixed;
+	top: 63px; /* fixe où placer le menu en hauteur */
+	border-bottom: 1px solid #9C9C9C;
+	background-color: #D3DEDC; /* gris clair */
+	width: 100%;
+	color: black; /* couleur du texte */
+	z-index: 2;
+	height: 24px;
+}
+
+#Ariane #FilAriane {
+	padding: 4px;
+	position: relative;
+	white-space: nowrap;
+	float: left;
+}
+
+
+#Ariane #Langue {	
+	position: relative;
+	top: -1px;
+	float: right;
+	right: 4px;
+	font-size: 1em; /* augmenter la valeur pour augmenter la largeur du bouton */
+}
+
+#Commentaire {
+	position: fixed;
+	visibility: hidden;
+	top: 88px;  /* = top Ariane + 26px */
+	background-color: #FFFFC6; /* jaune clair */
+	border-bottom: 1px solid #9C9C9C;
+	overflow:hidden;
+	color: #666666;
+	height:16px;
+	width: 100%;
+	padding: 4px;
+	z-index: 1;
+}
+
+#Commentaire img {
+	float: left;
+	position: relative;
+	margin-right: 4px; 
+}
+
+/*================================*/
+/*             Masque             */
+/*================================*/
+#Masque {	
+	visibility:hidden;	
+	position: absolute;
+    margin-left:auto;
+    margin-right:auto;
+	text-align: center;
+	z-index: 200;
+}
+
+#Masque #CadrePage {	
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-color: #000000;
+	opacity: 0.50;
+	filter:alpha(opacity=50);
+	z-index: 200;
+}
+
+#Masque #CadreChargement {
+	text-align: center;
+	position: fixed;
+    margin: auto;
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 220px; 
+    top: 49%;
+	background-color: #DDDDDD;
+	z-index: 201;
+}
+
+/*================================*/
+/*             Corps              */
+/*================================*/
+
+#Corps {
+	position: relative;
+	top: 113px;
+	padding: 10px 10px 66px 10px;
+	z-index: 0;
+}
+#Corps h1, #Corps h2, #Corps h3 {
+	color: #000099;
+	font-weight: bold;
+	margin-top: 5px;
+}
+#Corps h1 {
+	font-size: 1.6em;
+	margin-bottom: 5px;
+}
+#Corps h2 {
+	font-size: 1.3em;
+	margin-bottom: 4px;
+}
+#Corps h3 {
+	font-size: 1.1em;
+	margin-bottom: 3px;
+}
+
+/*================================*/
+/*              Pied             */
+/*================================*/
+
+#Pied {
+	border-top: 1px solid #9C9C9C;
+	background-color: #B8C2C4;
+	position: fixed;
+	bottom: 0;
+	color: #336699;
+	font-size: 90%;
+	font-weight: bold;
+	padding: 3px 10px 1px 1px;
+	width: 100%;
+	height: 19px;
+	z-index: 4;
+}
+
+#Pied #PiedTexte{
+	position: relative;
+	float: left;
+	left: 50%;
+}
+
+#Pied #PiedOutil{
+	position: relative;
+	float: right;
+	padding-right: 10px;
+}
+
+/*================================*/
+/*        Pied - Boutons          */
+/*================================*/
+
+#Edition {
+	background-color:#D3DEDC;
+	position: fixed;
+	bottom: 22px;
+	height: 30px;
+	font-size: 90%;
+	border-top : 1px solid #9C9C9C;
+	padding-top: 4px;
+	width: 100%;
+	z-index: 4;
+	text-align: right;
+}
+
+#validbutton {
+}
+
+#annulbutton {
+}
+
+#ajoutbutton {
+	margin-right: 4px;
+}
+
+/*================================*/
+/*        Tableau generique       */
+/*================================*/
+.yui-skin-sam .tableauGen {
+	clear:right;
+	position:relative;
+    margin-left:auto;
+    margin-right:auto;
+	color:red;
+	width:100%;
+	text-align: center;
+}
+
+.yui-skin-sam .tableauGen table {
+	position:relative;	
+	color:black;
+	margin: auto;
+}
+
+#progressSaveData {		
+	position:relative;
+    margin-left:auto;
+    margin-right:auto;
+	text-align: center;
+}
+
+#progressSaveData img{		
+	position:relative;
+    margin:auto;
+    width:200px;
+    height:20px;
+}
+
+.addFormDialog {
+	text-align:left;
+	padding:10px;
+}
+
+.addFormDialog p{
+	text-align:center;	
+	padding:10px;
+}
+
+.hiddenClass {
+	display:none;
+}
+
+.filterTab{	
+	position:relative;
+	float:right;
+	text-align: center;
+	margin-top:10px;
+	margin-right:30px;
+	margin-bottom:30px;
+	font-size: 12px;
+	border : 1px solid #9C9C9C;
+	padding: 10px;
+	background-color:#D3DEDC;
+	z-index:2;
+	width: auto;
+}
+
+.filterTab table{
+	margin:auto;	
+}                
+
+.filterTab td{
+	text-align:left;
+	padding: 3px;
+}
+
+.tableauGeneriqueDivImage
+{
+	width: 100%;
+	text-align: center;
+}
+
+.tableauGeneriqueDivImage img
+{	
+}
+
+#addDlgFormajoutbutton .tabGenTextboxAdd {
+	width: 300px;
+}
+
+.TableauGeneriqueAjout {
+	margin:30px;
+	font-size: 14px;
+	text-align: center;
+}
+
+#showDetail {
+	margin:30px;
+	text-align: center;
+}
+
+/*================================*/
+/*        Formulaire              */
+/*================================*/	
+.fieldset-inscription, .fieldset-ins-submitt {  
+	float: left;  
+	clear: both;  
+	margin: 0 0 1.5em 0;  
+	padding: 0;  
+	border: 1px solid #BFBAB0;  
+	background-color: #F2EFE9;  
+	background-image: url(images/fieldset_gradient.jpg);  
+	background-repeat: repeat-x; 
+	width: 600px; 
+}
+
+.fieldset-ins-submitt {  
+	float: none;  
+	width: auto;  
+	border-style: none;  
+	padding-left: 12em;  
+	background-color: transparent;  
+	background-image: none; 
+}
+
+.fieldset-inscription legend {  
+	margin-left: 1em;  
+	padding: 0;  
+	color: #000;  
+	font-weight: bold; 
+}
+
+.fieldset-inscription ol {  
+	padding: 1em 1em 0 1em;  
+	list-style: none;
+}
+
+.fieldset-inscription li {  
+	float: left;  
+	clear: left;  
+	width: 100%;  
+	padding-bottom: 1em; 
+}
+
+.req {
+	position: absolute;  
+	left: 10em;  
+	top: 0; 
+}
+	
+.descriptionForm {
+	display: block;  
+	color: grey;  
+	font-size: 70%;  
+	font-style: italic;
+}
+
+.fieldset-inscription label, .fieldset-ins-submitt label{
+	position: relative;  
+	float: left;  
+	width: 10em;  
+	margin-right: 1em;
+}
+
+.errorsForm {
+	position: relative;
+	display: block;
+	float: left;
+	left: 28em;
+	top: -14px;
+	width: 276px;
+	color: #C00;
+	font-size: 85%;
+	font-weight: normal;
+	text-transform: uppercase; 
+}
+
+.errorsForm img {
+	position: absolute;    
+	left: -18em;
+}
+
+#fieldset-agree .errorsForm img {
+	position: absolute;    
+	left: -2em;
+}
+
+#fieldset-agree .errorsForm {
+	position: absolute;
+	top: 0px;
+}
+
+.fieldset-ins-submitt #CancelButton {
+	position: relative;
+	left : 100px;
+	background-color: #B2CDFB;
+}
+
+.fieldset-ins-submitt #CancelButton:hover {
+	background-color: #CCFFFF;
+}
+
+.fieldset-ins-submitt .submit {
+	background-color: #D8D8DA;
+}
+
+.fieldset-ins-submitt .submit:hover {
+	background-color: #BFDAFF;
+}
+/*================================*/
+/*        Arbre Concepts          */
+/*================================*/
+#NavConceptGlobal {
+	height: 100%;
+	padding-bottom: 33px;
+	float: left;
+	position: relative;
+}
+
+.NavConcept {
+	position: relative;
+	float: left;
+	border: 2px solid #336699;
+	width: 960px;
+}
+
+.NavConcept h4 {
+	border-bottom: 1px solid #336699;
+	color: #000000;
+	text-align: center;
+}
+
+.NavConcept div ul {
+	margin: 10px 10px 0px 10px;
+}
+
+.NavConcept .aucunConcept {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-style: italic;
+	margin-top: 10px;
+	color: #aaaaaa;
+}
+
+.NavConcept .conceptCourant {
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.labelAjoutConcept, .inputAjoutConcept {
+	float: left;
+}
+
+.labelAjoutConcept {
+	margin-right: 10px;
+}
+
+.NavConcept .boutonSuppressionLien {
+	position: relative;
+	display: block;
+	float: left;
+	margin-right: 4px;
+}
+
+.NavConcept h4.ajoutConcept {
+	padding-top: 10px;
+	margin-bottom: 10px;
+	display: block;
+	clear: left;
+}
+
+.NavConcept a.conceptParent {
+	display: block;
+	float: left;
+}
+
+.NavConcept div li {
+	position: relative;
+	display: block;
+	float: left;
+	clear: left;
+}
+
+.parent {
+	position:relative;
+	float:left;
+	width:300px;
+	margin-left:5px;
+	margin-right:5px;
+	padding: 5px;
+}
+
+.actuel {
+	position:relative;
+	float:left;
+	width:300px;
+	margin-left:5px;
+	margin-right:5px;
+	padding: 5px;
+}
+
+.enfant {
+	position:relative;
+	float:left;
+	width:300px;
+	margin-left:5px;
+	margin-right:5px;
+	padding: 5px;
+}
+
+.action {
+	clear:left;
+	text-align:center;
+}	
+
+#liaisons {
+	margin-top: 10px;
+}
+
+#lierParent {
+	position: relative;
+	left:370px;
+	display:inline;
+	
+}
+
+#lierEnfant {
+	position: relative;
+	left:370px;
+	display:inline;
+}
+
+.lienRetour {
+	display: block;
+	width: 100%;
+	clear: left;
+}
+
+/****** CSS récupéré dans le code des IUT ******/
+
+#modifunite p  {
+	padding: 2px;
+	padding-top: 15px;
+	padding-left: 20px;
+}
+
+#modifunite h4 {
+	margin: 0;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.composante_unite {
+	display: block;
+	padding: 2px;
+}
+
+.select_c {
+	width: 100px;
+}
+
+
+/*================================*/
+/*   		Dimension 		      */
+/*================================*/
+#TableauDimensionAjoutDimension {
+	font-size: 14px;
+	text-align: center;
+}
+
+#EditionDimension {
+	height: 100%;
+	position: relative;
+	border: 2px solid #336699;
+	width: 500px;
+	padding :10px;
+}
+
+#ConceptIntersection {
+	height: 100%;
+	position: relative;
+	margin-top:20px;
+}
+
+.DimensionIntersection h4 {
+	border-bottom: 1px solid #336699;
+	color: #000000;
+	width:200px;
+	margin:5px;
+	text-indent:20px;
+}
+
+.DimensionIntersection ul {
+	display: block;
+	margin: 10px 10px 0px 10px;
+}
+
+.DimensionIntersection h3 {
+	display:inline;
+}
+
+.DimensionIntersection .boutonSuppressionLien {
+	position:absolute;
+	left:200px;
+}
+
+.DimensionIntersection li {
+	position: relative;
+	margin:5px;
+	width:200px;
+}
+
+.DimensionIntersection #AjoutConcept {
+	display:block;
+	margin-left:5px;
+}
+
+.DimensionIntersection #SuppressionDim {
+	margin-top:20px;
+	margin-left:5px;
+}
+
+.DimensionIntersection #ValiderModifDim {
+	margin:5px;
+}
+
+#ChoixConcept{
+	background: #E3EAFF;
+	border: 1px solid #224488;
+	padding-bottom: 10px;
+	visibility: hidden;
+}
+
+#EditionDimension img:hover{
+	cursor: pointer;
+}
+
+#EditionDimension #ConceptDimSing {
+	margin : 10px 10px 10px 10px;
+}
+
+#EditionDimension #ActionDimSing {
+	margin : 10px 10px 10px 10px;
+}
+
+#ActionDimSing #SuppressionDim {
+	margin-top:20px;
+}
+
+#ActionDimSing #ValiderModifDim {
+	margin-left:50px;
+}
+
+#ConceptDimSing li {
+	margin-top:4px;
+	margin-bottom:4px;
+}
+
+#ConceptDimSing #validDimSingParent {
+	margin-left:100px;
+}
+
+
+/*================================*/
+/*   		Regroupement	      */
+/*================================*/
+#TableauRegroupementAjoutRegroupement {
+	margin:30px;
+	font-size: 14px;
+	text-align: center;
+}
+
+#NouveauRegroupement {
+	height: 100%;
+	position: relative;
+	border: 2px solid #336699;
+	width: 500px;
+	padding:10px;
+}
+
+#RegNomEtObjet ul {
+	display: block;
+	margin-left:5px;
+}
+
+#RegNomEtObjet #nomRegroupement {
+	width:400px;
+}
+
+#RegNomEtObjet #liRegNomOuObjet {
+	margin-bottom:20px;
+}
+
+#RegNomEtObjet li {
+	margin:5px 0px;
+}
+
+
+.DimensionDuRegroupement h4 {
+	border-bottom: 1px solid #336699;
+	color: #000000;
+	width:210px;
+	text-indent:10px;
+	margin-bottom:5px;
+}
+
+.DimensionDuRegroupement ol {
+	display: block;
+	margin-left: 10px;
+	list-style-type: disc;
+}
+
+.DimensionDuRegroupement h3 {
+	display:inline;
+}
+
+.DimensionDuRegroupement .boutonSuppressionLien {
+	position:absolute;
+	left:200px;
+}
+
+.DimensionDuRegroupement li {
+	position: relative;
+	margin:5px;
+	width:200px;
+}
+
+.DimensionDuRegroupement #AjoutDimColonne{
+	margin-bottom:20px;
+}
+
+.DimensionDuRegroupement #AjoutDimLigne {
+	margin-bottom:20px;
+}
+
+#ActionRegroupement #SuppressionReg {
+	margin-top:20px;
+	margin-left:5px;
+}
+
+#ActionRegroupement #ValiderModifReg {
+	margin:5px;
+}
+
+/*====================================*/
+/* Flux économiques sources			  */
+/*====================================*/
+#TableauFluxEcoSourceAjoutFlux {
+	margin:30px;
+	font-size: 14px;
+	text-align: center;
+}
+
+#EditFluxEconomiqueSource
+{
+	height: 100%;
+	position: relative;
+	border: 2px solid #336699;
+	width: 700px;
+	padding:10px;	
+}
+
+#EditFluxEconomiqueSource .PartEditFluxEco
+{
+	margin-bottom: 10px;
+}
+
+#EditFluxEconomiqueSource #ActionFluxEcoSource
+{
+	margin-top: 20px;
+}
+
+#EditFluxEconomiqueSource h4
+{
+	font-weight: bold;
+	color: #336699;
+}
+
+#EditFluxEconomiqueSource #Etat .FluxEcoValide
+{
+	font-weight: normal;
+	color: #00ff00;
+}
+
+#EditFluxEconomiqueSource #Etat .FluxEcoInvalide
+{
+	font-weight: normal;
+	color: #ff0000;
+}
+
+#EditFluxEconomiqueSource #ActionFluxEcoSource .typeFlux
+{
+	font-weight: bold;
+	color: #336699;
+}
+
+/*====================================*/
+/* Tableau Visualisation Regroupement */
+/*====================================*/
+#VisualisationRegroupement table {
+	text-align:center;
+	border-width:2px;
+	border-style:solid;
+	border-color:white;
+}
+
+#VisualisationRegroupement table td {
+	padding:5px;
+}
+
+#VisualisationRegroupement .NomDimIndexColonne {
+	background-color:#E46C0A;
+	color:white;
+	font-weight: bold;
+	padding: 10px;
+	width: 150px;
+}
+
+#VisualisationRegroupement .DimIndexColonne {
+	background-color:#FAC090;
+}
+
+#VisualisationRegroupement .NomDimIndexLigne {
+	background-color:#AC5285;
+	color:white;
+	font-weight: bold;
+	padding: 10px;
+}
+
+#VisualisationRegroupement .DimIndexLigne {
+	background-color:#E5B2DE;
+}
+
+#VisualisationRegroupement .CellulesVides {
+	background-color:#EEECE1;
+}
+
+#VisualisationRegroupement .CelluleRegroupement0 {
+	background-color:#DCE6F2;
+}
+
+#VisualisationRegroupement .CelluleRegroupement1 {
+	background-color:#B9CDE5;
+}
+
+#VisualisationRegroupement .loupeVisu {
+	margin-bottom:-3px;
+}
+
+#Unite strong {
+	font-weight: bold;
+}
+
+#VisualisationRegroupement #Unite {
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+#VisualisationRegroupement #Unite span{
+	display:block;
+}
+
+#VisualisationRegroupement .spanIncertitude {
+	font-size:10px;
+}
+
+#VisualisationRegroupement #RetourTableauRegroupement {
+	margin-left:70px;
+	margin-top:30px;
+}
+
+#valeursCoeffPrimaire li {
+	text-align:left;
+}
+
+#valeursCoeffPrimaire #descripteur {
+	font-weight:bold;
+}
+
+#valeursCoeffPrimaire #unite {
+	font-weight:bold;
+}
+
+#valeursCoeffPrimaire #editValeurCoefficient {
+	width : 80px;
+	position: absolute;
+	left:110px;
+}
+
+#valeursCoeffPrimaire #editIncertCoefficient {
+	width : 80px;
+	position: absolute;
+	left:110px;
+}
+
+#detailPanel li {
+	text-align: left;
+}
+
+#detailPanel #descrTexte {
+	font-weight:bold;
+}
+
+#detailPanel #uniteTexte {
+	font-weight:bold;
+}
+
+#detailPanel #masseTexte {
+	font-weight:bold;
+}
+
+/*================================*/
+/*   		Processus		      */
+/*================================*/
+#detailPanel #descrTexte {
+	text-align:left;
+}
+
+#detailPanel #uniteTexte {
+	text-align:left;
+}
+
+#detailPanel #masseTexte {
+	text-align:left;
+}
