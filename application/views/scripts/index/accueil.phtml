@@ -1,6 +1,50 @@
+<?php
+$baseUrl = 'http://dev.myc-sense.com/';
+?>
 <h1>
-	Bonjour <?=$this->exemple->nom?>
+	Liste des projets
 </h1>
-<p>
-	Email : <?=$this->exemple->email?>
-</p>
+<ul>
+	<li>
+		Base carbone
+		<ul>
+			<li>
+				<a href="<?=$baseUrl?>basecarbone/">
+					Version 3.0</a>
+			</li>
+			<li>
+				<a href="<?=$baseUrl?>basecarbone2/">
+					Version 2.0</a>
+			</li>
+		</ul>
+	</li>
+	<li>
+		<a href="<?=$baseUrl?>stationsmontagne/">
+			Stations de montagne</a>
+	</li>
+	<li>
+		Outils centralisés
+		<ul>
+			<li>
+				<a href="<?=$baseUrl?>utilisateurs/">
+					Utilisateurs</a>
+			</li>
+			<li>
+				<a href="<?=$baseUrl?>acl/">
+					Gestion des droits d'accès</a>
+			</li>
+			<li>
+				<a href="#">
+					Pages et menus</a>
+			</li>
+			<li>
+				<a href="<?=$baseUrl?>unites/">
+					Unités</a>
+			</li>
+			<li>
+				<a href="#">
+					Interfaces génériques</a>
+			</li>
+		</ul>
+	</li>
+</ul>

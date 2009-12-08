@@ -10,13 +10,6 @@ class IndexController extends Mycsense_Controller
 
 	public function accueilAction()
 	{
-		// Crée un nouvel enregistrement
-		$objet = new Mycsense_Model_Exemple();
-		$objet->nom = 'Martin';
-		$objet->email = 'martin@mail.com';
-		$objet->save();
-		$this->view->exemple = $objet;
-		$this->render();
 	}
 
 }
