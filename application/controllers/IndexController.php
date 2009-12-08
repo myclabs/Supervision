@@ -1,12 +1,7 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+class IndexController extends Mycsense_Controller
 {
-
-	public function init()
-	{
-		$this->_flashmessenger = $this->_helper->getHelper('FlashMessenger');
-	}
 
 	public function indexAction()
 	{
