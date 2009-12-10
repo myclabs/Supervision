@@ -21,8 +21,13 @@ function formaterNomFichier($filename) {
 	if (count($array) > 1) {
 		$filename = $array[1];
 	}
+	// Sépare à "librairies"
+	$array = preg_split('#/librairies/Mycsense/#', $filename, 2);
+	if (count($array) > 1) {
+		$filename = $array[1];
+	}
 	// Sépare à "trunk"
-	$array = preg_split('#/trunk/#', $filename, 2);
+	$array = preg_split('#/home/dev/#', $filename, 2);
 	if (count($array) > 1) {
 		$filename = $array[1];
 	}
