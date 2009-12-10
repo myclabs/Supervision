@@ -6,7 +6,7 @@ class DocumentationController extends Mycsense_Controller
 	public function genererAction()
 	{
 		// Execution de phpdoc
-		$phpdoc = './phpdoc';
+		$phpdoc = 'phpdoc';
 		$sortie = '/home/dev/phpdoc/';
 		$template = 'HTML:Smarty:PHP';
 		$source = '/home/dev/librairies/Mycsense';
