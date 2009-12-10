@@ -17,7 +17,7 @@ class LibrairieController extends Mycsense_Controller
 		if (!is_dir($dossier)) {
 			$differences[] = "Impossible de vérifier le projet Utilisateurs.";
 		} else {
-			$commande = "$diff $baseLibrairie $dossier 2>&1";
+			$commande = "$diff $baseLibrairie/Utilisateurs $dossier 2>&1";
 			exec($commande, $differences, $retour);
 		}
 
@@ -26,7 +26,7 @@ class LibrairieController extends Mycsense_Controller
 		if (!is_dir($dossier)) {
 			$differences[] = "Impossible de vérifier le projet Unites.";
 		} else {
-			$commande = "$diff $baseLibrairie $dossier 2>&1";
+			$commande = "$diff $baseLibrairie/Unites $dossier 2>&1";
 			exec($commande, $differences, $retour);
 		}
 
