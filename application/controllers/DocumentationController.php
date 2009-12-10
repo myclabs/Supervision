@@ -17,7 +17,7 @@ class DocumentationController extends Mycsense_Controller
 		} else {
 			$retour = exec($this->view->commande);
 			$this->view->resultatGeneration = 'succès';
-			$this->view->detailGeneration = "Documentation générée.";
+			$this->view->detailGeneration = $retour;
 		}
 	}
 
