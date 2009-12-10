@@ -15,6 +15,7 @@ class DocumentationController extends Mycsense_Controller
 			$this->view->resultatGeneration = 'echec';
 			$this->view->detailGeneration = "Les dossiers sources ou destination n'existent pas.";
 		} else {
+			$output = array();
 			exec($this->view->commande, $output, $retour);
 			if ($retour == 0) {
 				$this->view->resultatGeneration = 'succès';
