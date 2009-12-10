@@ -30,7 +30,9 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 			'#\$this\->_dbTable\->getAdapter\(\)#'
 				=> "getAdapter() est une méthode dépréciée. Voir le wiki pour les fonctions à utiliser",
 			'#\$this\->getMapper\(\)#'
-				=> "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'"
+				=> "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
+			'#[^<]\?(.*):[^:]#'
+				=> "Les 'if' contracté (...?...:...) ne sont pas autorisés"
 		);
 
 	/**
@@ -101,7 +103,8 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 				$sousDossiers[] = $element;
 			} else {
 				$extension = strrchr($element, '.');
-				if (in_array($extension, $this->_extensions)) {
+				if (	(in_array($extension, $this->_extensions))
+					&&	($dossier . $element != __FILE__)) {
 					// Valide le fichier trouvé
 					$erreurs = $this->validerFichier($dossier . $element);
 					$retour[$dossier . $element] = $erreurs;
