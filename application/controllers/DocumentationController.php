@@ -10,7 +10,7 @@ class DocumentationController extends Mycsense_Controller
 		$sortie = '/home/dev/phpdoc/';
 		$template = 'HTML:Smarty:PHP';
 		$source = '/home/dev/librairies/Mycsense';
-		$this->view->commande = "$phpdoc -t $sortie -o $template -d $source";
+		$this->view->commande = "$phpdoc -t $sortie -o $template -d $source 2>&1";
 		if (!is_dir($sortie) || !is_dir($source)) {
 			$this->view->resultatGeneration = 'echec';
 			$this->view->detailGeneration = "Les dossiers sources ou destination n'existent pas.";
