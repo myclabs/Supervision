@@ -31,17 +31,20 @@ class ValidateurController extends Mycsense_Controller
 		// Utilisateurs
 		$dossier = $basePath . 'utilisateurs/tests';
 		$commande = "$phpunit $dossier 2>&1";
-		exec($commande, $this->view->utilisateurs = array(), $retour);
+		$this->view->utilisateurs = array();
+		exec($commande, $this->view->utilisateurs, $retour);
 
 		// Unites
 		$dossier = $basePath . 'unites/tests';
 		$commande = "$phpunit $dossier 2>&1";
-		exec($commande, $this->view->unites = array(), $retour);
+		$this->view->unites = array();
+		exec($commande, $this->view->unites, $retour);
 
 		// Acl
 		$dossier = $basePath . 'acl/tests';
 		$commande = "$phpunit $dossier 2>&1";
-		exec($commande, $this->view->acl = array(), $retour);
+		$this->view->acl = array();
+		exec($commande, $this->view->acl, $retour);
 
 		// Pages et menus
 		$dossier = $basePath . 'pagesmenus/tests';
