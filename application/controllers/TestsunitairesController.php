@@ -55,12 +55,19 @@ class TestsunitairesController extends Mycsense_Controller
 	public function generercouverturecodeAction()
 	{
 		// Execution de phpdoc
-		$phpdoc = 'phpunit --coverage-html /home/dev/couverturecode/acl';
-		$source = '/home/dev/librairies/Mycsense/';
+		$phpdoc = 'phpunit --coverage-html /home/dev/couverturecode';
+		$source = '/home/dev/acl/tests';
 		$this->view->commande = "$phpdoc $source";
 		$output = array();
 		exec($this->view->commande, $output, $retour);
 		$this->view->resultat = $output;
+	}
+
+	/**
+	 * Affiche le rapport de couverture de code
+	 */
+	public function couverturecodeAction()
+	{
 	}
 
 }
