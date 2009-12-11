@@ -1,6 +1,31 @@
-<p>
-	Résultat des tests unitaires :
-</p>
+<h1>
+	Tests unitaires
+</h1>
+
+<h2>
+	Utilisateurs
+</h2>
 <pre>
-<?=$this->details?>
+<?=implode("\n", $this->utilisateurs)?>
+</pre>
+
+<h2>
+	Unites
+</h2>
+<pre>
+<?=implode("\n", $this->unites)?>
+</pre>
+
+<h2>
+	Pages et menus
+</h2>
+<pre>
+<?=implode("\n", $this->pagesmenus)?>
+</pre>
+
+<h2>
+	Acl
+</h2>
+<pre>
+<?=implode("\n", $this->acl)?>
 </pre>

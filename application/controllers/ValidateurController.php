@@ -24,51 +24,29 @@ class ValidateurController extends Mycsense_Controller
 	 */
 	public function testsunitairesAction()
 	{
-		$output = array();
-
 		// Différences
 		$phpunit = 'phpunit --verbose';
 		$basePath = '/home/dev/';
 
 		// Utilisateurs
 		$dossier = $basePath . 'utilisateurs/tests';
-		if (!is_dir($dossier)) {
-			$output[] = "Impossible de tester le projet Utilisateurs.";
-		} else {
-			$commande = "$phpunit $dossier 2>&1";
-			exec($commande, $output, $retour);
-			$output[] = "";
-		}
+		$commande = "$phpunit $dossier 2>&1";
+		exec($commande, $this->view->utilisateurs, $retour);
 
 		// Unites
 		$dossier = $basePath . 'unites/tests';
-		if (!is_dir($dossier)) {
-			$output[] = "Impossible de tester le projet Unites.";
-		} else {
-			$commande = "$phpunit $dossier 2>&1";
-			exec($commande, $output, $retour);
-			$output[] = "";
-		}
+		$commande = "$phpunit $dossier 2>&1";
+		exec($commande, $this->view->unites, $retour);
 
 		// Acl
 		$dossier = $basePath . 'acl/tests';
-		if (!is_dir($dossier)) {
-			$output[] = "Impossible de tester le projet Acl.";
-		} else {
-			$commande = "$phpunit $dossier 2>&1";
-			exec($commande, $output, $retour);
-			$output[] = "";
-		}
+		$commande = "$phpunit $dossier 2>&1";
+		exec($commande, $this->view->acl, $retour);
 
 		// Pages et menus
 		$dossier = $basePath . 'pagesmenus/tests';
-		if (!is_dir($dossier)) {
-			$output[] = "Impossible de tester le projet PagesMenus.";
-		} else {
-			$commande = "$phpunit $dossier 2>&1";
-			exec($commande, $output, $retour);
-			$output[] = "";
-		}
+		$commande = "$phpunit $dossier 2>&1";
+		exec($commande, $this->view->pagesmenus, $retour);
 
 		$this->view->details = implode("\n", $output);
 	}
