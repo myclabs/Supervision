@@ -28,7 +28,7 @@ class ValidateurController extends Mycsense_Controller
 	public function guidestyleAction()
 	{
 		// Execution de phpdoc
-		$phpdoc = 'phpcs -n --standard=Zend --config-set report_width 120';
+		$phpdoc = 'phpcs -n --standard=Zend';
 		$source = '/home/dev/librairies/Mycsense/';
 		$this->view->commande = "$phpdoc $source 2>&1";
 		$output = array();
