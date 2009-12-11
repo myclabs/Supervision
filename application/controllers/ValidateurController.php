@@ -3,6 +3,9 @@
 class ValidateurController extends Mycsense_Controller
 {
 
+	/**
+	 * Lance le script de validation du code source
+	 */
 	public function validerAction()
 	{
 		$dossier = '/home/dev/';
@@ -63,6 +66,20 @@ class ValidateurController extends Mycsense_Controller
 		$commande = "$phpunit $dossier 2>&1";
 		$this->view->pagesmenus = array();
 		exec($commande, $this->view->pagesmenus, $retour);
+	}
+
+	/**
+	 * Vérifie le respect du guide de style
+	 */
+	public function guidestyleAction()
+	{
+		// Execution de phpdoc
+		$phpdoc = 'phpcs -n --standard=Zend';
+		$source = '/home/dev/librairies/Mycsense/';
+		$this->view->commande = "$phpdoc $source";
+		$output = array();
+		exec($this->view->commande, $output, $retour);
+		$this->view->resultat = $output;
 	}
 
 }
