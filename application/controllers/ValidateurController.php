@@ -46,9 +46,8 @@ class ValidateurController extends Mycsense_Controller
 		// Pages et menus
 		$dossier = $basePath . 'pagesmenus/tests';
 		$commande = "$phpunit $dossier 2>&1";
-		exec($commande, $this->view->pagesmenus = array(), $retour);
-
-		$this->view->details = implode("\n", $output);
+		$this->view->pagesmenus = array();
+		exec($commande, $this->view->pagesmenus, $retour);
 	}
 
 }
