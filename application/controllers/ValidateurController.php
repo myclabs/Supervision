@@ -25,7 +25,7 @@ class ValidateurController extends Mycsense_Controller
 	public function testsunitairesAction()
 	{
 		// Différences
-		$phpunit = 'phpunit --verbose';
+		$phpunit = 'phpunit --testdox';
 		$basePath = '/home/dev/';
 
 		// Base carbone
