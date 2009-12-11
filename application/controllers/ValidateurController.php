@@ -19,4 +19,58 @@ class ValidateurController extends Mycsense_Controller
 		$this->view->librairie = $validateur->validerLibrairie($dossier . 'librairies');
 	}
 
+	/**
+	 * Lancement des tests
+	 */
+	public function testsunitairesAction()
+	{
+		$output = array();
+
+		// Différences
+		$phpunit = 'phpunit --verbose';
+		$basePath = '/home/dev/';
+
+		// Utilisateurs
+		$dossier = $basePath . 'utilisateurs/tests';
+		if (!is_dir($dossier)) {
+			$output[] = "Impossible de tester le projet Utilisateurs.";
+		} else {
+			$commande = "$phpunit $dossier 2>&1";
+			exec($commande, $output, $retour);
+			$output[] = "";
+		}
+
+		// Unites
+		$dossier = $basePath . 'unites/library/Mycsense/Unites';
+		if (!is_dir($dossier)) {
+			$output[] = "Impossible de tester le projet Unites.";
+		} else {
+			$commande = "$phpunit $dossier 2>&1";
+			exec($commande, $output, $retour);
+			$output[] = "";
+		}
+
+		// Acl
+		$dossier = $basePath . 'acl/library/Mycsense/Acl';
+		if (!is_dir($dossier)) {
+			$output[] = "Impossible de tester le projet Acl.";
+		} else {
+			$commande = "$phpunit $dossier 2>&1";
+			exec($commande, $output, $retour);
+			$output[] = "";
+		}
+
+		// Pages et menus
+		$dossier = $basePath . 'pagesmenus/library/Mycsense/PagesMenus';
+		if (!is_dir($dossier)) {
+			$output[] = "Impossible de tester le projet PagesMenus.";
+		} else {
+			$commande = "$phpunit $dossier 2>&1";
+			exec($commande, $output, $retour);
+			$output[] = "";
+		}
+
+		$this->view->details = implode("\n", $output);
+	}
+
 }
