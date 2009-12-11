@@ -27,8 +27,8 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 				=> "Les balises PHP d'ouverture simples '&lt;?' ne sont pas autorisées (cf. guide de style)",
 			'#class [A-Z][a-z]*[A-Z]+[a-z]*Controller#'
 				=> "Pas de majuscules dans le nom des contrôleurs, à part majuscule initiale et 'Controller'",
-			'#\$this\->_dbTable\->getAdapter\(\)#'
-				=> "getAdapter() est une méthode dépréciée. Voir le wiki pour les fonctions à utiliser",
+			/*'#\$this\->_dbTable\->getAdapter\(\)#'
+				=> "getAdapter() est une méthode dépréciée. Voir le wiki pour les fonctions à utiliser",*/
 			'#\$this\->getMapper\(\)#'
 				=> "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
 			'#[^<]\?(.*):[^:]#'
