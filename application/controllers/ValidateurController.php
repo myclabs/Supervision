@@ -28,6 +28,18 @@ class ValidateurController extends Mycsense_Controller
 		$phpunit = 'phpunit --verbose';
 		$basePath = '/home/dev/';
 
+		// Base carbone
+		$dossier = $basePath . 'basecarbone/tests';
+		$commande = "$phpunit $dossier 2>&1";
+		$this->view->basecarbone = array();
+		exec($commande, $this->view->basecarbone, $retour);
+
+		// Stations de montagne
+		$dossier = $basePath . 'stationsmontagne/tests';
+		$commande = "$phpunit $dossier 2>&1";
+		$this->view->stationsmontagne = array();
+		exec($commande, $this->view->stationsmontagne, $retour);
+
 		// Utilisateurs
 		$dossier = $basePath . 'utilisateurs/tests';
 		$commande = "$phpunit $dossier 2>&1";
