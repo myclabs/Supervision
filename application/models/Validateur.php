@@ -25,7 +25,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 				=> "Pas de '=' dans les if (confusion possible avec '==')",
 			'#<\?([^p=])#'
 				=> "Les balises PHP d'ouverture simples '&lt;?' ne sont pas autorisées (cf. guide de style)",
-			'#class [A-Z][a-z]*[A-Z]+[a-z]*Controller#'
+			'#class [A-Z]([a-z_]*)([A-Z]+)[a-z_]*Controller#'
 				=> "Pas de majuscules dans le nom des contrôleurs, à part majuscule initiale et 'Controller'",
 			/*'#\$this\->_dbTable\->getAdapter\(\)#'
 				=> "getAdapter() est une méthode dépréciée. Voir le wiki pour les fonctions à utiliser",*/
