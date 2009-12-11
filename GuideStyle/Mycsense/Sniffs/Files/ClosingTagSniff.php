@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend_Sniffs_Files_ClosingTagsSniff.
+ * Mycsense_Sniffs_Files_ClosingTagsSniff.
  *
  * PHP version 5
  *
@@ -15,7 +15,7 @@
  */
 
 /**
- * Zend_Sniffs_Files_LineEndingsSniff.
+ * Mycsense_Sniffs_Files_LineEndingsSniff.
  *
  * Checks that the file does not end with a closing tag.
  *
@@ -28,7 +28,7 @@
  * @version   Release: 1.2.1
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class Zend_Sniffs_Files_ClosingTagSniff implements PHP_CodeSniffer_Sniff
+class Mycsense_Sniffs_Files_ClosingTagSniff implements PHP_CodeSniffer_Sniff
 {
 
 

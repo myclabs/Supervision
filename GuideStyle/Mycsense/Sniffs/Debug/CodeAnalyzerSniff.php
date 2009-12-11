@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend_Sniffs_Debug_CodeAnalyzerSniff.
+ * Mycsense_Sniffs_Debug_CodeAnalyzerSniff.
  *
  * PHP version 5
  *
@@ -15,7 +15,7 @@
  */
 
 /**
- * Zend_Sniffs_Debug_CodeAnalyzerSniff.
+ * Mycsense_Sniffs_Debug_CodeAnalyzerSniff.
  *
  * Runs the Zend Code Analyzer (from Zend Studio) on the file.
  *
@@ -28,7 +28,7 @@
  * @version   Release: 1.2.1
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class Zend_Sniffs_Debug_CodeAnalyzerSniff implements PHP_CodeSniffer_Sniff
+class Mycsense_Sniffs_Debug_CodeAnalyzerSniff implements PHP_CodeSniffer_Sniff
 {
 
 

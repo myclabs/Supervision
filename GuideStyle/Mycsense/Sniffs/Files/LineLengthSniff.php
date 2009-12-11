@@ -1,6 +1,6 @@
 <?php
 /**
- * Zend_Sniffs_Files_LineLengthSniff.
+ * Mycsense_Sniffs_Files_LineLengthSniff.
  *
  * PHP version 5
  *
@@ -19,7 +19,7 @@ if (class_exists('Generic_Sniffs_Files_LineLengthSniff', true) === false) {
 }
 
 /**
- * Zend_Sniffs_Files_LineLengthSniff.
+ * Mycsense_Sniffs_Files_LineLengthSniff.
  *
  * Checks all lines in the file, and throws warnings if they are over 80
  * characters in length and errors if they are over 120.
@@ -33,7 +33,7 @@ if (class_exists('Generic_Sniffs_Files_LineLengthSniff', true) === false) {
  * @version   Release: 1.2.1
  * @link      http://pear.php.net/package/PHP_CodeSniffer
  */
-class Zend_Sniffs_Files_LineLengthSniff extends Generic_Sniffs_Files_LineLengthSniff
+class Mycsense_Sniffs_Files_LineLengthSniff extends Generic_Sniffs_Files_LineLengthSniff
 {
 
     /**
