@@ -52,7 +52,7 @@ class PHP_CodeSniffer_Standards_Mycsense_MycsenseCodingStandard extends PHP_Code
                 'PEAR/Sniffs/ControlStructures/ControlSignatureSniff.php',
                 /*'PEAR/Sniffs/Files/LineEndingsSniff.php',*/
                 'PEAR/Sniffs/Functions/FunctionCallArgumentSpacingSniff.php',
-                'PEAR/Sniffs/Functions/FunctionCallSignatureSniff.php',
+                /*'PEAR/Sniffs/Functions/FunctionCallSignatureSniff.php',*/
                 'PEAR/Sniffs/Functions/ValidDefaultValueSniff.php',
                 'PEAR/Sniffs/WhiteSpace/ScopeClosingBraceSniff.php',
                 'Squiz/Sniffs/Functions/GlobalFunctionSniff.php',
