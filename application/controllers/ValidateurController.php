@@ -41,7 +41,7 @@ class ValidateurController extends Mycsense_Controller
 		}
 
 		// Unites
-		$dossier = $basePath . 'unites/library/Mycsense/Unites';
+		$dossier = $basePath . 'unites/tests';
 		if (!is_dir($dossier)) {
 			$output[] = "Impossible de tester le projet Unites.";
 		} else {
@@ -51,7 +51,7 @@ class ValidateurController extends Mycsense_Controller
 		}
 
 		// Acl
-		$dossier = $basePath . 'acl/library/Mycsense/Acl';
+		$dossier = $basePath . 'acl/tests';
 		if (!is_dir($dossier)) {
 			$output[] = "Impossible de tester le projet Acl.";
 		} else {
@@ -61,7 +61,7 @@ class ValidateurController extends Mycsense_Controller
 		}
 
 		// Pages et menus
-		$dossier = $basePath . 'pagesmenus/library/Mycsense/PagesMenus';
+		$dossier = $basePath . 'pagesmenus/tests';
 		if (!is_dir($dossier)) {
 			$output[] = "Impossible de tester le projet PagesMenus.";
 		} else {
