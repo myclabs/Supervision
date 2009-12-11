@@ -50,7 +50,7 @@ class PHP_CodeSniffer_Standards_Mycsense_MycsenseCodingStandard extends PHP_Code
                 /*'Generic/Sniffs/WhiteSpace/DisallowTabIndentSniff.php',*/
                 'PEAR/Sniffs/Classes/ClassDeclarationSniff.php',
                 'PEAR/Sniffs/ControlStructures/ControlSignatureSniff.php',
-                'PEAR/Sniffs/Files/LineEndingsSniff.php',
+                /*'PEAR/Sniffs/Files/LineEndingsSniff.php',*/
                 'PEAR/Sniffs/Functions/FunctionCallArgumentSpacingSniff.php',
                 'PEAR/Sniffs/Functions/FunctionCallSignatureSniff.php',
                 'PEAR/Sniffs/Functions/ValidDefaultValueSniff.php',
