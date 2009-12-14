@@ -32,7 +32,9 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 			'#\$this\->getMapper\(\)#'
 				=> "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
 			'#[^<]\?(.*):[^:]#'
-				=> "Les 'if' contracté (...?...:...) ne sont pas autorisés"
+				=> "Les 'if' contracté (...?...:...) ne sont pas autorisés",
+			'#    #'
+				=> "Guide de style : utiliser des tabulations, pas des espaces"
 		);
 
 	/**
