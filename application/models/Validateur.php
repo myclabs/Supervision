@@ -34,7 +34,11 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 			'#[^<]\?(.*):[^:]#'
 				=> "Les 'if' contracté (...?...:...) ne sont pas autorisés",
 			'#    #'
-				=> "Guide de style : utiliser des tabulations, pas des espaces"
+				=> "Guide de style : utiliser des tabulations, pas des espaces",
+			'#var_dump\(#'
+				=> "Ne pas laisser de var_dump dans le code",
+			"#'([a-zA-Z_]*)'#"
+				=> "Utiliser de préférence des guillemets simples : plus rapide à l'exécution"
 		);
 
 	/**
