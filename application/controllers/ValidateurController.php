@@ -20,28 +20,6 @@ class ValidateurController extends Mycsense_Controller
 		$this->view->langues = $validateur->validerProjet($dossier . 'langues');
 		$this->view->supervision = $validateur->validerProjet($dossier . 'supervision');
 		$this->view->librairie = $validateur->validerLibrairie($dossier . 'librairies');
-
-		$total = array_merge(	$this->view->basecarbone,
-								$this->view->stationsmontagne,
-								$this->view->unites,
-								$this->view->utilisateurs,
-								$this->view->acl,
-								$this->view->pagesmenus,
-								$this->view->langues,
-								$this->view->supervision,
-								$this->view->librairie);
-		$this->view->nbFichiers = 0;
-		$this->view->nbFichiersErreur = 0;
-		$this->view->nbErreurs = 0;
-		foreach ($total as $nomFichier => $listeErreurs) {
-			$this->view->nbFichiers++;
-			$nb = count($listeErreurs);
-			echo $nomFichier . ",";
-			if ($nb > 0) {
-				$this->view->nbFichiersErreur++;
-			}
-			$this->view->nbErreurs += $nb;
-		}
 	}
 
 	/**
