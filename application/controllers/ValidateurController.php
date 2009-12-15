@@ -36,7 +36,7 @@ class ValidateurController extends Mycsense_Controller
 		foreach ($total as $nomFichier => $listeErreurs) {
 			$this->view->nbFichiers++;
 			$nb = count($listeErreurs);
-			echo $nb . ",";
+			echo $nomFichier . ",";
 			if ($nb > 0) {
 				$this->view->nbFichiersErreur++;
 			}
