@@ -47,6 +47,12 @@ class TestsunitairesController extends Mycsense_Controller
 		$commande = "$phpunit $dossier 2>&1";
 		$this->view->pagesmenus = array();
 		exec($commande, $this->view->pagesmenus, $retour);
+
+		// Pages et menus
+		$dossier = $basePath . 'langues/tests';
+		$commande = "$phpunit $dossier 2>&1";
+		$this->view->langues = array();
+		exec($commande, $this->view->langues, $retour);
 	}
 
 	/**
