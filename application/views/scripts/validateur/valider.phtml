@@ -96,6 +96,16 @@ function afficherErreurs($tableauFichiers) {
 }
 ?>
 
+<h1>Résumé</h1>
+<p>
+	Pourcentage d'erreurs :
+	<?=($this->nbFichiersErreur * 100 / $this->nbFichiers)?>
+</p>
+<p>
+	Nombre d'erreurs :
+	<?=$this->nbErreurs?>
+</p>
+
 <h1>Librairie</h1>
 <?php
 $resultatValidation = $this->librairie;
