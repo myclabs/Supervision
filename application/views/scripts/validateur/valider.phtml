@@ -135,10 +135,13 @@ afficherErreurs($librairie);
 ?>
 
 <h1>Base Carbone</h1>
+<?php
+$resultatValidation = $this->basecarbone;
+afficherResume($resultatValidation);
+?>
 
 <h2>Contrôleurs</h2>
 <?php
-$resultatValidation = $this->basecarbone;
 $controleurs = $resultatValidation['controleurs'];
 afficherErreurs($controleurs);
 ?>
@@ -163,10 +166,13 @@ afficherErreurs($librairie);
 
 
 <h1>Stations de montagne</h1>
+<?php
+$resultatValidation = $this->stationsmontagne;
+afficherResume($resultatValidation);
+?>
 
 <h2>Contrôleurs</h2>
 <?php
-$resultatValidation = $this->stationsmontagne;
 $controleurs = $resultatValidation['controleurs'];
 afficherErreurs($controleurs);
 ?>
@@ -191,10 +197,13 @@ afficherErreurs($librairie);
 
 
 <h1>Unites</h1>
+<?php
+$resultatValidation = $this->unites;
+afficherResume($resultatValidation);
+?>
 
 <h2>Contrôleurs</h2>
 <?php
-$resultatValidation = $this->unites;
 $controleurs = $resultatValidation['controleurs'];
 afficherErreurs($controleurs);
 ?>
@@ -219,10 +228,13 @@ afficherErreurs($librairie);
 
 
 <h1>Utilisateurs</h1>
+<?php
+$resultatValidation = $this->utilisateurs;
+afficherResume($resultatValidation);
+?>
 
 <h2>Contrôleurs</h2>
 <?php
-$resultatValidation = $this->utilisateurs;
 $controleurs = $resultatValidation['controleurs'];
 afficherErreurs($controleurs);
 ?>
@@ -247,10 +259,13 @@ afficherErreurs($librairie);
 
 
 <h1>ACL</h1>
+<?php
+$resultatValidation = $this->acl;
+afficherResume($resultatValidation);
+?>
 
 <h2>Contrôleurs</h2>
 <?php
-$resultatValidation = $this->acl;
 $controleurs = $resultatValidation['controleurs'];
 afficherErreurs($controleurs);
 ?>
@@ -275,6 +290,10 @@ afficherErreurs($librairie);
 
 
 <h1>Pages et menus</h1>
+<?php
+$resultatValidation = $this->pagesmenus;
+afficherResume($resultatValidation);
+?>
 
 <h2>Contrôleurs</h2>
 <?php
@@ -303,6 +322,10 @@ afficherErreurs($librairie);
 
 
 <h1>Langues</h1>
+<?php
+$resultatValidation = $this->langues;
+afficherResume($resultatValidation);
+?>
 
 <h2>Contrôleurs</h2>
 <?php
@@ -331,6 +354,10 @@ afficherErreurs($librairie);
 
 
 <h1>Supervision</h1>
+<?php
+$resultatValidation = $this->supervision;
+afficherResume($resultatValidation);
+?>
 
 <h2>Contrôleurs</h2>
 <?php
