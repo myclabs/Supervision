@@ -51,11 +51,11 @@ function afficherResume($resultats) {
 		}
 		$nbErreurs += count($listeErreurs);
 	}
-	$pourcentageErreurs = ($nbFichiersAvecErreur * 100 / $nbFichiers);
+	$pourcentageErreurs = (int) ($nbFichiersAvecErreur * 100 / $nbFichiers);
 	?>
 	<p>
 		Pourcentage d'erreurs :
-		<strong><?=$pourcentageErreurs?></strong>
+		<strong><?=$pourcentageErreurs?> %</strong>
 	</p>
 	<p style="margin-bottom: 20px">
 		Nombre d'erreurs :
