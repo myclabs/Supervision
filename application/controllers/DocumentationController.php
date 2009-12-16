@@ -8,7 +8,8 @@ class DocumentationController extends Mycsense_Controller
 		// Execution de phpdoc
 		$phpdoc = 'phpdoc';
 		$sortie = '/home/dev/phpdoc/';
-		$template = 'HTML:Smarty:PHP';
+		//$template = 'HTML:Smarty:PHP';
+		$template = 'HTML:default:default';
 		$source = '/home/dev/librairies/Mycsense';
 		$this->view->commande = "$phpdoc -t $sortie -o $template -d $source 2>&1";
 		if (!is_dir($sortie) || !is_dir($source)) {
