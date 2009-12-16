@@ -38,7 +38,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 					le menu Source>Format dans Eclipse pour corriger automatiquement",
 			'#var_dump\(#'
 				=> "Ne pas laisser de var_dump dans le code",
-			'#Í#'
+			'#[ÍËÈ]+#'
 				=> "Problème d'encodage des caractères"
 		);
 
