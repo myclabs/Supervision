@@ -34,6 +34,37 @@ function formaterNomFichier($filename) {
 	return $filename;
 }
 
+// Affiche le résumé des erreurs
+function afficherErreurs($resultats) {
+	$tableauFichiers = array();
+	foreach ($resultats as $tableau) {
+		$tableauFichiers = array_merge($tableauFichiers, $tableau);
+	}
+	// Compte le nombre d'erreurs
+	$nbFichiers = 0;
+	$nbErreurs = 0;
+	$nbFichiersAvecErreur = 0;
+	foreach ($tableauFichiers as $nomFichier => $listeErreurs) {
+		$nbFichiers++;
+		if (count($listeErreurs) > 0) {
+			$nbFichiersAvecErreur++;
+		}
+		$nbErreurs += count($listeErreurs);
+	}
+	$pourcentageErreurs = ($nbFichiersAvecErreur * 100 / $nbFichiers);
+	?>
+	<p>
+		Pourcentage d'erreurs :
+		<?=$pourcentageErreurs?>
+	</p>
+	<p>
+		Nombre d'erreurs :
+		<?=$nbErreurs?>
+	</p>
+	<?php
+}
+?>
+
 // Affiche le tableau des erreurs
 function afficherErreurs($tableauFichiers) {
 	?>
@@ -99,6 +130,7 @@ function afficherErreurs($tableauFichiers) {
 <h1>Librairie</h1>
 <?php
 $resultatValidation = $this->librairie;
+afficherResume($resultatValidation);
 $librairie = $resultatValidation['librairie'];
 afficherErreurs($librairie);
 ?>
