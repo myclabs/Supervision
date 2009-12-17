@@ -76,6 +76,7 @@ class TestsunitairesController extends Mycsense_Controller
 		exec($commande, $output, $retour);
 		$commande = "cp /home/dev/utilisateurs/tests/* /home/dev/testscomplets/tests/";
 		exec($commande, $output, $retour);
+		Mycsense_ErrorLog::getInstance()->dump($output);
 		$output[] = '';
 		// Execution de phpdoc
 		$phpdoc = 'phpunit --coverage-html /home/dev/couverturecode';
