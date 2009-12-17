@@ -61,9 +61,12 @@ class TestsunitairesController extends Mycsense_Controller
 	public function generercouverturecodeAction()
 	{
 		$output = array();
+		$basePath = '/home/dev';
 		// Copie des tests dans le dossier testscomplets
-		$commande = "cp /home/dev/acl/tests/* /home/dev/testscomplets/tests/";
+		$commande = "cp $basePath/acl/tests/* $basePath/testscomplets/tests/ 2>&1";
 		exec($commande, $output, $retour);
+		Mycsense_ErrorLog::getInstance()->dump($retour);
+		Mycsense_ErrorLog::getInstance()->dump($output);
 		$commande = "cp /home/dev/basecarbone/tests/* /home/dev/testscomplets/tests/";
 		exec($commande, $output, $retour);
 		$commande = "cp /home/dev/langues/tests/* /home/dev/testscomplets/tests/";
@@ -76,7 +79,6 @@ class TestsunitairesController extends Mycsense_Controller
 		exec($commande, $output, $retour);
 		$commande = "cp /home/dev/utilisateurs/tests/* /home/dev/testscomplets/tests/";
 		exec($commande, $output, $retour);
-		Mycsense_ErrorLog::getInstance()->dump($output);
 		$output[] = '';
 		// Execution de phpdoc
 		$phpdoc = 'phpunit --coverage-html /home/dev/couverturecode';
