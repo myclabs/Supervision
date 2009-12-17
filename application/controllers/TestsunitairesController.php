@@ -62,19 +62,38 @@ class TestsunitairesController extends Mycsense_Controller
 	{
 		$output = array();
 		$basePath = '/home/dev';
+		// Supprime les fichiers de test existant
+		$output[] = 'Suppression des fichiers de test existant';
+		$commande = "rm $basePath/testscomplets/tests/*.php 2>&1";
+		exec($commande, $output, $retour);
+		$output[] = '';
+		// Copie des tests dans le dossier testscomplets
 		$dossiers = array(	'acl', 'basecarbone', 'langues', 'pagesmenus',
 							'stationsmontagne', 'unites', 'utilisateurs');
-		// Copie des tests dans le dossier testscomplets
 		foreach ($dossiers as $dossier) {
 			$output[] = 'Copie des fichiers de test du projet "' . $dossier . '"';
 			$commande = "cp $basePath/$dossier/tests/*.php $basePath/testscomplets/tests/ 2>&1";
 			exec($commande, $output, $retour);
 			$output[] = '';
 		}
+		// Supprime les classes de modèle existantes
+		$output[] = 'Suppression des classes de modèle existantes';
+		$commande = "rm -R $basePath/testscomplets/application/models/ 2>&1";
+		exec($commande, $output, $retour);
+		$output[] = '';
+		// Copie des classes de modèle
+		$dossiers = array('basecarbone', 'stationsmontagne');
+		foreach ($dossiers as $dossier) {
+			$output[] = 'Copie des classes de modèle du projet "' . $dossier . '"';
+			$commande = "cp -R $basePath/$dossier/application/models/ $basePath/testscomplets/application/models/ 2>&1";
+			exec($commande, $output, $retour);
+			$output[] = '';
+		}
 		// Execution de phpdoc
-		$phpdoc = 'phpunit --coverage-html /home/dev/couverturecode';
-		$source = '/home/dev/acl/tests';
-		$this->view->commande = "$phpdoc $source";
+		$phpunit = "phpunit";
+		$sortie = "$basePath/couverturecode";
+		$source = "$basePath/testscomplets/tests";
+		$this->view->commande = "$phpunit --coverage-html $sortie $source";
 		//exec($this->view->commande, $output, $retour);
 		$this->view->resultat = $output;
 	}
