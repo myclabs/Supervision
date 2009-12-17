@@ -62,11 +62,13 @@ class TestsunitairesController extends Mycsense_Controller
 	{
 		$output = array();
 		$basePath = '/home/dev';
+
 		// Supprime les fichiers de test existant
 		$output[] = 'Suppression des fichiers de test existant';
 		$commande = "rm $basePath/testscomplets/tests/*.php 2>&1";
 		exec($commande, $output, $retour);
 		$output[] = '';
+
 		// Copie des tests dans le dossier testscomplets
 		$dossiers = array(	'acl', 'basecarbone', 'langues', 'pagesmenus',
 							'stationsmontagne', 'unites', 'utilisateurs');
@@ -76,11 +78,13 @@ class TestsunitairesController extends Mycsense_Controller
 			exec($commande, $output, $retour);
 			$output[] = '';
 		}
+
 		// Supprime les classes de modèle existantes
 		$output[] = 'Suppression des classes de modèle existantes';
 		$commande = "rm -R $basePath/testscomplets/application/models/* 2>&1";
 		exec($commande, $output, $retour);
 		$output[] = '';
+
 		// Copie des classes de modèle
 		$dossiers = array('basecarbone', 'stationsmontagne');
 		foreach ($dossiers as $dossier) {
@@ -89,6 +93,26 @@ class TestsunitairesController extends Mycsense_Controller
 			exec($commande, $output, $retour);
 			$output[] = '';
 		}
+
+		// Copie des bases de données
+		$basededonnees = array(
+			'basecarbone_testsunitaires_public',
+			'mcscentral_testsunitaires_acl',
+			'mcscentral_testsunitaires_langues',
+			'mcscentral_testsunitaires_pagesmenus',
+			'stationsmontagne_testsunitaires_general',
+			'mcscentral_testsunitaires_unites',
+			'mcscentral_testsunitaires_utilisateurs'
+		);
+		$mysqldump = "mysqldump -pU8l4MdL0 --add-drop-table";
+		$mysql = "mysql -pU8l4MdL0";
+		foreach ($basededonnees as $basededonnee) {
+			$output[] = 'Copie de la base de données "' . $basededonnee . '"';
+			$commande = "$mysqldump $basededonnee | $mysql mcscentral_testsunitaires_testscomplets 2>&1";
+			exec($commande, $output, $retour);
+			$output[] = '';
+		}
+
 		// Execution de phpdoc
 		$output[] = 'Génération de la couverture de code';
 		$phpunit = "phpunit";
