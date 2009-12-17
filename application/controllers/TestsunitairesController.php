@@ -90,11 +90,12 @@ class TestsunitairesController extends Mycsense_Controller
 			$output[] = '';
 		}
 		// Execution de phpdoc
+		$output[] = 'Génération de la couverture de code';
 		$phpunit = "phpunit";
 		$sortie = "$basePath/couverturecode";
 		$source = "$basePath/testscomplets/tests";
 		$this->view->commande = "$phpunit --coverage-html $sortie $source";
-		//exec($this->view->commande, $output, $retour);
+		exec($this->view->commande, $output, $retour);
 		$this->view->resultat = $output;
 	}
 
