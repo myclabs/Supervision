@@ -104,8 +104,8 @@ class TestsunitairesController extends Mycsense_Controller
 			'mcscentral_testsunitaires_unites',
 			'mcscentral_testsunitaires_utilisateurs'
 		);
-		$mysqldump = "mysqldump -pU8l4MdL0 --add-drop-table";
-		$mysql = "mysql -pU8l4MdL0";
+		$mysqldump = "mysqldump -u root -pU8l4MdL0 --add-drop-table";
+		$mysql = "mysql -u root -pU8l4MdL0";
 		foreach ($basededonnees as $basededonnee) {
 			$output[] = 'Copie de la base de données "' . $basededonnee . '"';
 			$commande = "$mysqldump $basededonnee | $mysql mcscentral_testsunitaires_testscomplets 2>&1";
