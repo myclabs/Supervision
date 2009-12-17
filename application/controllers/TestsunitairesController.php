@@ -85,7 +85,7 @@ class TestsunitairesController extends Mycsense_Controller
 		$dossiers = array('basecarbone', 'stationsmontagne');
 		foreach ($dossiers as $dossier) {
 			$output[] = 'Copie des classes de modèle du projet "' . $dossier . '"';
-			$commande = "cp -R $basePath/$dossier/application/models/ $basePath/testscomplets/application/models/ 2>&1";
+			$commande = "cp -R $basePath/$dossier/application/models/* $basePath/testscomplets/application/models/ 2>&1";
 			exec($commande, $output, $retour);
 			$output[] = '';
 		}
