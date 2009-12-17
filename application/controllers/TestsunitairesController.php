@@ -62,24 +62,15 @@ class TestsunitairesController extends Mycsense_Controller
 	{
 		$output = array();
 		$basePath = '/home/dev';
+		$dossiers = array(	'acl', 'basecarbone', 'langues', 'pagesmenus',
+							'stationsmontagne', 'unites', 'utilisateurs');
 		// Copie des tests dans le dossier testscomplets
-		$commande = "cp $basePath/acl/tests/* $basePath/testscomplets/tests/ 2>&1";
-		exec($commande, $output, $retour);
-		Mycsense_ErrorLog::getInstance()->dump($retour);
-		Mycsense_ErrorLog::getInstance()->dump($output);
-		$commande = "cp /home/dev/basecarbone/tests/* /home/dev/testscomplets/tests/";
-		exec($commande, $output, $retour);
-		$commande = "cp /home/dev/langues/tests/* /home/dev/testscomplets/tests/";
-		exec($commande, $output, $retour);
-		$commande = "cp /home/dev/pagesmenus/tests/* /home/dev/testscomplets/tests/";
-		exec($commande, $output, $retour);
-		$commande = "cp /home/dev/stationsmontagne/tests/* /home/dev/testscomplets/tests/";
-		exec($commande, $output, $retour);
-		$commande = "cp /home/dev/unites/tests/* /home/dev/testscomplets/tests/";
-		exec($commande, $output, $retour);
-		$commande = "cp /home/dev/utilisateurs/tests/* /home/dev/testscomplets/tests/";
-		exec($commande, $output, $retour);
-		$output[] = '';
+		foreach ($dossiers as $dossier) {
+			$output[] = 'Copie des fichiers de test du projet "' . $dossier . '"';
+			$commande = "cp $basePath/$dossier/tests/*.php $basePath/testscomplets/tests/ 2>&1";
+			exec($commande, $output, $retour);
+			$output[] = '';
+		}
 		// Execution de phpdoc
 		$phpdoc = 'phpunit --coverage-html /home/dev/couverturecode';
 		$source = '/home/dev/acl/tests';
