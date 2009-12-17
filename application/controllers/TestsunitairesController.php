@@ -81,7 +81,7 @@ class TestsunitairesController extends Mycsense_Controller
 		$phpdoc = 'phpunit --coverage-html /home/dev/couverturecode';
 		$source = '/home/dev/acl/tests';
 		$this->view->commande = "$phpdoc $source";
-		exec($this->view->commande, $output, $retour);
+		//exec($this->view->commande, $output, $retour);
 		$this->view->resultat = $output;
 	}
 
