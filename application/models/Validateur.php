@@ -17,7 +17,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 				=> "L'attribut commence par une majuscule : contraire au guide de style",
 			'#(protected|private) \$[a-z]#'
 				=> "L'attribut protégé ou privé ne commence pas par '_' : contraire au guide de style",
-			'#^(class) extends Zend#'
+			'#^class (.+) extends Zend#'
 				=> "L'héritage direct aux classes de Zend Framework n'est pas autorisé",
 			'#extends Mycsense_Modele_DAO[^_]#'
 				=> "Pas d'héritage directe à la classe abstraite DAO (il faut choisir une de ses classe fille)",
