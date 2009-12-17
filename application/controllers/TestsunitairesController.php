@@ -78,7 +78,7 @@ class TestsunitairesController extends Mycsense_Controller
 		}
 		// Supprime les classes de modèle existantes
 		$output[] = 'Suppression des classes de modèle existantes';
-		$commande = "rm -R $basePath/testscomplets/application/models/ 2>&1";
+		$commande = "rm -R $basePath/testscomplets/application/models/* 2>&1";
 		exec($commande, $output, $retour);
 		$output[] = '';
 		// Copie des classes de modèle
