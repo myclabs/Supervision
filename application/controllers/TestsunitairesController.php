@@ -60,11 +60,27 @@ class TestsunitairesController extends Mycsense_Controller
 	 */
 	public function generercouverturecodeAction()
 	{
+		$output = array();
+		// Copie des tests dans le dossier testscomplets
+		$commande = "cp /home/dev/acl/tests/* /home/dev/testscomplets/tests/";
+		exec($commande, $output, $retour);
+		$commande = "cp /home/dev/basecarbone/tests/* /home/dev/testscomplets/tests/";
+		exec($commande, $output, $retour);
+		$commande = "cp /home/dev/langues/tests/* /home/dev/testscomplets/tests/";
+		exec($commande, $output, $retour);
+		$commande = "cp /home/dev/pagesmenus/tests/* /home/dev/testscomplets/tests/";
+		exec($commande, $output, $retour);
+		$commande = "cp /home/dev/stationsmontagne/tests/* /home/dev/testscomplets/tests/";
+		exec($commande, $output, $retour);
+		$commande = "cp /home/dev/unites/tests/* /home/dev/testscomplets/tests/";
+		exec($commande, $output, $retour);
+		$commande = "cp /home/dev/utilisateurs/tests/* /home/dev/testscomplets/tests/";
+		exec($commande, $output, $retour);
+		$output[] = '';
 		// Execution de phpdoc
 		$phpdoc = 'phpunit --coverage-html /home/dev/couverturecode';
 		$source = '/home/dev/acl/tests';
 		$this->view->commande = "$phpdoc $source";
-		$output = array();
 		exec($this->view->commande, $output, $retour);
 		$this->view->resultat = $output;
 	}
