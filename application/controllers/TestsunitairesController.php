@@ -118,8 +118,9 @@ class TestsunitairesController extends Mycsense_Controller
 		$phpunit = "phpunit --process-isolation";
 		$sortie = "$basePath/couverturecode";
 		$source = "$basePath/testscomplets/tests";
-		$this->view->commande = "$phpunit --coverage-html $sortie $source 2>&1 &";
-		exec($this->view->commande, $output, $retour);
+		$this->view->commande = "$phpunit --coverage-html $sortie $source 2>&1 > /dev/null &";
+		exec($this->view->commande);
+		$output[] = "Commande en cours d'exécution en tâche de fond. Ceci peut prendre plusieurs minutes.";
 		$this->view->resultat = $output;
 	}
 
