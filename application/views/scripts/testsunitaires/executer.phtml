@@ -2,7 +2,7 @@
 function afficherResultat($tableau)
 {
 	// Si c'est OK
-	if (strstr($tableau[count($tableau)], 'OK') !== false) {
+	if (strpos($tableau[count($tableau)-1], 'OK') !== false) {
 		$tab = array($tableau[count($tableau)]);
 		$tableau = $tab;
 	} else {
