@@ -1,3 +1,11 @@
+<?php
+function afficherResultat($tableau)
+{
+	// Supprime la première ligne
+	unset($tableau[0]);
+	return implode("\n", $tableau);
+}
+?>
 <h1>
 	Tests unitaires
 </h1>
@@ -6,47 +14,47 @@
 	Base carbone
 </h2>
 <pre>
-<?=implode("\n", $this->basecarbone)?>
+<?=afficherResultat($this->basecarbone)?>
 </pre>
 
 <h2>
 	Stations de montagne
 </h2>
 <pre>
-<?=implode("\n", $this->stationsmontagne)?>
+<?=afficherResultat($this->stationsmontagne)?>
 </pre>
 
 <h2>
 	Utilisateurs
 </h2>
 <pre>
-<?=implode("\n", $this->utilisateurs)?>
+<?=afficherResultat($this->utilisateurs)?>
 </pre>
 
 <h2>
 	Unites
 </h2>
 <pre>
-<?=implode("\n", $this->unites)?>
+<?=afficherResultat($this->unites)?>
 </pre>
 
 <h2>
 	Pages et menus
 </h2>
 <pre>
-<?=implode("\n", $this->pagesmenus)?>
+<?=afficherResultat($this->pagesmenus)?>
 </pre>
 
 <h2>
 	Acl
 </h2>
 <pre>
-<?=implode("\n", $this->acl)?>
+<?=afficherResultat($this->acl)?>
 </pre>
 
 <h2>
 	Langues
 </h2>
 <pre>
-<?=implode("\n", $this->langues)?>
+<?=afficherResultat($this->langues)?>
 </pre>

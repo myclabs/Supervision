@@ -9,7 +9,7 @@ class TestsunitairesController extends Mycsense_Controller
 	public function executerAction()
 	{
 		// Différences
-		$phpunit = 'phpunit --verbose';
+		$phpunit = 'phpunit';
 		$basePath = '/home/dev/';
 
 		// Base carbone
