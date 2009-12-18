@@ -76,6 +76,22 @@ class LibrairieController extends Mycsense_Controller
 			}
 		}
 
+		// Langues
+		$dossier = $basePath . 'langues/library/Mycsense/Langues';
+		if (!is_dir($dossier)) {
+			$differences[] = "Impossible de vérifier le projet Langues.";
+		} else {
+			$commande = "$diff {$baseLibrairie}Langues $dossier 2>&1";
+			exec($commande, $differences, $retour);
+			if ($retour == 0) {
+				$differences[] = "Langues est à jour";
+				$differences[] = "";
+			} else {
+				$differences[] = "Langues n'est pas à jour";
+				$differences[] = "";
+			}
+		}
+
 		$this->view->differences = implode("\n", $differences);
 
 	}
