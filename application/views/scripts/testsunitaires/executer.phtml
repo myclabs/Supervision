@@ -3,7 +3,7 @@ function afficherResultat($tableau)
 {
 	// Si c'est OK
 	if (strpos($tableau[count($tableau)-1], 'OK') !== false) {
-		$tab = array($tableau[count($tableau)]);
+		$tab = array($tableau[count($tableau)-1]);
 		$tableau = $tab;
 	} else {
 		// Supprime la première ligne
