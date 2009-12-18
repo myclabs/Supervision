@@ -1,8 +1,14 @@
 <?php
 function afficherResultat($tableau)
 {
-	// Supprime la première ligne
-	unset($tableau[0]);
+	// Si c'est OK
+	if (strstr($tableau[count($tableau)], 'OK') !== false) {
+		$tab = array($tableau[count($tableau)]);
+		$tableau = $tab;
+	} else {
+		// Supprime la première ligne
+		unset($tableau[0]);
+	}
 	return implode("\n", $tableau);
 }
 ?>
