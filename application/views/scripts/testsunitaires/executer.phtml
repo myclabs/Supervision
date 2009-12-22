@@ -1,9 +1,9 @@
 <script type="text/javascript">
 	function ouvrir(object) {
-		if (object.display = 'none') {
-			object.display = 'block';
+		if (object.style.display = 'none') {
+			object.style.display = 'block';
 		} else {
-			object.display = 'none';
+			object.style.display = 'none';
 		}
 	}
 </script>
@@ -25,13 +25,16 @@ function afficherResultat($tableau)
 	// Supprime la première ligne
 	unset($tableau[0]);
 	?>
-	<p style="<?=$style;?>" onclick="ouvrir(document.getElementById('detailErreurs<?=$i?>'))">
-		Résumé :
-		<?=$resultat?>
+	<p style="<?=$style;?>">
+		<a href="#" onclick="ouvrir(document.getElementById('detailErreurs<?=$i?>'))">
+			Résumé :
+			<?=$resultat?></a>
 	</p>
-	<pre id="detailErreurs<?=$i?>" style="display:none">
-		<?=implode("\n", $tableau);?>
-	</pre>
+	<div id="detailErreurs<?=$i?>" style="display:none">
+		<pre>
+			<?=implode("\n", $tableau);?>
+		</pre>
+	</div>
 	<?php
 }
 ?>
