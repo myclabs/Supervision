@@ -12,8 +12,6 @@ function afficherResultat($tableau)
 {
 	static $i = 0;
 	$i++;
-	// Supprime la première ligne
-	unset($tableau[0]);
 	// Si c'est OK
 	if (strpos($tableau[count($tableau)-1], 'OK') !== false) {
 		$resultat = 'OK';
@@ -24,6 +22,8 @@ function afficherResultat($tableau)
 		// Style du résumé
 		$style = "background: #D89C8B;";
 	}
+	// Supprime la première ligne
+	unset($tableau[0]);
 	?>
 	<p style="<?=$style;?>" onclick="ouvrir(document.getElementById('detailErreurs<?=$i?>'))">
 		Résumé :
@@ -62,7 +62,6 @@ function afficherResultat($tableau)
 <h2>
 	Pages et menus
 </h2>
-<pre>
 <?php afficherResultat($this->pagesmenus)?>
 
 <h2>
