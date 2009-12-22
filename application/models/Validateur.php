@@ -31,9 +31,9 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 				=> "getAdapter() est une méthode dépréciée. Voir le wiki pour les fonctions à utiliser",*/
 			'#\$this\->getMapper\(\)#'
 				=> "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
-			'#([^\'\"]*)[^<]\?([^>]*):[^:]([^\'\"]*)#'
+			'#[^<]\?([^>]*):[^:]#'
 				=> "Les 'if' contracté (...?...:...) ne sont pas autorisés",
-			'#[(\'*\')(\"*\")]#'
+			'#(\'.*\')#'
 				=> "Commentaire",
 			'#    #'
 				=> "Guide de style : utiliser des tabulations, pas des espaces (utiliser
