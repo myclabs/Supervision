@@ -1,15 +1,38 @@
+<script type="text/javascript">
+	function ouvrir(object) {
+		if (object.display = 'none') {
+			object.display = 'block';
+		} else {
+			object.display = 'none';
+		}
+	}
+</script>
 <?php
 function afficherResultat($tableau)
 {
+	static $i = 0;
+	$i++;
+	// Supprime la première ligne
+	unset($tableau[0]);
 	// Si c'est OK
 	if (strpos($tableau[count($tableau)-1], 'OK') !== false) {
-		$tab = array($tableau[count($tableau)-1]);
-		$tableau = $tab;
+		$resultat = 'OK';
+		// Style du résumé
+		$style = "background: #94D88B;";
 	} else {
-		// Supprime la première ligne
-		unset($tableau[0]);
+		$resultat = 'ERREURS';
+		// Style du résumé
+		$style = "background: #D89C8B;";
 	}
-	return implode("\n", $tableau);
+	?>
+	<p style="<?=$style;?>" onclick="ouvrir(document.getElementById('detailErreurs$i'))">
+		Résumé :
+		<?=$resultat?>
+	</p>
+	<pre id="detailErreurs<?=$i?>">
+		<?=implode("\n", $tableau);?>
+	</pre>
+	<?php
 }
 ?>
 <h1>
@@ -19,48 +42,35 @@ function afficherResultat($tableau)
 <h2>
 	Base carbone
 </h2>
-<pre>
-<?=afficherResultat($this->basecarbone)?>
-</pre>
+<?php afficherResultat($this->basecarbone) ?>
 
 <h2>
 	Stations de montagne
 </h2>
-<pre>
-<?=afficherResultat($this->stationsmontagne)?>
-</pre>
+<?php afficherResultat($this->stationsmontagne)?>
 
 <h2>
 	Utilisateurs
 </h2>
-<pre>
-<?=afficherResultat($this->utilisateurs)?>
-</pre>
+<?php afficherResultat($this->utilisateurs)?>
 
 <h2>
 	Unites
 </h2>
-<pre>
-<?=afficherResultat($this->unites)?>
-</pre>
+<?php afficherResultat($this->unites)?>
 
 <h2>
 	Pages et menus
 </h2>
 <pre>
-<?=afficherResultat($this->pagesmenus)?>
-</pre>
+<?php afficherResultat($this->pagesmenus)?>
 
 <h2>
 	Acl
 </h2>
-<pre>
-<?=afficherResultat($this->acl)?>
-</pre>
+<?php afficherResultat($this->acl)?>
 
 <h2>
 	Langues
 </h2>
-<pre>
-<?=afficherResultat($this->langues)?>
-</pre>
+<?php afficherResultat($this->langues)?>
