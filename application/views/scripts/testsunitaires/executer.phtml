@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	function ouvrir(object) {
-		if (object.style.display = 'none') {
+		if (object.style.display == 'none') {
 			object.style.display = 'block';
 		} else {
 			object.style.display = 'none';
@@ -26,7 +26,7 @@ function afficherResultat($tableau)
 	unset($tableau[0]);
 	?>
 	<p style="<?=$style;?>">
-		<a href="#" onclick="ouvrir(document.getElementById('detailErreurs<?=$i?>'))">
+		<a href="#detailErreurs<?=$i?>" onclick="ouvrir(document.getElementById('detailErreurs<?=$i?>'))">
 			Résumé :
 			<?=$resultat?></a>
 	</p>
