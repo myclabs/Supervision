@@ -25,11 +25,11 @@ function afficherResultat($tableau)
 		$style = "background: #D89C8B;";
 	}
 	?>
-	<p style="<?=$style;?>" onclick="ouvrir(document.getElementById('detailErreurs$i'))">
+	<p style="<?=$style;?>" onclick="ouvrir(document.getElementById('detailErreurs<?=$i?>'))">
 		Résumé :
 		<?=$resultat?>
 	</p>
-	<pre id="detailErreurs<?=$i?>">
+	<pre id="detailErreurs<?=$i?>" style="display:none">
 		<?=implode("\n", $tableau);?>
 	</pre>
 	<?php
