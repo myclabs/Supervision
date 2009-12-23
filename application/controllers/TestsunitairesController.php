@@ -115,7 +115,7 @@ class TestsunitairesController extends Mycsense_Controller
 
 		// Execution de phpdoc
 		$output[] = 'Génération de la couverture de code';
-		$phpunit = "phpunit --process-isolation";
+		$phpunit = "phpunit --process-isolation --story";
 		$phpunit .= " --configuration /home/dev/testscomplets/configuration.xml";
 		$sortie = "$basePath/couverturecode";
 		$source = "$basePath/testscomplets/tests";
