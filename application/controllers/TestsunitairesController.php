@@ -116,9 +116,10 @@ class TestsunitairesController extends Mycsense_Controller
 		// Execution de phpdoc
 		$output[] = 'Génération de la couverture de code';
 		$phpunit = "phpunit --process-isolation";
+		$phpunit .= " --configuration /home/dev/configuration.xml";
 		$sortie = "$basePath/couverturecode";
 		$source = "$basePath/testscomplets/tests";
-		$this->view->commande = "nohup $phpunit --coverage-html $sortie $source > /dev/null 2>&1 &";
+		$this->view->commande = "nohup $phpunit --coverage-html $sortie $source > /home/dev/couverturecode/log.txt 2>&1 &";
 		exec($this->view->commande);
 		$output[] = "Commande en cours d'exécution en tâche de fond. Ceci peut prendre plusieurs minutes.";
 		$this->view->resultat = $output;
