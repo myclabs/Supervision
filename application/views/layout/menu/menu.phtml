@@ -4,8 +4,7 @@ $htmlMenu = false;
 
 foreach (Mycsense_PagesMenus_Menu::getMenusRacine() as $menu) {
 	$listeSousMenu = $menu->getEnfants();
-	if (count($listeSousMenu) != 0) {
-		if(!$htmlMenu) {
+	if(!$htmlMenu) {
 ?>
 <div id="bd">
 <!-- start: primary column from outer template -->
@@ -22,7 +21,7 @@ foreach (Mycsense_PagesMenus_Menu::getMenusRacine() as $menu) {
 			}
 ?>
 						<li class="yuimenubaritem">
-							<a class="yuimenubaritemlabel" <?php if($menu->getPage()){echo("href='".$menu->getPage()->url."'");} ?> ><?php echo $menu->nom; ?></a>
+							<a class="yuimenubaritemlabel" <?php if($menu->getPage()){?>href="<?php echo $this->baseURL().$menu->getPage()->url;} ?>"> <?php echo $menu->nom; ?></a>
 							<div class="yuimenu">
 								<div class="bd">
 									<ul>
@@ -38,7 +37,6 @@ foreach (Mycsense_PagesMenus_Menu::getMenusRacine() as $menu) {
 							</div>
 						</li>
 <?php
-		}
 	}
 	if($htmlMenu) {
 ?>
