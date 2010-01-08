@@ -38,7 +38,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 					le menu Source>Format dans Eclipse pour corriger automatiquement",
 			'#var_dump\(#'
 				=> "Ne pas laisser de var_dump dans le code",
-			'#^([:blank:]+)\{([:blank:]+)([:alnum:]+)#'
+			'#^([\t ]+)\{([\t ]+)([a-zA-Z0-9\/]+)#'
 				=> "Erreur guide de style"
 		);
 
