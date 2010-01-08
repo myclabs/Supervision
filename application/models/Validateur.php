@@ -21,7 +21,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 				=> "L'héritage direct aux classes de Zend Framework n'est pas autorisé",
 			'#extends Mycsense_Modele_DAO[^_]#'
 				=> "Pas d'héritage directe à la classe abstraite DAO (il faut choisir une de ses classe fille)",
-			'#if ?\(.*([^=!]+)=([^=]+)#'
+			'#if ?\(.*([^=!><]+)=([^=]+)#'
 				=> "Pas de '=' dans les if (confusion possible avec '==')",
 			'#<\?([^p=])#'
 				=> "Les balises PHP d'ouverture simples '&lt;?' ne sont pas autorisées (cf. guide de style)",
