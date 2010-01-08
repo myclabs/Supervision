@@ -19,7 +19,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 				=> "L'attribut protégé ou privé ne commence pas par '_' : contraire au guide de style",
 			'#^class (.+) extends Zend#'
 				=> "L'héritage direct aux classes de Zend Framework n'est pas autorisé",
-			'#extends Mycsense_Modele_DAO[^_]#'
+			'#^class ([:alnum:]+) extends Mycsense_Modele_DAO[^_]#'
 				=> "Pas d'héritage directe à la classe abstraite DAO (il faut choisir une de ses classe fille)",
 			'#if ?\(.*([^=!><]+)=([^=]+)#'
 				=> "Pas de '=' dans les if (confusion possible avec '==')",
@@ -33,12 +33,12 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 				=> "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
 			'#[^<]\?([^>]*)[^:]:[^:]#'
 				=> "Les 'if' contracté (...?...:...) ne sont pas autorisés",
-			'#    #'
+			'#^    #'
 				=> "Guide de style : utiliser des tabulations, pas des espaces (utiliser
 					le menu Source>Format dans Eclipse pour corriger automatiquement",
 			'#var_dump\(#'
 				=> "Ne pas laisser de var_dump dans le code",
-			'#^([\t ]+)\{([\t ]+)([a-zA-Z0-9\/]+)#'
+			'#^([\t ]+)\{([\t ]+)([a-zA-Z0-9\/\$_]+)#'
 				=> "Erreur guide de style"
 		);
 
