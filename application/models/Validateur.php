@@ -39,6 +39,8 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 			'#var_dump\(#'
 				=> "Ne pas laisser de var_dump dans le code",
 			'#^([\t ]+)\{([\t ]+)([a-zA-Z0-9\/\$_]+)#'
+				=> "Erreur guide de style",
+			'#for ([^\{]*)$#'
 				=> "Erreur guide de style"
 		);
 
