@@ -70,7 +70,7 @@ class TestsunitairesController extends Mycsense_Controller
 		$output[] = '';
 
 		// Copie des tests dans le dossier testscomplets
-		$dossiers = array(	'acl', 'basecarbone', 'langues', 'pagesmenus',
+		$dossiers = array(	'acl'/*, 'basecarbone'*/, 'langues', 'pagesmenus',
 							'stationsmontagne', 'unites', 'utilisateurs');
 		foreach ($dossiers as $dossier) {
 			$output[] = 'Copie des fichiers de test du projet "' . $dossier . '"';
@@ -86,7 +86,7 @@ class TestsunitairesController extends Mycsense_Controller
 		$output[] = '';
 
 		// Copie des classes de modèle
-		$dossiers = array('basecarbone', 'stationsmontagne');
+		$dossiers = array(/*'basecarbone', */'stationsmontagne');
 		foreach ($dossiers as $dossier) {
 			$output[] = 'Copie des classes de modèle du projet "' . $dossier . '"';
 			$commande = "cp -R $basePath/$dossier/application/models/* $basePath/testscomplets/application/models/ 2>&1";
@@ -96,7 +96,7 @@ class TestsunitairesController extends Mycsense_Controller
 
 		// Copie des bases de données
 		$basededonnees = array(
-			'basecarbone_testsunitaires_public',
+//			'basecarbone_testsunitaires_public',
 			'mcscentral_testsunitaires_acl',
 			'mcscentral_testsunitaires_langues',
 			'mcscentral_testsunitaires_pagesmenus',
