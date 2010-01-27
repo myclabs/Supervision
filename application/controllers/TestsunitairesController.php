@@ -132,4 +132,17 @@ class TestsunitairesController extends Mycsense_Controller
 	{
 	}
 
+	/**
+	 * Affiche le log de la génération de couverture de code
+	 */
+	public function logcouverturecodeAction()
+	{
+		$basePath = '/home/dev/';
+		// Pages et menus
+		$dossier = $basePath . 'langues/tests';
+		$commande = "$phpunit $dossier 2>&1";
+		$this->view->log = array();
+		exec('cat /home/dev/couverturecode/log.txt', $this->view->log, $retour);
+	}
+
 }
