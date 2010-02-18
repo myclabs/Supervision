@@ -41,7 +41,11 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 			'#^([\t ]+)\{([\t ]+)([a-zA-Z0-9\/\$_]+)#'
 				=> "Erreur guide de style",
 			'#^([\t ]+)(for|foreach) ([^\{]*)$#'
-				=> "Erreur guide de style"
+				=> "Erreur guide de style",
+			'#\$_GET#'
+				=> "Utiliser \$this->getParam('') à la place de \$_GET['']",
+			'#\$_POST#'
+				=> "Utiliser \$this->getParam('') à la place de \$_POST['']",
 		);
 
 	/**
