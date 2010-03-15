@@ -85,6 +85,7 @@ function afficherErreurs($tableauFichiers) {
 		<?php
 		foreach ($tableauFichiers as $nomFichier => $listeErreurs) {
 			if (count($listeErreurs) == 0) {
+				continue;
 				?>
 				<tr>
 					<td class="nomFichier">
