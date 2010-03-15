@@ -18,6 +18,7 @@ class ValidateurController extends Mycsense_Controller
 		$this->view->acl = $validateur->validerProjet($dossier . 'acl');
 		$this->view->pagesmenus = $validateur->validerProjet($dossier . 'pagesmenus');
 		$this->view->langues = $validateur->validerProjet($dossier . 'langues');
+		$this->view->interfacesgeneriques = $validateur->validerProjet($dossier . 'interfacesgeneriques');
 		$this->view->supervision = $validateur->validerProjet($dossier . 'supervision');
 		$this->view->librairie = $validateur->validerLibrairie($dossier . 'librairies');
 	}
