@@ -10,10 +10,10 @@ class LibrairieController extends Mycsense_Controller
 		// Différences
 		$diff = 'diff -qr';
 		$basePath = '/home/dev/';
-		$baseLibrairie = $basePath . 'librairies/Mycsense/';
+		$baseLibrairie = $basePath . 'librairies/Modules/';
 
 		// Utilisateurs
-		$dossier = $basePath . 'utilisateurs/library/Mycsense/Utilisateurs';
+		$dossier = $basePath . 'utilisateurs/application/utilisateurs';
 		if (!is_dir($dossier)) {
 			$differences[] = "Impossible de vérifier le projet Utilisateurs.";
 		} else {
