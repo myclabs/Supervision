@@ -42,13 +42,13 @@ class TestsunitairesController extends Mycsense_Controller
 		$this->view->acl = array();
 		exec($commande, $this->view->acl, $retour);
 
-		// Pages et menus
-		$dossier = $basePath . 'pagesmenus/tests';
+		// Navigation
+		$dossier = $basePath . 'navigation/tests';
 		$commande = "$phpunit $dossier 2>&1";
-		$this->view->pagesmenus = array();
-		exec($commande, $this->view->pagesmenus, $retour);
+		$this->view->navigation = array();
+		exec($commande, $this->view->navigation, $retour);
 
-		// Pages et menus
+		// International
 		$dossier = $basePath . 'langues/tests';
 		$commande = "$phpunit $dossier 2>&1";
 		$this->view->langues = array();
