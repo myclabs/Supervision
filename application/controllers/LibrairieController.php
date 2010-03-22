@@ -45,7 +45,7 @@ class LibrairieController extends Mycsense_Controller
 		}
 
 		// Acl
-		$dossier = $basePath . 'acl/applications/acl';
+		$dossier = $basePath . 'acl/application/acl';
 		if (!is_dir($dossier)) {
 			$differences[] = "Impossible de vérifier le projet Acl.";
 		} else {
