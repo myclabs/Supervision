@@ -17,7 +17,7 @@ class LibrairieController extends Mycsense_Controller
 		if (!is_dir($dossier)) {
 			$differences[] = "Impossible de vérifier le projet Utilisateurs.";
 		} else {
-			$commande = "$diff {$baseLibrairie}Utilisateurs $dossier 2>&1";
+			$commande = "$diff {$baseLibrairie}utilisateurs $dossier 2>&1";
 			exec($commande, $differences, $retour);
 			if ($retour == 0) {
 				$differences[] = "Utilisateurs est à jour";
