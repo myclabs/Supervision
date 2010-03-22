@@ -29,11 +29,11 @@ class LibrairieController extends Mycsense_Controller
 		}
 
 		// Unites
-		$dossier = $basePath . 'unites/library/Mycsense/Unites';
+		$dossier = $basePath . 'unites/application/unites';
 		if (!is_dir($dossier)) {
 			$differences[] = "Impossible de vérifier le projet Unites.";
 		} else {
-			$commande = "$diff {$baseLibrairie}Unites $dossier 2>&1";
+			$commande = "$diff {$baseLibrairie}unites $dossier 2>&1";
 			exec($commande, $differences, $retour);
 			if ($retour == 0) {
 				$differences[] = "Unites est à jour";
@@ -45,11 +45,11 @@ class LibrairieController extends Mycsense_Controller
 		}
 
 		// Acl
-		$dossier = $basePath . 'acl/library/Mycsense/Acl';
+		$dossier = $basePath . 'acl/applications/acl';
 		if (!is_dir($dossier)) {
 			$differences[] = "Impossible de vérifier le projet Acl.";
 		} else {
-			$commande = "$diff {$baseLibrairie}Acl $dossier 2>&1";
+			$commande = "$diff {$baseLibrairie}acl $dossier 2>&1";
 			exec($commande, $differences, $retour);
 			if ($retour == 0) {
 				$differences[] = "Acl est à jour";
@@ -60,18 +60,18 @@ class LibrairieController extends Mycsense_Controller
 			}
 		}
 
-		// Pages et menus
-		$dossier = $basePath . 'pagesmenus/library/Mycsense/PagesMenus';
+		// Navigation
+		$dossier = $basePath . 'navigation/application/navigation';
 		if (!is_dir($dossier)) {
-			$differences[] = "Impossible de vérifier le projet PagesMenus.";
+			$differences[] = "Impossible de vérifier le projet Navigation.";
 		} else {
-			$commande = "$diff {$baseLibrairie}PagesMenus $dossier 2>&1";
+			$commande = "$diff {$baseLibrairie}navigation $dossier 2>&1";
 			exec($commande, $differences, $retour);
 			if ($retour == 0) {
-				$differences[] = "PagesMenus est à jour";
+				$differences[] = "Navigation est à jour";
 				$differences[] = "";
 			} else {
-				$differences[] = "PagesMenus n'est pas à jour";
+				$differences[] = "Navigation n'est pas à jour";
 				$differences[] = "";
 			}
 		}
