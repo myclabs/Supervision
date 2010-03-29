@@ -3,51 +3,51 @@
 $htmlMenu = false;
 
 foreach (Mycsense_PagesMenus_Menu::getMenusRacine() as $menu) {
-	$listeSousMenu = $menu->getEnfants();
-	if(!$htmlMenu) {
+    $listeSousMenu = $menu->getEnfants();
+    if(!$htmlMenu) {
 ?>
 <div id="bd">
 <!-- start: primary column from outer template -->
 <!-- Pour changer les valeurs du menu : Changer les valeurs de la hiérarchie <ul> <li> -->
-	<div id="yui-main">
-		<div class="yui-b">
-			<!-- start: stack grids here -->
-			<div id="productsandservices" class="yuimenubar yuimenubarnav">
-				<div class="bd">
+    <div id="yui-main">
+        <div class="yui-b">
+            <!-- start: stack grids here -->
+            <div id="productsandservices" class="yuimenubar yuimenubarnav">
+                <div class="bd">
 
-					<ul class="first-of-type">
+                    <ul class="first-of-type">
 <?php
-			$htmlMenu = true;
-			}
+            $htmlMenu = true;
+            }
 ?>
-						<li class="yuimenubaritem">
-							<a class="yuimenubaritemlabel" <?php if($menu->getPage()){?>href="<?php echo $this->baseURL().$menu->getPage()->url;} ?>"> <?php echo $menu->nom; ?></a>
-							<div class="yuimenu">
-								<div class="bd">
-									<ul>
+                        <li class="yuimenubaritem">
+                            <a class="yuimenubaritemlabel" <?php if($menu->getPage()){?>href="<?php echo $this->baseURL().$menu->getPage()->url;} ?>"> <?php echo $menu->nom; ?></a>
+                            <div class="yuimenu">
+                                <div class="bd">
+                                    <ul>
 <?php
-			foreach($listeSousMenu as $sousMenu) {
+            foreach($listeSousMenu as $sousMenu) {
 ?>
-										<li class="yuimenuitem"><a class="yuimenuitemlabel" href="<?php echo $this->baseURL().$sousMenu->getPage()->url; ?>"> <?php echo $sousMenu->nom; ?></a></li>
+                                        <li class="yuimenuitem"><a class="yuimenuitemlabel" href="<?php echo $this->baseURL().$sousMenu->getPage()->url; ?>"> <?php echo $sousMenu->nom; ?></a></li>
 <?php
-			}
+            }
 ?>
-									</ul>
-								</div>
-							</div>
-						</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
 <?php
-	}
-	if($htmlMenu) {
+    }
+    if($htmlMenu) {
 ?>
-					</ul>
-				</div>
-			</div>
-			<!-- end: stack grids here -->
-		</div>
-	</div>
+                    </ul>
+                </div>
+            </div>
+            <!-- end: stack grids here -->
+        </div>
+    </div>
 <!-- end: primary column from outer template -->
 </div>
 <?php
-	}
+    }
 ?>

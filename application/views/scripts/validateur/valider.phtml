@@ -1,115 +1,115 @@
 <?php
 // Formate l'affichage du nom d'un fichier
 function formaterNomFichier($filename) {
-	// Sépare à "controllers"
-	$array = preg_split('#/controllers/#', $filename, 2);
-	if (count($array) > 1) {
-		$filename = $array[1];
-	}
-	// Sépare à "/views/scripts"
-	$array = preg_split('#/views/scripts/#', $filename, 2);
-	if (count($array) > 1) {
-		$filename = $array[1];
-	}
-	// Sépare à "models"
-	$array = preg_split('#/models/#', $filename, 2);
-	if (count($array) > 1) {
-		$filename = $array[1];
-	}
-	// Sépare à "/library/Mycsense/"
-	$array = preg_split('#/library/Mycsense/#', $filename, 2);
-	if (count($array) > 1) {
-		$filename = $array[1];
-	}
-	// Sépare à "librairies"
-	$array = preg_split('#/librairies/Mycsense/#', $filename, 2);
-	if (count($array) > 1) {
-		$filename = $array[1];
-	}
-	// Sépare à "trunk"
-	$array = preg_split('#/home/dev/#', $filename, 2);
-	if (count($array) > 1) {
-		$filename = $array[1];
-	}
-	return $filename;
+    // Sépare à "controllers"
+    $array = preg_split('#/controllers/#', $filename, 2);
+    if (count($array) > 1) {
+        $filename = $array[1];
+    }
+    // Sépare à "/views/scripts"
+    $array = preg_split('#/views/scripts/#', $filename, 2);
+    if (count($array) > 1) {
+        $filename = $array[1];
+    }
+    // Sépare à "models"
+    $array = preg_split('#/models/#', $filename, 2);
+    if (count($array) > 1) {
+        $filename = $array[1];
+    }
+    // Sépare à "/library/Mycsense/"
+    $array = preg_split('#/library/Mycsense/#', $filename, 2);
+    if (count($array) > 1) {
+        $filename = $array[1];
+    }
+    // Sépare à "librairies"
+    $array = preg_split('#/librairies/Mycsense/#', $filename, 2);
+    if (count($array) > 1) {
+        $filename = $array[1];
+    }
+    // Sépare à "trunk"
+    $array = preg_split('#/home/dev/#', $filename, 2);
+    if (count($array) > 1) {
+        $filename = $array[1];
+    }
+    return $filename;
 }
 
 // Affiche le résumé des erreurs
 function afficherResume($resultats) {
-	$tableauFichiers = array();
-	foreach ($resultats as $tableau) {
-		$tableauFichiers = array_merge($tableauFichiers, $tableau);
-	}
-	// Compte le nombre d'erreurs
-	$nbFichiers = 0;
-	$nbErreurs = 0;
-	$nbFichiersAvecErreur = 0;
-	foreach ($tableauFichiers as $nomFichier => $listeErreurs) {
-		$nbFichiers++;
-		if (count($listeErreurs) > 0) {
-			$nbFichiersAvecErreur++;
-		}
-		$nbErreurs += count($listeErreurs);
-	}
-	$pourcentageErreurs = (int) ($nbFichiersAvecErreur * 100 / $nbFichiers);
-	?>
-	<p>
-		Pourcentage d'erreurs :
-		<strong><?=$pourcentageErreurs?> %</strong>
-	</p>
-	<p style="margin-bottom: 20px">
-		Nombre d'erreurs :
-		<strong><?=$nbErreurs?></strong>
-	</p>
-	<?php
+    $tableauFichiers = array();
+    foreach ($resultats as $tableau) {
+        $tableauFichiers = array_merge($tableauFichiers, $tableau);
+    }
+    // Compte le nombre d'erreurs
+    $nbFichiers = 0;
+    $nbErreurs = 0;
+    $nbFichiersAvecErreur = 0;
+    foreach ($tableauFichiers as $nomFichier => $listeErreurs) {
+        $nbFichiers++;
+        if (count($listeErreurs) > 0) {
+            $nbFichiersAvecErreur++;
+        }
+        $nbErreurs += count($listeErreurs);
+    }
+    $pourcentageErreurs = (int) ($nbFichiersAvecErreur * 100 / $nbFichiers);
+    ?>
+    <p>
+        Pourcentage d'erreurs :
+        <strong><?=$pourcentageErreurs?> %</strong>
+    </p>
+    <p style="margin-bottom: 20px">
+        Nombre d'erreurs :
+        <strong><?=$nbErreurs?></strong>
+    </p>
+    <?php
 }
 
 // Affiche le tableau des erreurs
 function afficherErreurs($tableauFichiers) {
-	?>
-	<table class="tableauErreurs" summary="Liste des erreurs">
-		<tr>
-			<th style="width: 30%">
-				Nom du fichier
-			</th>
-			<th style="width: 40px">
-				Ligne
-			</th>
-			<th style="width: 30%">
-				Description de l'erreur
-			</th>
-			<th>
-				Contenu de la ligne
-			</th>
-		</tr>
-		<?php
-		foreach ($tableauFichiers as $nomFichier => $listeErreurs) {
-			if (count($listeErreurs) == 0) {
-				continue;
-			} else {
-				foreach ($listeErreurs as $erreur) {
-					?>
-					<tr>
-						<td class="nomFichier">
-							<?=formaterNomFichier($nomFichier)?>
-						</td>
-						<td class="numLigne">
-							<?=$erreur['numLigne']?>
-						</td>
-						<td class="descriptionErreur">
-							<?=$erreur['description']?>
-						</td>
-						<td class="codeLigne">
-							<?=htmlentities($erreur['ligne'])?>
-						</td>
-					</tr>
-					<?php
-				}
-			}
-		}
-		?>
-	</table>
-	<?php
+    ?>
+    <table class="tableauErreurs" summary="Liste des erreurs">
+        <tr>
+            <th style="width: 30%">
+                Nom du fichier
+            </th>
+            <th style="width: 40px">
+                Ligne
+            </th>
+            <th style="width: 30%">
+                Description de l'erreur
+            </th>
+            <th>
+                Contenu de la ligne
+            </th>
+        </tr>
+        <?php
+        foreach ($tableauFichiers as $nomFichier => $listeErreurs) {
+            if (count($listeErreurs) == 0) {
+                continue;
+            } else {
+                foreach ($listeErreurs as $erreur) {
+                    ?>
+                    <tr>
+                        <td class="nomFichier">
+                            <?=formaterNomFichier($nomFichier)?>
+                        </td>
+                        <td class="numLigne">
+                            <?=$erreur['numLigne']?>
+                        </td>
+                        <td class="descriptionErreur">
+                            <?=$erreur['description']?>
+                        </td>
+                        <td class="codeLigne">
+                            <?=htmlentities($erreur['ligne'])?>
+                        </td>
+                    </tr>
+                    <?php
+                }
+            }
+        }
+        ?>
+    </table>
+    <?php
 }
 ?>
 

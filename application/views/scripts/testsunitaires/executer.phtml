@@ -1,79 +1,79 @@
 <script type="text/javascript">
-	function ouvrir(object) {
-		if (object.style.display == 'none') {
-			object.style.display = 'block';
-		} else {
-			object.style.display = 'none';
-		}
-	}
+    function ouvrir(object) {
+        if (object.style.display == 'none') {
+            object.style.display = 'block';
+        } else {
+            object.style.display = 'none';
+        }
+    }
 </script>
 <?php
 function afficherResultat($tableau)
 {
-	static $i = 0;
-	$i++;
-	// Si c'est OK
-	if (strpos($tableau[count($tableau)-1], 'OK') !== false) {
-		$resultat = 'OK';
-		// Style du résumé
-		$style = "background: #94D88B;";
-	} else {
-		$resultat = 'ERREURS';
-		// Style du résumé
-		$style = "background: #D89C8B;";
-	}
-	// Supprime la première ligne
-	unset($tableau[0]);
-	?>
-	<p style="<?=$style;?>">
-		<a href="#detailErreurs<?=$i?>" onclick="ouvrir(document.getElementById('detailErreurs<?=$i?>'))">
-			Résumé :
-			<?=$resultat?></a>
-	</p>
-	<div id="detailErreurs<?=$i?>" style="display:none">
-		<pre>
-			<?=implode("\n", $tableau);?>
-		</pre>
-	</div>
-	<?php
+    static $i = 0;
+    $i++;
+    // Si c'est OK
+    if (strpos($tableau[count($tableau)-1], 'OK') !== false) {
+        $resultat = 'OK';
+        // Style du résumé
+        $style = "background: #94D88B;";
+    } else {
+        $resultat = 'ERREURS';
+        // Style du résumé
+        $style = "background: #D89C8B;";
+    }
+    // Supprime la première ligne
+    unset($tableau[0]);
+    ?>
+    <p style="<?=$style;?>">
+        <a href="#detailErreurs<?=$i?>" onclick="ouvrir(document.getElementById('detailErreurs<?=$i?>'))">
+            Résumé :
+            <?=$resultat?></a>
+    </p>
+    <div id="detailErreurs<?=$i?>" style="display:none">
+        <pre>
+            <?=implode("\n", $tableau);?>
+        </pre>
+    </div>
+    <?php
 }
 ?>
 <h1>
-	Tests unitaires
+    Tests unitaires
 </h1>
 
 <h2>
-	Base carbone
+    Base carbone
 </h2>
 <?php afficherResultat($this->basecarbone) ?>
 
 <h2>
-	Stations de montagne
+    Stations de montagne
 </h2>
 <?php afficherResultat($this->stationsmontagne)?>
 
 <h2>
-	Utilisateurs
+    Utilisateurs
 </h2>
 <?php afficherResultat($this->utilisateurs)?>
 
 <h2>
-	Unites
+    Unites
 </h2>
 <?php afficherResultat($this->unites)?>
 
 <h2>
-	Navigation
+    Navigation
 </h2>
 <?php afficherResultat($this->navigation)?>
 
 <h2>
-	Acl
+    Acl
 </h2>
 <?php afficherResultat($this->acl)?>
 
 <h2>
-	International
+    International
 </h2>
 <?php
 afficherResultat($this->langues);

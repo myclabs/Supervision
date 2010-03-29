@@ -10,12 +10,12 @@ $autoloader->registerNamespace('Mycsense_');
 class Bootstrap extends Mycsense_Bootstrap
 {
 
-	/**
-	 * Désactive la prise en compte des droits d'accès
-	 */
-	protected function _initAcl()
-	{
-		Zend_Registry::set('activerAcl', false);
-	}
+    /**
+     * Désactive la prise en compte des droits d'accès
+     */
+    protected function _initAcl()
+    {
+        Zend_Registry::set('activerAcl', false);
+    }
 
 }

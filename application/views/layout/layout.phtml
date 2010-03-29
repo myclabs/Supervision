@@ -1,109 +1,109 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
-		<title>Supervision</title>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+        <title>Supervision</title>
 
-		<link rel="shortcut icon" href="<?=$this->baseUrl();?>/icons/favicon.ico" type="image/x-icon" />
-		<link rel="icon" href="<?=$this->baseUrl();?>/icons/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="<?=$this->baseUrl();?>/icons/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="<?=$this->baseUrl();?>/icons/favicon.ico" type="image/x-icon" />
 
-		<link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/container/assets/skins/sam/container.css" />
-		<link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/menu/assets/skins/sam/menu.css" />
-		<link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/button/assets/skins/sam/button.css" />
-		<link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/paginator/assets/skins/sam/paginator.css" />
-		<link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/datatable/assets/skins/sam/datatable.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="<?=$this->baseUrl();?>/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/reset-fonts-grids/reset-fonts-grids.css" />
-		<link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/css/supervision.css" />
-		<!-- Ensemble de fichiers nécessaire pour le fonctionnement de YAHOO UI  -->
-		<!--[if lte IE]>
-		<style type="text/css" media="all">
-		@import "<?=$this->baseUrl();?>/css/formulaire-ie7.css";
-		</style>
-		<![endif]-->
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/animation/animation-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/element/element-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/event/event-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/container/container-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/dragdrop/dragdrop-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/menu/menu-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/button/button-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/yahoo/yahoo-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/event/event-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/connection/connection-min.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/container/assets/skins/sam/container.css" />
+        <link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/menu/assets/skins/sam/menu.css" />
+        <link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/button/assets/skins/sam/button.css" />
+        <link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/paginator/assets/skins/sam/paginator.css" />
+        <link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/datatable/assets/skins/sam/datatable.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="<?=$this->baseUrl();?>/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/reset-fonts-grids/reset-fonts-grids.css" />
+        <link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/css/supervision.css" />
+        <!-- Ensemble de fichiers nécessaire pour le fonctionnement de YAHOO UI  -->
+        <!--[if lte IE]>
+        <style type="text/css" media="all">
+        @import "<?=$this->baseUrl();?>/css/formulaire-ie7.css";
+        </style>
+        <![endif]-->
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/animation/animation-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/element/element-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/event/event-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/container/container-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/dragdrop/dragdrop-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/menu/menu-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/button/button-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/yahoo/yahoo-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/event/event-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/yui/build/connection/connection-min.js"></script>
 
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/scripts/menu.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl();?>/scripts/commentaire.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/scripts/menu.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl();?>/scripts/commentaire.js"></script>
 
-		<!-- Rajout de fichiers YUI javascript nécéssaire pour les tableaux -->
-		<script type="text/javascript" src="<?=$this->baseUrl()?>/yui/build/paginator/paginator-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl()?>/yui/build/datatable/datatable-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl()?>/yui/build/datasource/datasource-min.js"></script>
-		<script type="text/javascript" src="<?=$this->baseUrl()?>/yui/build/json/json-min.js"></script>
-		<!-- Fin de rajout de fichier javascript -->
-	</head>
-	<?php
-	$body_onload = ' ';
-	// Commentaire (popup javascript en haut de page)
-	if ($this->commentaire) {
-		if ($this->commentaire['statut'] == 'success') $image = $this->baseUrl().'/icons/tick.png';
-		else $image = $this->baseUrl().'/icons/cross.png';
-		$body_onload .= 'onLoad="javascript:setCommentaire(\''.
-			addslashes($this->commentaire['text']).'\', \''.addslashes($image).'\');"';
-	}
-	?>
-	<body class="yui-skin-sam" id="yahoo-com"<?=$body_onload?>>
+        <!-- Rajout de fichiers YUI javascript nécéssaire pour les tableaux -->
+        <script type="text/javascript" src="<?=$this->baseUrl()?>/yui/build/paginator/paginator-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl()?>/yui/build/datatable/datatable-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl()?>/yui/build/datasource/datasource-min.js"></script>
+        <script type="text/javascript" src="<?=$this->baseUrl()?>/yui/build/json/json-min.js"></script>
+        <!-- Fin de rajout de fichier javascript -->
+    </head>
+    <?php
+    $body_onload = ' ';
+    // Commentaire (popup javascript en haut de page)
+    if ($this->commentaire) {
+        if ($this->commentaire['statut'] == 'success') $image = $this->baseUrl().'/icons/tick.png';
+        else $image = $this->baseUrl().'/icons/cross.png';
+        $body_onload .= 'onLoad="javascript:setCommentaire(\''.
+            addslashes($this->commentaire['text']).'\', \''.addslashes($image).'\');"';
+    }
+    ?>
+    <body class="yui-skin-sam" id="yahoo-com"<?=$body_onload?>>
 
-		<div id="Page">
+        <div id="Page">
 
-			<div id="EnTete">
-				<!-- logo insa -->
-				<div id="logoINSA">
-					<img src='<?=$this->baseUrl();?>/icons/logo.png' alt="Logo de l'INSA de Lyon" />
-				</div>
-				<!-- logo MYCS -->
-				<div id="imgMYCS">
-					<img src='<?=$this->baseUrl();?>/icons/MYCS-logo-small.png' alt="Logo de my C-sense" />
-				</div>
-				<div id="titre">Supervision</div>
-			</div>
+            <div id="EnTete">
+                <!-- logo insa -->
+                <div id="logoINSA">
+                    <img src='<?=$this->baseUrl();?>/icons/logo.png' alt="Logo de l'INSA de Lyon" />
+                </div>
+                <!-- logo MYCS -->
+                <div id="imgMYCS">
+                    <img src='<?=$this->baseUrl();?>/icons/MYCS-logo-small.png' alt="Logo de my C-sense" />
+                </div>
+                <div id="titre">Supervision</div>
+            </div>
 
-			<!-- MENU -->
-			<div id="Menu">
-				<!-- Code contenu dans le fichier menu/menu.phtml -->
-				<?=$this->partial('menu/menu.phtml')?>
-			</div>
+            <!-- MENU -->
+            <div id="Menu">
+                <!-- Code contenu dans le fichier menu/menu.phtml -->
+                <?=$this->partial('menu/menu.phtml')?>
+            </div>
 
-			<!-- ARIANE et LANGUE -->
-			<div id="Ariane">
-				<span id="FilAriane"> <?=$this->filAriane?> </span>
-				<div id="Langue">
-				</div>
-			</div>
+            <!-- ARIANE et LANGUE -->
+            <div id="Ariane">
+                <span id="FilAriane"> <?=$this->filAriane?> </span>
+                <div id="Langue">
+                </div>
+            </div>
 
-			<!-- COMMENTAIRE -->
-			<div id="Commentaire">Commentaire</div>
+            <!-- COMMENTAIRE -->
+            <div id="Commentaire">Commentaire</div>
 
-			<!-- MASQUE  -->
-			<div id="Masque">
-				<div id="CadrePage"></div>
-				<div id="CadreChargement">
-					<p>Chargement en cours ...</p>
-					<img src="<?=$this->baseUrl();?>/icons/ajax-loader2.gif" alt=". . ."/>
-				</div>
-			</div>
+            <!-- MASQUE  -->
+            <div id="Masque">
+                <div id="CadrePage"></div>
+                <div id="CadreChargement">
+                    <p>Chargement en cours ...</p>
+                    <img src="<?=$this->baseUrl();?>/icons/ajax-loader2.gif" alt=". . ."/>
+                </div>
+            </div>
 
-			<!-- CORPS (code des pages) -->
-			<div id="Corps">
-				<?=$this->layout()->content?>
-			</div>
+            <!-- CORPS (code des pages) -->
+            <div id="Corps">
+                <?=$this->layout()->content?>
+            </div>
 
-			<!-- PIED de PAGE -->
-			<div id="Pied">
-				<span id="PiedTexte"><!-- Pied de Page --></span>
-				<span id="PiedOutil"><!-- outils --></span>
-			</div>
-		</div>
-	</body>
+            <!-- PIED de PAGE -->
+            <div id="Pied">
+                <span id="PiedTexte"><!-- Pied de Page --></span>
+                <span id="PiedOutil"><!-- outils --></span>
+            </div>
+        </div>
+    </body>
 </html>
