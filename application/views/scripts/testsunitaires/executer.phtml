@@ -15,19 +15,19 @@ function afficherResultat($tableau)
 	// Si c'est OK
 	if (strpos($tableau[count($tableau)-1], 'OK') !== false) {
 		$resultat = 'OK';
-		// Style du résumé
+		// Style du rÃ©sumÃ©
 		$style = "background: #94D88B;";
 	} else {
 		$resultat = 'ERREURS';
-		// Style du résumé
+		// Style du rÃ©sumÃ©
 		$style = "background: #D89C8B;";
 	}
-	// Supprime la première ligne
+	// Supprime la premiÃ¨re ligne
 	unset($tableau[0]);
 	?>
 	<p style="<?=$style;?>">
 		<a href="#detailErreurs<?=$i?>" onclick="ouvrir(document.getElementById('detailErreurs<?=$i?>'))">
-			Résumé :
+			RÃ©sumÃ© :
 			<?=$resultat?></a>
 	</p>
 	<div id="detailErreurs<?=$i?>" style="display:none">

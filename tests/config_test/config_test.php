@@ -23,5 +23,5 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
-// Lance l'interprétation du bootstrap
+// Lance l'interprÃ©tation du bootstrap
 $application->bootstrap();

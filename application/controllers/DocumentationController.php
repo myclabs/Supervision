@@ -18,7 +18,7 @@ class DocumentationController extends Mycsense_Controller
 			$output = array();
 			exec($this->view->commande, $output, $retour);
 			if ($retour == 0) {
-				$this->view->resultatGeneration = 'succès';
+				$this->view->resultatGeneration = 'succÃ¨s';
 				$this->view->detailGeneration = implode("\n", $output);
 			} else {
 				$this->view->resultatGeneration = 'echec';

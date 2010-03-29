@@ -37,11 +37,11 @@ a img, a:hover img {
 
 #EnTete {
 	position: fixed;
-	background-color: #B8C2C4; /* gris foncé */
+	background-color: #B8C2C4; /* gris foncÃ© */
 	color: #000099;
 	margin: 0px;
 	padding: 7px;
-	height: 48px; /* hauteur en-tête fixée */
+	height: 48px; /* hauteur en-tÃªte fixÃ©e */
 	width: 100%; 
 	z-index: 2;
 	top: 0px;
@@ -145,7 +145,7 @@ a img, a:hover img {
 
 #Ariane {
 	position: fixed;
-	top: 63px; /* fixe où placer le menu en hauteur */
+	top: 63px; /* fixe oÃ¹ placer le menu en hauteur */
 	border-bottom: 1px solid #9C9C9C;
 	background-color: #D3DEDC; /* gris clair */
 	width: 100%;

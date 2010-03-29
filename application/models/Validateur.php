@@ -6,33 +6,33 @@
 class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 {
 
-	// Fichiers à analyser
+	// Fichiers Ã  analyser
 	protected $_extensions = array('.php', '.phtml');
 
-	// Règles
+	// RÃ¨gles
 	protected $_regles = array(
 			'#throw new Exception ?\(#'
-				=> "Ce type d'exceptions n'est pas autorisé",
+				=> "Ce type d'exceptions n'est pas autorisÃ©",
 			'#(public|protected|private) \$[A-Z]#'
 				=> "L'attribut commence par une majuscule : contraire au guide de style",
 			'#(protected|private) \$[a-z]#'
-				=> "L'attribut protégé ou privé ne commence pas par '_' : contraire au guide de style",
+				=> "L'attribut protÃ©gÃ© ou privÃ© ne commence pas par '_' : contraire au guide de style",
 			'#^class (.+) extends Zend#'
-				=> "L'héritage direct aux classes de Zend Framework n'est pas autorisé",
+				=> "L'hÃ©ritage direct aux classes de Zend Framework n'est pas autorisÃ©",
 			'#^class ([a-zA-Z0-9]+) extends Mycsense_Modele_DAO[^_]#'
-				=> "Pas d'héritage directe à la classe abstraite DAO (il faut choisir une de ses classe fille)",
+				=> "Pas d'hÃ©ritage directe Ã  la classe abstraite DAO (il faut choisir une de ses classe fille)",
 			'#if ?\(.*([^=!><]+)=([^=]+){#'
 				=> "Pas de '=' dans les if (confusion possible avec '==')",
 			'#<\?([^p=])#'
-				=> "Les balises PHP d'ouverture simples '&lt;?' ne sont pas autorisées (cf. guide de style)",
+				=> "Les balises PHP d'ouverture simples '&lt;?' ne sont pas autorisÃ©es (cf. guide de style)",
 			'#class ([A-Z]([a-z]+)_)?[A-Z]([a-z]+)([A-Z]+)([a-z]+)Controller#'
-				=> "Pas de majuscules dans le nom des contrôleurs, à part majuscule initiale et 'Controller'",
+				=> "Pas de majuscules dans le nom des contrÃ´leurs, Ã  part majuscule initiale et 'Controller'",
 			/*'#\$this\->_dbTable\->getAdapter\(\)#'
-				=> "getAdapter() est une méthode dépréciée. Voir le wiki pour les fonctions à utiliser",*/
+				=> "getAdapter() est une mÃ©thode dÃ©prÃ©ciÃ©e. Voir le wiki pour les fonctions Ã  utiliser",*/
 			'#\$this\->getMapper\(\)#'
-				=> "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
+				=> "getMapper() est une mÃ©thode statique, ne pas utiliser '\$this->' mais 'self::'",
 			'#[^<]\?([^>]*)[^:]:[^:]#'
-				=> "Erreur guide de style : 'if' contracté (...?...:...)",
+				=> "Erreur guide de style : 'if' contractÃ© (...?...:...)",
 			'#^    #'
 				=> "Guide de style : utiliser des tabulations, pas des espaces (utiliser
 					le menu Source>Format dans Eclipse pour corriger automatiquement",
@@ -43,9 +43,11 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 			'#^([\t ]+)(for|foreach) ([^\{]*)$#'
 				=> "Erreur guide de style",
 			'#\$_GET#'
-				=> "Utiliser \$this->getParam('') à la place de \$_GET['']",
+				=> "Utiliser \$this->getParam('') Ã  la place de \$_GET['']",
 			'#\$_POST#'
-				=> "Utiliser \$this->getParam('') à la place de \$_POST['']",
+				=> "Utiliser \$this->getParam('') Ã  la place de \$_POST['']",
+			'#utf8_#'
+				=> "Supprimer les utf8_encode et utf8_decode",
 		);
 
 	/**
@@ -59,7 +61,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 	public function validerProjet($dossier)
 	{
 		$retour = array();
-		// Fixe le chemin d'accès avec "/" à la fin
+		// Fixe le chemin d'accÃ¨s avec "/" Ã  la fin
 		if (substr($dossier, -1) != DIRECTORY_SEPARATOR) {
 			$dossier .= DIRECTORY_SEPARATOR;
 		}
@@ -69,7 +71,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 		// Vues
 		$vues = $this->scannerDossier($dossier . 'application/views/scripts/');
 		$retour['vues'] = $vues;
-		// Modèle
+		// ModÃ¨le
 		$modele = $this->scannerDossier($dossier . 'application/models/');
 		$retour['modele'] = $modele;
 		// Librairie
@@ -86,7 +88,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 	public function validerLibrairie($dossier)
 	{
 		$retour = array();
-		// Fixe le chemin d'accès avec "/" à la fin
+		// Fixe le chemin d'accÃ¨s avec "/" Ã  la fin
 		if (substr($dossier, -1) != DIRECTORY_SEPARATOR) {
 			$dossier .= DIRECTORY_SEPARATOR;
 		}
@@ -118,7 +120,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 				$extension = strrchr($element, '.');
 				if (	(in_array($extension, $this->_extensions))
 					&&	($dossier . $element != __FILE__)) {
-					// Valide le fichier trouvé
+					// Valide le fichier trouvÃ©
 					$erreurs = $this->validerFichier($dossier . $element);
 					$retour[$dossier . $element] = $erreurs;
 				}
@@ -126,7 +128,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 		}
 		// Analyse les sous-dossiers
 		foreach ($sousDossiers as $sousDossier) {
-			// Évite les fichiers cachés et "." et ".."
+			// Ã‰vite les fichiers cachÃ©s et "." et ".."
 			if ($sousDossier[0] != '.') {
 				$tableau = $this->scannerDossier($dossier . $sousDossier . DIRECTORY_SEPARATOR);
 				// Utiliser cette syntaxe plutot que array_merge (cf doc en ligne)
@@ -137,8 +139,8 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 	}
 
 	/**
-	 * Valide un fichier avec les règles
-	 * @param string $fichier Chemin d'accès complet vers le fichier
+	 * Valide un fichier avec les rÃ¨gles
+	 * @param string $fichier Chemin d'accÃ¨s complet vers le fichier
 	 * @return array[]['description', 'ligne', 'numLigne']
 	 */
 	protected function validerFichier($fichier)
@@ -151,7 +153,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
 			while (!feof($handle)) {
 				$numLigne++;
 				$ligne = fgets($handle, 4096);
-				// Teste les règles
+				// Teste les rÃ¨gles
 				foreach ($this->_regles as $regle => $message) {
 					$trouve = preg_match($regle, $ligne);
 					if ($trouve) {

@@ -8,7 +8,7 @@ class TestsunitairesController extends Mycsense_Controller
 	 */
 	public function executerAction()
 	{
-		// Différences
+		// DiffÃ©rences
 		$phpunit = 'phpunit --verbose';
 		$basePath = '/home/dev/';
 
@@ -56,7 +56,7 @@ class TestsunitairesController extends Mycsense_Controller
 	}
 
 	/**
-	 * Génerer le rapport de couverture de code
+	 * GÃ©nerer le rapport de couverture de code
 	 */
 	public function generercouverturecodeAction()
 	{
@@ -79,22 +79,22 @@ class TestsunitairesController extends Mycsense_Controller
 			$output[] = '';
 		}
 
-		// Supprime les classes de modèle existantes
-		$output[] = 'Suppression des classes de modèle existantes';
+		// Supprime les classes de modÃ¨le existantes
+		$output[] = 'Suppression des classes de modÃ¨le existantes';
 		$commande = "rm -R $basePath/testscomplets/application/models/* 2>&1";
 		exec($commande, $output, $retour);
 		$output[] = '';
 
-		// Copie des classes de modèle
+		// Copie des classes de modÃ¨le
 //		$dossiers = array(/*'basecarbone', */'stationsmontagne');
 //		foreach ($dossiers as $dossier) {
-//			$output[] = 'Copie des classes de modèle du projet "' . $dossier . '"';
+//			$output[] = 'Copie des classes de modÃ¨le du projet "' . $dossier . '"';
 //			$commande = "cp -R $basePath/$dossier/application/models/* $basePath/testscomplets/application/models/ 2>&1";
 //			exec($commande, $output, $retour);
 //			$output[] = '';
 //		}
 
-		// Copie des bases de données
+		// Copie des bases de donnÃ©es
 		$basededonnees = array(
 //			'basecarbone_testsunitaires_public',
 			'mcscentral_testsunitaires_acl',
@@ -107,21 +107,21 @@ class TestsunitairesController extends Mycsense_Controller
 		$mysqldump = "mysqldump -u root -pU8l4MdL0 --add-drop-table";
 		$mysql = "mysql -u root -pU8l4MdL0";
 		foreach ($basededonnees as $basededonnee) {
-			$output[] = 'Copie de la base de données "' . $basededonnee . '"';
+			$output[] = 'Copie de la base de donnÃ©es "' . $basededonnee . '"';
 			$commande = "$mysqldump $basededonnee | $mysql mcscentral_testsunitaires_testscomplets 2>&1";
 			exec($commande, $output, $retour);
 			$output[] = '';
 		}
 
 		// Execution de phpdoc
-		$output[] = 'Génération de la couverture de code';
+		$output[] = 'GÃ©nÃ©ration de la couverture de code';
 		$phpunit = "phpunit --process-isolation --testdox";
 		$phpunit .= " --configuration /home/dev/testscomplets/configuration.xml";
 		$sortie = "$basePath/couverturecode";
 		$source = "$basePath/testscomplets/tests";
 		$this->view->commande = "nohup $phpunit --coverage-html $sortie $source > /home/dev/couverturecode/log.txt 2>&1 &";
 		exec($this->view->commande);
-		$output[] = "Commande en cours d'exécution en tâche de fond. Ceci peut prendre plusieurs minutes.";
+		$output[] = "Commande en cours d'exÃ©cution en tÃ¢che de fond. Ceci peut prendre plusieurs minutes.";
 		$this->view->resultat = $output;
 	}
 
@@ -133,7 +133,7 @@ class TestsunitairesController extends Mycsense_Controller
 	}
 
 	/**
-	 * Affiche le log de la génération de couverture de code
+	 * Affiche le log de la gÃ©nÃ©ration de couverture de code
 	 */
 	public function logcouverturecodeAction()
 	{

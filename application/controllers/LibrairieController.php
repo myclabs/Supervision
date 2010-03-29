@@ -7,7 +7,7 @@ class LibrairieController extends Mycsense_Controller
 	{
 		$differences = array();
 
-		// Différences
+		// DiffÃ©rences
 		$diff = 'diff -qr';
 		$basePath = '/home/dev/';
 		$baseLibrairie = $basePath . 'librairies/Modules/';
@@ -15,15 +15,15 @@ class LibrairieController extends Mycsense_Controller
 		// Utilisateurs
 		$dossier = $basePath . 'utilisateurs/application/utilisateurs';
 		if (!is_dir($dossier)) {
-			$differences[] = "Impossible de vérifier le projet Utilisateurs.";
+			$differences[] = "Impossible de vÃ©rifier le projet Utilisateurs.";
 		} else {
 			$commande = "$diff {$baseLibrairie}utilisateurs $dossier 2>&1";
 			exec($commande, $differences, $retour);
 			if ($retour == 0) {
-				$differences[] = "Utilisateurs est à jour";
+				$differences[] = "Utilisateurs est Ã  jour";
 				$differences[] = "";
 			} else {
-				$differences[] = "Utilisateurs n'est pas à jour";
+				$differences[] = "Utilisateurs n'est pas Ã  jour";
 				$differences[] = "";
 			}
 		}
@@ -31,15 +31,15 @@ class LibrairieController extends Mycsense_Controller
 		// Unites
 		$dossier = $basePath . 'unites/application/unites';
 		if (!is_dir($dossier)) {
-			$differences[] = "Impossible de vérifier le projet Unites.";
+			$differences[] = "Impossible de vÃ©rifier le projet Unites.";
 		} else {
 			$commande = "$diff {$baseLibrairie}unites $dossier 2>&1";
 			exec($commande, $differences, $retour);
 			if ($retour == 0) {
-				$differences[] = "Unites est à jour";
+				$differences[] = "Unites est Ã  jour";
 				$differences[] = "";
 			} else {
-				$differences[] = "Unites n'est pas à jour";
+				$differences[] = "Unites n'est pas Ã  jour";
 				$differences[] = "";
 			}
 		}
@@ -47,15 +47,15 @@ class LibrairieController extends Mycsense_Controller
 		// Acl
 		$dossier = $basePath . 'acl/application/acl';
 		if (!is_dir($dossier)) {
-			$differences[] = "Impossible de vérifier le projet Acl.";
+			$differences[] = "Impossible de vÃ©rifier le projet Acl.";
 		} else {
 			$commande = "$diff {$baseLibrairie}acl $dossier 2>&1";
 			exec($commande, $differences, $retour);
 			if ($retour == 0) {
-				$differences[] = "Acl est à jour";
+				$differences[] = "Acl est Ã  jour";
 				$differences[] = "";
 			} else {
-				$differences[] = "Acl n'est pas à jour";
+				$differences[] = "Acl n'est pas Ã  jour";
 				$differences[] = "";
 			}
 		}
@@ -63,15 +63,15 @@ class LibrairieController extends Mycsense_Controller
 		// Navigation
 		$dossier = $basePath . 'navigation/application/navigation';
 		if (!is_dir($dossier)) {
-			$differences[] = "Impossible de vérifier le projet Navigation.";
+			$differences[] = "Impossible de vÃ©rifier le projet Navigation.";
 		} else {
 			$commande = "$diff {$baseLibrairie}navigation $dossier 2>&1";
 			exec($commande, $differences, $retour);
 			if ($retour == 0) {
-				$differences[] = "Navigation est à jour";
+				$differences[] = "Navigation est Ã  jour";
 				$differences[] = "";
 			} else {
-				$differences[] = "Navigation n'est pas à jour";
+				$differences[] = "Navigation n'est pas Ã  jour";
 				$differences[] = "";
 			}
 		}
@@ -79,15 +79,15 @@ class LibrairieController extends Mycsense_Controller
 		// Langues
 		$dossier = $basePath . 'langues/library/Mycsense/Langues';
 		if (!is_dir($dossier)) {
-			$differences[] = "Impossible de vérifier le projet Langues.";
+			$differences[] = "Impossible de vÃ©rifier le projet Langues.";
 		} else {
 			$commande = "$diff {$baseLibrairie}Langues $dossier 2>&1";
 			exec($commande, $differences, $retour);
 			if ($retour == 0) {
-				$differences[] = "Langues est à jour";
+				$differences[] = "Langues est Ã  jour";
 				$differences[] = "";
 			} else {
-				$differences[] = "Langues n'est pas à jour";
+				$differences[] = "Langues n'est pas Ã  jour";
 				$differences[] = "";
 			}
 		}

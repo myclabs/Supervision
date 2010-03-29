@@ -24,7 +24,7 @@ class ValidateurController extends Mycsense_Controller
 	}
 
 	/**
-	 * Vérifie le respect du guide de style
+	 * VÃ©rifie le respect du guide de style
 	 */
 	public function guidestyleAction()
 	{

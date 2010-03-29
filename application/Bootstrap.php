@@ -11,7 +11,7 @@ class Bootstrap extends Mycsense_Bootstrap
 {
 
 	/**
-	 * Désactive la prise en compte des droits d'accès
+	 * DÃ©sactive la prise en compte des droits d'accÃ¨s
 	 */
 	protected function _initAcl()
 	{
