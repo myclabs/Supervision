@@ -1,6 +1,6 @@
 <?php
 
-class IndexController extends Mycsense_Controller
+class IndexController extends MCS_Controller
 {
 
     public function indexAction()

@@ -1,6 +1,6 @@
 <?php
 
-class DocumentationController extends Mycsense_Controller
+class DocumentationController extends MCS_Controller
 {
 
     public function genererAction()

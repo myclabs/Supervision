@@ -1,6 +1,6 @@
 <?php
 
-class ValidateurController extends Mycsense_Controller
+class ValidateurController extends MCS_Controller
 {
 
     /**
@@ -9,7 +9,7 @@ class ValidateurController extends Mycsense_Controller
     public function validerAction()
     {
         $dossier = '/home/dev/';
-        $validateur = Mycsense_Model_Validateur::getInstance();
+        $validateur = MCS_Model_Validateur::getInstance();
         // Valide les projets
         $this->view->basecarbone = $validateur->validerProjet($dossier . 'basecarbone');
         $this->view->stationsmontagne = $validateur->validerProjet($dossier . 'stationsmontagne');

@@ -1,6 +1,6 @@
 <?php
 
-class LibrairieController extends Mycsense_Controller
+class LibrairieController extends MCS_Controller
 {
 
     public function verifierAction()

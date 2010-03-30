@@ -3,7 +3,7 @@
  * Validateur
  * Design pattern singleton
  */
-class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
+class MCS_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
 {
 
     // Fichiers à analyser
@@ -19,7 +19,7 @@ class Mycsense_Model_Validateur extends Mycsense_Modele_ObjetMetier_Singleton
                 => "L'attribut protégé ou privé ne commence pas par '_' : contraire au guide de style",
             '#^class (.+) extends Zend#'
                 => "L'héritage direct aux classes de Zend Framework n'est pas autorisé",
-            '#^class ([a-zA-Z0-9]+) extends Mycsense_Modele_DAO[^_]#'
+            '#^class ([a-zA-Z0-9]+) extends MCS_Modele_DAO[^_]#'
                 => "Pas d'héritage directe à la classe abstraite DAO (il faut choisir une de ses classe fille)",
             '#if ?\(.*([^=!><]+)=([^=]+){#'
                 => "Pas de '=' dans les if (confusion possible avec '==')",

@@ -1,6 +1,6 @@
 <?php
 
-class TestsunitairesController extends Mycsense_Controller
+class TestsunitairesController extends MCS_Controller
 {
 
     /**
