@@ -4,10 +4,10 @@
 error_reporting(E_ALL);
 // Enregistre la librairie (meme nom que le module mais c'est pas grave)
 $autoloader = Zend_Loader_Autoloader::getInstance();
-$autoloader->registerNamespace('Mycsense_');
+$autoloader->registerNamespace('MCS_');
 
 
-class Bootstrap extends Mycsense_Bootstrap
+class Bootstrap extends MCS_Bootstrap
 {
 
     /**
