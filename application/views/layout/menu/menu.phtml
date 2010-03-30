@@ -2,7 +2,7 @@
 
 $htmlMenu = false;
 
-foreach (MCS_PagesMenus_Menu::getMenusRacine() as $menu) {
+foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
     $listeSousMenu = $menu->getEnfants();
     if(!$htmlMenu) {
 ?>
