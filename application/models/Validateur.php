@@ -31,7 +31,7 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
                 => "getAdapter() est une méthode dépréciée. Voir le wiki pour les fonctions à utiliser",*/
             '#\$this\->getMapper\(\)#'
                 => "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
-            '#[^<"\']\?([^>]*)[^:]:[^:]#'
+            '#[^<"\']+\?([^>]*)[^:]:[^:]#'
                 => "Erreur guide de style : 'if' contracté (...?...:...)",
             '#^\t#'
                 => "Guide de style : utiliser des espaces, pas des tabulations",
