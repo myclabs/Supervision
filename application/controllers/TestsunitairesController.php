@@ -70,7 +70,7 @@ class TestsunitairesController extends MCS_Controller
         $output[] = '';
 
         // Copie des tests dans le dossier testscomplets
-        $dossiers = array(	'acl', 'locale', 'navigation', 'unites', 'utilisateurs');
+        $dossiers = array(	'acl', 'langues', 'navigation', 'unites', 'utilisateurs');
         foreach ($dossiers as $dossier) {
             $output[] = 'Copie des fichiers de test du projet "' . $dossier . '"';
             $commande = "cp $basePath/$dossier/tests/*.php $basePath/testscomplets/tests/ 2>&1";
