@@ -70,8 +70,7 @@ class TestsunitairesController extends MCS_Controller
         $output[] = '';
 
         // Copie des tests dans le dossier testscomplets
-        $dossiers = array(	'acl'/*, 'basecarbone'*/, 'langues', 'pagesmenus',
-                            /*'stationsmontagne', */'unites', 'utilisateurs');
+        $dossiers = array(	'acl', 'locale', 'navigation', 'unites', 'utilisateurs');
         foreach ($dossiers as $dossier) {
             $output[] = 'Copie des fichiers de test du projet "' . $dossier . '"';
             $commande = "cp $basePath/$dossier/tests/*.php $basePath/testscomplets/tests/ 2>&1";
@@ -85,22 +84,11 @@ class TestsunitairesController extends MCS_Controller
         exec($commande, $output, $retour);
         $output[] = '';
 
-        // Copie des classes de modèle
-//		$dossiers = array(/*'basecarbone', */'stationsmontagne');
-//		foreach ($dossiers as $dossier) {
-//			$output[] = 'Copie des classes de modèle du projet "' . $dossier . '"';
-//			$commande = "cp -R $basePath/$dossier/application/models/* $basePath/testscomplets/application/models/ 2>&1";
-//			exec($commande, $output, $retour);
-//			$output[] = '';
-//		}
-
         // Copie des bases de données
         $basededonnees = array(
-//			'basecarbone_testsunitaires_public',
             'mcscentral_testsunitaires_acl',
-            'mcscentral_testsunitaires_langues',
-            'mcscentral_testsunitaires_pagesmenus',
-//			'stationsmontagne_testsunitaires_general',
+            'mcscentral_testsunitaires_locale',
+            'mcscentral_testsunitaires_navigation',
             'mcscentral_testsunitaires_unites',
             'mcscentral_testsunitaires_utilisateurs'
         );
@@ -119,7 +107,8 @@ class TestsunitairesController extends MCS_Controller
         $phpunit .= " --configuration /home/dev/testscomplets/configuration.xml";
         $sortie = "$basePath/couverturecode";
         $source = "$basePath/testscomplets/tests";
-        $this->view->commande = "nohup $phpunit --coverage-html $sortie $source > /home/dev/couverturecode/log.txt 2>&1 &";
+        $this->view->commande = "nohup $phpunit --coverage-html $sortie $source "
+            ."> /home/dev/couverturecode/log.txt 2>&1 &";
         exec($this->view->commande);
         $output[] = "Commande en cours d'exécution en tâche de fond. Ceci peut prendre plusieurs minutes.";
         $this->view->resultat = $output;
