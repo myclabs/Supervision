@@ -7,26 +7,6 @@ function formaterNomFichier($filename)
     if (count($array) > 1) {
         $filename = $array[1];
     }
-//    // Sépare à "/views/scripts"
-//    $array = preg_split('#/views/scripts/#', $filename, 2);
-//    if (count($array) > 1) {
-//        $filename = $array[1];
-//    }
-//    // Sépare à "models"
-//    $array = preg_split('#/models/#', $filename, 2);
-//    if (count($array) > 1) {
-//        $filename = $array[1];
-//    }
-//    // Sépare à "/library/Mycsense/"
-//    $array = preg_split('#/library/Mycsense/#', $filename, 2);
-//    if (count($array) > 1) {
-//        $filename = $array[1];
-//    }
-//    // Sépare à "librairies"
-//    $array = preg_split('#/librairies/Mycsense/#', $filename, 2);
-//    if (count($array) > 1) {
-//        $filename = $array[1];
-//    }
     // Sépare à "librairies"
     $array = preg_split('#/librairies/#', $filename, 2);
     if (count($array) > 1) {
@@ -161,22 +141,9 @@ $resultatValidation = $this->stationsmontagne;
 afficherResume($resultatValidation);
 ?>
 
-<h2>Contrôleurs</h2>
+<h2>Application</h2>
 <?php
-$controleurs = $resultatValidation['controleurs'];
-afficherErreurs($controleurs);
-?>
-
-<h2>Vues</h2>
-<?php
-$vues = $resultatValidation['vues'];
-afficherErreurs($vues);
-?>
-
-<h2>Modèle</h2>
-<?php
-$modele = $resultatValidation['modele'];
-afficherErreurs($modele);
+afficherErreurs($resultatValidation['application']);
 ?>
 
 <h2>Librairie</h2>
@@ -192,22 +159,9 @@ $resultatValidation = $this->unites;
 afficherResume($resultatValidation);
 ?>
 
-<h2>Contrôleurs</h2>
+<h2>Application</h2>
 <?php
-$controleurs = $resultatValidation['controleurs'];
-afficherErreurs($controleurs);
-?>
-
-<h2>Vues</h2>
-<?php
-$vues = $resultatValidation['vues'];
-afficherErreurs($vues);
-?>
-
-<h2>Modèle</h2>
-<?php
-$modele = $resultatValidation['modele'];
-afficherErreurs($modele);
+afficherErreurs($resultatValidation['application']);
 ?>
 
 <h2>Librairie</h2>
@@ -223,22 +177,9 @@ $resultatValidation = $this->utilisateurs;
 afficherResume($resultatValidation);
 ?>
 
-<h2>Contrôleurs</h2>
+<h2>Application</h2>
 <?php
-$controleurs = $resultatValidation['controleurs'];
-afficherErreurs($controleurs);
-?>
-
-<h2>Vues</h2>
-<?php
-$vues = $resultatValidation['vues'];
-afficherErreurs($vues);
-?>
-
-<h2>Modèle</h2>
-<?php
-$modele = $resultatValidation['modele'];
-afficherErreurs($modele);
+afficherErreurs($resultatValidation['application']);
 ?>
 
 <h2>Librairie</h2>
@@ -254,22 +195,9 @@ $resultatValidation = $this->acl;
 afficherResume($resultatValidation);
 ?>
 
-<h2>Contrôleurs</h2>
+<h2>Application</h2>
 <?php
-$controleurs = $resultatValidation['controleurs'];
-afficherErreurs($controleurs);
-?>
-
-<h2>Vues</h2>
-<?php
-$vues = $resultatValidation['vues'];
-afficherErreurs($vues);
-?>
-
-<h2>Modèle</h2>
-<?php
-$modele = $resultatValidation['modele'];
-afficherErreurs($modele);
+afficherErreurs($resultatValidation['application']);
 ?>
 
 <h2>Librairie</h2>
@@ -285,23 +213,9 @@ $resultatValidation = $this->pagesmenus;
 afficherResume($resultatValidation);
 ?>
 
-<h2>Contrôleurs</h2>
+<h2>Application</h2>
 <?php
-$resultatValidation = $this->pagesmenus;
-$controleurs = $resultatValidation['controleurs'];
-afficherErreurs($controleurs);
-?>
-
-<h2>Vues</h2>
-<?php
-$vues = $resultatValidation['vues'];
-afficherErreurs($vues);
-?>
-
-<h2>Modèle</h2>
-<?php
-$modele = $resultatValidation['modele'];
-afficherErreurs($modele);
+afficherErreurs($resultatValidation['application']);
 ?>
 
 <h2>Librairie</h2>
@@ -317,23 +231,9 @@ $resultatValidation = $this->langues;
 afficherResume($resultatValidation);
 ?>
 
-<h2>Contrôleurs</h2>
+<h2>Application</h2>
 <?php
-$resultatValidation = $this->langues;
-$controleurs = $resultatValidation['controleurs'];
-afficherErreurs($controleurs);
-?>
-
-<h2>Vues</h2>
-<?php
-$vues = $resultatValidation['vues'];
-afficherErreurs($vues);
-?>
-
-<h2>Modèle</h2>
-<?php
-$modele = $resultatValidation['modele'];
-afficherErreurs($modele);
+afficherErreurs($resultatValidation['application']);
 ?>
 
 <h2>Librairie</h2>
@@ -349,23 +249,9 @@ $resultatValidation = $this->interfacesgeneriques;
 afficherResume($resultatValidation);
 ?>
 
-<h2>Contrôleurs</h2>
+<h2>Application</h2>
 <?php
-$resultatValidation = $this->interfacesgeneriques;
-$controleurs = $resultatValidation['controleurs'];
-afficherErreurs($controleurs);
-?>
-
-<h2>Vues</h2>
-<?php
-$vues = $resultatValidation['vues'];
-afficherErreurs($vues);
-?>
-
-<h2>Modèle</h2>
-<?php
-$modele = $resultatValidation['modele'];
-afficherErreurs($modele);
+afficherErreurs($resultatValidation['application']);
 ?>
 
 <h2>Librairie</h2>
@@ -381,23 +267,9 @@ $resultatValidation = $this->supervision;
 afficherResume($resultatValidation);
 ?>
 
-<h2>Contrôleurs</h2>
+<h2>Application</h2>
 <?php
-$resultatValidation = $this->supervision;
-$controleurs = $resultatValidation['controleurs'];
-afficherErreurs($controleurs);
-?>
-
-<h2>Vues</h2>
-<?php
-$vues = $resultatValidation['vues'];
-afficherErreurs($vues);
-?>
-
-<h2>Modèle</h2>
-<?php
-$modele = $resultatValidation['modele'];
-afficherErreurs($modele);
+afficherErreurs($resultatValidation['application']);
 ?>
 
 <h2>Librairie</h2>
