@@ -1,6 +1,7 @@
 <?php
 // Formate l'affichage du nom d'un fichier
-function formaterNomFichier($filename) {
+function formaterNomFichier($filename)
+{
     // Sépare à "controllers"
     $array = preg_split('#/controllers/#', $filename, 2);
     if (count($array) > 1) {
@@ -35,7 +36,8 @@ function formaterNomFichier($filename) {
 }
 
 // Affiche le résumé des erreurs
-function afficherResume($resultats) {
+function afficherResume($resultats)
+{
     $tableauFichiers = array();
     foreach ($resultats as $tableau) {
         $tableauFichiers = array_merge($tableauFichiers, $tableau);
@@ -65,7 +67,8 @@ function afficherResume($resultats) {
 }
 
 // Affiche le tableau des erreurs
-function afficherErreurs($tableauFichiers) {
+function afficherErreurs($tableauFichiers)
+{
     ?>
     <table class="tableauErreurs" summary="Liste des erreurs">
         <tr>
@@ -117,8 +120,16 @@ function afficherErreurs($tableauFichiers) {
 <?php
 $resultatValidation = $this->librairie;
 afficherResume($resultatValidation);
-$librairie = $resultatValidation['librairie'];
+$librairie = $resultatValidation;
 afficherErreurs($librairie);
+?>
+
+<h1>Modules</h1>
+<?php
+$resultatValidation = $this->modules;
+afficherResume($resultatValidation);
+$modules = $resultatValidation;
+afficherErreurs($modules);
 ?>
 
 <h1>Base Carbone</h1>

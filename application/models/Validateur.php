@@ -21,7 +21,7 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
                 => "L'héritage direct aux classes de Zend Framework n'est pas autorisé",
             '#^class ([a-zA-Z0-9]+) extends MCS_Modele_DAO[^_]#'
                 => "Pas d'héritage directe à la classe abstraite DAO (il faut choisir une de ses classe fille)",
-            '#if ?\(.*([^=!><]+)=([^=]+){#'
+            '#if ?\(.*([^=!><\?]+)=([^=]+){#'
                 => "Pas de '=' dans les if (confusion possible avec '==')",
             '#<\?([^p=])#'
                 => "Les balises PHP d'ouverture simples '&lt;?' ne sont pas autorisées (cf. guide de style)",
@@ -92,9 +92,8 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
             $dossier .= DIRECTORY_SEPARATOR;
         }
         // Librairie
-        $librairie = $this->scannerDossier($dossier . 'Mycsense/');
-        $retour['librairie'] = $librairie;
-        return $retour;
+        $librairie = $this->scannerDossier($dossier);
+        return $librairie;
     }
 
     /**
