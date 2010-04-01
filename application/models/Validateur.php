@@ -64,15 +64,6 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
         if (substr($dossier, -1) != DIRECTORY_SEPARATOR) {
             $dossier .= DIRECTORY_SEPARATOR;
         }
-//        // Controleurs
-//        $controleurs = $this->scannerDossier($dossier . 'application/controllers/');
-//        $retour['controleurs'] = $controleurs;
-//        // Vues
-//        $vues = $this->scannerDossier($dossier . 'application/views/scripts/');
-//        $retour['vues'] = $vues;
-//        // Modèle
-//        $modele = $this->scannerDossier($dossier . 'application/models/');
-//        $retour['modele'] = $modele;
         // Application
         $modele = $this->scannerDossier($dossier . 'application/');
         $retour['application'] = $modele;
