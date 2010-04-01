@@ -30,7 +30,7 @@ class ValidateurController extends MCS_Controller
     {
         // Execution de phpdoc
         $phpdoc = 'phpcs -n --standard=/home/dev/supervision/GuideStyle/Mycsense';
-        $source = '/home/dev/librairies/Mycsense/';
+        $source = '/home/dev/librairies/MCS/';
         $this->view->commande = "$phpdoc $source 2>&1 | grep -v 'Break statement'";
         $output = array();
         exec($this->view->commande, $output, $retour);
