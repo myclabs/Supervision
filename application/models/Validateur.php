@@ -33,7 +33,7 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
                 => "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
             '#[^<]\?([^>]*)[^:]:[^:]#'
                 => "Erreur guide de style : 'if' contracté (...?...:...)",
-            '#^ #'
+            '#^\t#'
                 => "Guide de style : utiliser des espaces, pas des tabulations",
             '#var_dump\(#'
                 => "Ne pas laisser de var_dump dans le code",
