@@ -31,7 +31,7 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
                 => "getAdapter() est une méthode dépréciée. Voir le wiki pour les fonctions à utiliser",*/
             '#\$this\->getMapper\(\)#'
                 => "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
-            '#[^v][^a][^r][^<]\?([^>]*)[^:]:[^:]#'
+            '#[^<]\?([^>]*)[^:]:[^:]#'
                 => "Erreur guide de style : 'if' contracté (...?...:...)",
             '#^\t#'
                 => "Guide de style : utiliser des espaces, pas des tabulations",
@@ -74,7 +74,7 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
 //        $modele = $this->scannerDossier($dossier . 'application/models/');
 //        $retour['modele'] = $modele;
         // Application
-        $modele = $this->scannerDossier($dossier . 'application/models/');
+        $modele = $this->scannerDossier($dossier . 'application/');
         $retour['application'] = $modele;
         // Librairie
         $librairie = $this->scannerDossier($dossier . 'library/Mycsense/');
