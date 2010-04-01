@@ -3,7 +3,7 @@
  * Validateur
  * Design pattern singleton
  */
-class MCS_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
+class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
 {
 
     // Fichiers à analyser
