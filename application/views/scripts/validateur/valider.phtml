@@ -138,22 +138,9 @@ $resultatValidation = $this->basecarbone;
 afficherResume($resultatValidation);
 ?>
 
-<h2>Contrôleurs</h2>
+<h2>Application</h2>
 <?php
-$controleurs = $resultatValidation['controleurs'];
-afficherErreurs($controleurs);
-?>
-
-<h2>Vues</h2>
-<?php
-$vues = $resultatValidation['vues'];
-afficherErreurs($vues);
-?>
-
-<h2>Modèle</h2>
-<?php
-$modele = $resultatValidation['modele'];
-afficherErreurs($modele);
+afficherErreurs($resultatValidation['application']);
 ?>
 
 <h2>Librairie</h2>

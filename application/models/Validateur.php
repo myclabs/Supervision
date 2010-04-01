@@ -64,15 +64,18 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
         if (substr($dossier, -1) != DIRECTORY_SEPARATOR) {
             $dossier .= DIRECTORY_SEPARATOR;
         }
-        // Controleurs
-        $controleurs = $this->scannerDossier($dossier . 'application/controllers/');
-        $retour['controleurs'] = $controleurs;
-        // Vues
-        $vues = $this->scannerDossier($dossier . 'application/views/scripts/');
-        $retour['vues'] = $vues;
-        // Modèle
+//        // Controleurs
+//        $controleurs = $this->scannerDossier($dossier . 'application/controllers/');
+//        $retour['controleurs'] = $controleurs;
+//        // Vues
+//        $vues = $this->scannerDossier($dossier . 'application/views/scripts/');
+//        $retour['vues'] = $vues;
+//        // Modèle
+//        $modele = $this->scannerDossier($dossier . 'application/models/');
+//        $retour['modele'] = $modele;
+        // Application
         $modele = $this->scannerDossier($dossier . 'application/models/');
-        $retour['modele'] = $modele;
+        $retour['application'] = $modele;
         // Librairie
         $librairie = $this->scannerDossier($dossier . 'library/Mycsense/');
         $retour['librairie'] = $librairie;
@@ -117,7 +120,8 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
             } else {
                 $extension = strrchr($element, '.');
                 if ((in_array($extension, $this->_extensions))
-                    &&	($dossier . $element != __FILE__)) {
+                    &&	($dossier . $element != __FILE__)
+                ) {
                     // Valide le fichier trouvé
                     $erreurs = $this->validerFichier($dossier . $element);
                     $retour[$dossier . $element] = $erreurs;
@@ -127,7 +131,10 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
         // Analyse les sous-dossiers
         foreach ($sousDossiers as $sousDossier) {
             // Évite les fichiers cachés et "." et ".."
-            if ($sousDossier[0] != '.') {
+            if (($sousDossier[0] != '.')
+                && ($sousDossier != 'configs')
+                && ($sousDossier != 'layout')
+            ) {
                 $tableau = $this->scannerDossier($dossier . $sousDossier . DIRECTORY_SEPARATOR);
                 // Utiliser cette syntaxe plutot que array_merge (cf doc en ligne)
                 $retour = $retour + $tableau;
