@@ -2,28 +2,33 @@
 // Formate l'affichage du nom d'un fichier
 function formaterNomFichier($filename)
 {
-    // Sépare à "controllers"
-    $array = preg_split('#/controllers/#', $filename, 2);
+    // Sépare à "application"
+    $array = preg_split('#/application/#', $filename, 2);
     if (count($array) > 1) {
         $filename = $array[1];
     }
-    // Sépare à "/views/scripts"
-    $array = preg_split('#/views/scripts/#', $filename, 2);
-    if (count($array) > 1) {
-        $filename = $array[1];
-    }
-    // Sépare à "models"
-    $array = preg_split('#/models/#', $filename, 2);
-    if (count($array) > 1) {
-        $filename = $array[1];
-    }
-    // Sépare à "/library/Mycsense/"
-    $array = preg_split('#/library/Mycsense/#', $filename, 2);
-    if (count($array) > 1) {
-        $filename = $array[1];
-    }
+//    // Sépare à "/views/scripts"
+//    $array = preg_split('#/views/scripts/#', $filename, 2);
+//    if (count($array) > 1) {
+//        $filename = $array[1];
+//    }
+//    // Sépare à "models"
+//    $array = preg_split('#/models/#', $filename, 2);
+//    if (count($array) > 1) {
+//        $filename = $array[1];
+//    }
+//    // Sépare à "/library/Mycsense/"
+//    $array = preg_split('#/library/Mycsense/#', $filename, 2);
+//    if (count($array) > 1) {
+//        $filename = $array[1];
+//    }
+//    // Sépare à "librairies"
+//    $array = preg_split('#/librairies/Mycsense/#', $filename, 2);
+//    if (count($array) > 1) {
+//        $filename = $array[1];
+//    }
     // Sépare à "librairies"
-    $array = preg_split('#/librairies/Mycsense/#', $filename, 2);
+    $array = preg_split('#/librairies/#', $filename, 2);
     if (count($array) > 1) {
         $filename = $array[1];
     }
