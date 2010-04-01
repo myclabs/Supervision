@@ -20,7 +20,7 @@ class ValidateurController extends MCS_Controller
         $this->view->langues = $validateur->validerProjet($dossier . 'langues');
         $this->view->interfacesgeneriques = $validateur->validerProjet($dossier . 'interfacesgeneriques');
         $this->view->supervision = $validateur->validerProjet($dossier . 'supervision');
-        $this->view->librairie = $validateur->validerLibrairie($dossier . 'librairies');
+        $this->view->librairie = $validateur->validerLibrairie($dossier . 'librairies/MCS');
     }
 
     /**
