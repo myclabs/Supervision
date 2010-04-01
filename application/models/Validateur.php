@@ -33,9 +33,8 @@ class MCS_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
                 => "getMapper() est une méthode statique, ne pas utiliser '\$this->' mais 'self::'",
             '#[^<]\?([^>]*)[^:]:[^:]#'
                 => "Erreur guide de style : 'if' contracté (...?...:...)",
-            '#^    #'
-                => "Guide de style : utiliser des tabulations, pas des espaces (utiliser
-                    le menu Source>Format dans Eclipse pour corriger automatiquement",
+            '#^ #'
+                => "Guide de style : utiliser des espaces, pas des tabulations",
             '#var_dump\(#'
                 => "Ne pas laisser de var_dump dans le code",
             '#^([\t ]+)\{([\t ]+)([a-zA-Z0-9\/\$_]+)#'
@@ -118,7 +117,7 @@ class MCS_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
                 $sousDossiers[] = $element;
             } else {
                 $extension = strrchr($element, '.');
-                if (	(in_array($extension, $this->_extensions))
+                if ((in_array($extension, $this->_extensions))
                     &&	($dossier . $element != __FILE__)) {
                     // Valide le fichier trouvé
                     $erreurs = $this->validerFichier($dossier . $element);
