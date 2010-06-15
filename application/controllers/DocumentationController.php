@@ -10,7 +10,7 @@ class DocumentationController extends MCS_Controller
         $sortie = '/home/dev/phpdoc/';
         //$template = 'HTML:Smarty:PHP';
         $template = 'HTML:frames/Extjs:default';
-        $source = '/home/dev/librairies/MCS,/home/dev/librairies/Modules';
+        $source = '/home/dev/librairies/Modules';
         $this->view->commande = "$phpdoc -t $sortie -o $template -d $source 2>&1";
         if (!is_dir($sortie) || !is_dir($source)) {
             $this->view->resultatGeneration = 'echec';
