@@ -1,5 +1,5 @@
 <?php
-
+       
 class DocumentationController extends MCS_Controller
 {
 
@@ -8,8 +8,9 @@ class DocumentationController extends MCS_Controller
         // Execution de phpdoc
         $phpdoc = 'phpdoc';
         $sortie = '/home/dev/phpdoc/';
-        $template = 'HTML:Smarty:PHP';
-        $source = '/home/dev/librairies/MCS';
+        //$template = 'HTML:Smarty:PHP';
+        $template = 'HTML:frames/Extjs:default';
+        $source = '/home/dev/librairies/MCS,/home/dev/librairies/Modules,/home/dev/basecarbone/application/basecarbone/models';
         $this->view->commande = "$phpdoc -t $sortie -o $template -d $source 2>&1";
         if (!is_dir($sortie) || !is_dir($source)) {
             $this->view->resultatGeneration = 'echec';
