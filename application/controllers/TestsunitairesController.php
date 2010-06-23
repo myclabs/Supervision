@@ -105,7 +105,7 @@ class TestsunitairesController extends MCS_Controller
         }
         
         // Création de la liste des personnes ayant fait des commit
-        $commande = "svn log --username vincent.preuvot  --password raxc93x1 svn://localhost/";
+        $commande = "svn log --username scripts  --password r9e2dij23a svn://localhost/";
         
         // Récupération des logs svn
         $logs = array();
@@ -139,17 +139,16 @@ class TestsunitairesController extends MCS_Controller
             foreach ($personnes as $repository => $commits){
                 $texte .= " > ".$repository."\n";
                 foreach($commits as $personne => $donnees){
-                    $texte .= "   > ".$personne. "(".$donnees['nombre_de_commit'].")\n";
+                    $texte .= "          > ".$personne. "(".$donnees['nombre_de_commit'].")\n";
                 }
             }
         }        
         
-        // Envoi du mail
+        // Envoi du mail 
         $mail = new Zend_Mail();
         $mail->setBodyText($texte);
         $mail->setFrom('rapports@myc-sense.com', 'Rapports Myc-sense');
-        //$mail->addTo('dev@myc-sense.com', 'Développeurs');
-        $mail->addTo('vpreuvot@gmail.com', 'Développeurs');
+        $mail->addTo('dev@myc-sense.com', 'Développeurs');
         $mail->setSubject(utf8_decode("Rapport journalier"));
         $mail->send();
     }
