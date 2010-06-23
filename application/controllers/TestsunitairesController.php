@@ -105,6 +105,7 @@ class TestsunitairesController extends MCS_Controller
         // Récupération des logs svn
         $logs = array();
         foreach($librairies as $librairie){
+            echo $commande . $librairie.'<br/>';
             exec($commande . $librairie, $logs[$librairie], $retour);
         }
         
