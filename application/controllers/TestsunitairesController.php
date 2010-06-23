@@ -94,9 +94,9 @@ class TestsunitairesController extends MCS_Controller
                 $texte .= "  - ".$erreur."\n";
             }
             
-            $texte .= "Pour voir les details des erreurs, exécutez les tests en allant sur la page http://dev.myc-sense.com/supervision/testsunitaires/librairies";
+            $texte .= "\nPour voir les details des erreurs, exécutez les tests en allant sur la page http://dev.myc-sense.com/supervision/testsunitaires/librairies";
             
-            $texte = utf8_encode($texte);
+            $texte = utf8_decode($texte);
             
             // Envoi du mail
             $mail = new Zend_Mail();
@@ -104,7 +104,7 @@ class TestsunitairesController extends MCS_Controller
             $mail->setFrom('rapport@myc-sense.com', 'Rapports Myc-sense');
             //$mail->addTo('dev@myc-sense.com', 'Développeurs');
             $mail->addTo('vpreuvot@gmail.com', 'Développeurs');
-            $mail->setSubject(utf8_encode("Rapport d'erreurs lors de l'exécution des tests unitaires"));
+            $mail->setSubject(utf8_decode("Rapport d'erreurs lors de l'exécution des tests unitaires"));
             $mail->send();
             
             echo 'mail envoye';
