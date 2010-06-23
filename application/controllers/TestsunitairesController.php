@@ -69,15 +69,46 @@ class TestsunitairesController extends MCS_Controller
         // Tableau qui va contenir les erreurs
         $erreurs = array();
         
+        // Exécution des tests
         foreach($librairies as $librairie){
             $dossier = $basePath . $librairie;
             $commande = "$phpunit $dossier 2>&1";
             exec($commande, $resultats[$librairie], $retour);
         }
         
-        var_dump($resultats);
-        die();
+        // Recherche d'éventuelles erreurs
+        foreach($resultats as $librairie => $resultat) {
+            // Si c'est OK
+            if (strpos($resultat[count($resultat)-1], 'OK') == false) {
+                $erreurs[] = 'Une erreur est survenue lors de l\'exécution des tests unitaires sur le module '.$librairie.' de la librairie';
+            }   
+        }
+        
+        // Envoi du mail si on a des erreurs
+        if(!empty($erreurs)){
+            // Préparation du texte
+            $texte = 'Date : '.date('d-m-Y H:i:s').'\n\n';
+            $texte .= 'Les erreurs suivantes sont survenues lors des tests :\n';
 
+            foreach($erreurs as $erreur){
+                $texte .= '  - '.$erreur.'\n';
+            }
+            
+            $texte .= 'Pour voir les details des erreurs, exécutez les tests en allant sur la page http://dev.myc-sense.com/supervision/testsunitaires/librairies';
+            
+            // Envoi du mail
+            $mail = new Zend_Mail();
+            $mail->setBodyText($texte);
+            $mail->setFrom('rapport@myc-sense.com', 'Rapports Myc-sense');
+            //$mail->addTo('dev@myc-sense.com', 'Développeurs');
+            $mail->addTo('vpreuvot@gmail.com', 'Développeurs');
+            $mail->setSubject('Rapport d\'erreurs lors de l\'exécution des tests unitaires');
+            $mail->send();
+            
+            echo 'mail envoye';
+        }
+        
+        die();
     }
     
     /**
