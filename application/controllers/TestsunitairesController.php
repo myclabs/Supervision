@@ -64,6 +64,11 @@ class TestsunitairesController extends MCS_Controller
             'utilisateurs', 'unites', 'acl', 'navigation', 'langues'
         );
         
+        // Tableau contenant les dépôts svn
+        $repositories = array(
+            'myc-sensecentral', 'myc-sensedev'
+        );
+        
         $resultats = array();
         
         // Tableau qui va contenir les erreurs
@@ -104,9 +109,8 @@ class TestsunitairesController extends MCS_Controller
         
         // Récupération des logs svn
         $logs = array();
-        foreach($librairies as $librairie){
-            echo $commande . $librairie.'<br/>';
-            exec($commande . $librairie, $logs[$librairie], $retour);
+        foreach($repositories as $repository){
+            exec($commande . $repository . " 2>&1", $logs[$repository], $retour);
         }
         
         var_dump($logs);
