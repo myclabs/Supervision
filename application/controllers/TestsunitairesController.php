@@ -64,13 +64,15 @@ class TestsunitairesController extends MCS_Controller
             'utilisateurs', 'unites', 'acl', 'navigation', 'langues'
         );
         
+        $resultats = array();
+        
         // Tableau qui va contenir les erreurs
         $erreurs = array();
         
         foreach($librairies as $librairie){
             $dossier = $basePath . $librairie;
             $commande = "$phpunit $dossier 2>&1";
-            exec($commande, $resultat[$librairie], $retour);
+            exec($commande, $resultats[$librairie], $retour);
         }
         
         var_dump($resultats);
