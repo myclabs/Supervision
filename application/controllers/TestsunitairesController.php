@@ -123,9 +123,9 @@ class TestsunitairesController extends MCS_Controller
                     $date = $infos[2];
                     if(date('Y-m-d') == substr($date, 0, 10)){
                         if(empty($personnes[$infos[1]])){
-                            $personnes[$infos[1]]['nombre_de_commit'] = 1;
+                            $personnes[$repository][$infos[1]]['nombre_de_commit'] = 1;
                         }else{
-                            $personnes[$infos[1]]['nombre_de_commit']++;
+                            $personnes[$repository][$infos[1]]['nombre_de_commit']++;
                         }
                     }
                 }
