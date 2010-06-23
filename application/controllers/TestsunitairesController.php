@@ -56,47 +56,26 @@ class TestsunitairesController extends MCS_Controller
     }
 
     public function librairiesAction(){
-        // Différences
         $phpunit = 'phpunit --verbose';
         $basePath = '/home/dev/';
         
-        // Tableau contenant les erreurs
+        // Tableau contenant les chemins vers les modules de la librairie
+        $librairies = array(
+            'utilisateurs', 'unites', 'acl', 'navigation', 'langues'
+        );
+        
+        // Tableau qui va contenir les erreurs
         $erreurs = array();
         
-        // Résultats de la commande
+        foreach($librairies as $librairie){
+            $dossier = $basePath . $librairie;
+            $commande = "$phpunit $dossier 2>&1";
+            exec($commande, $resultat[$librairie], $retour);
+        }
         
-        // Utilisateurs
-        $dossier = $basePath . 'utilisateurs/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->utilisateurs = array();
-        exec($commande, $resultat, $retour);
-        
-        var_dump($resultat);
+        var_dump($resultats);
         die();
 
-        // Unites
-        $dossier = $basePath . 'unites/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->unites = array();
-        exec($commande, $this->view->unites, $retour);
-
-        // Acl
-        $dossier = $basePath . 'acl/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->acl = array();
-        exec($commande, $this->view->acl, $retour);
-
-        // Navigation
-        $dossier = $basePath . 'navigation/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->navigation = array();
-        exec($commande, $this->view->navigation, $retour);
-
-        // International
-        $dossier = $basePath . 'langues/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->langues = array();
-        exec($commande, $this->view->langues, $retour);
     }
     
     /**
