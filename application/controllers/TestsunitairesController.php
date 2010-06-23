@@ -113,7 +113,26 @@ class TestsunitairesController extends MCS_Controller
             exec($commande . $repository . " 2>&1", $logs[$repository], $retour);
         }
         
-        var_dump($logs);
+        // Récupération des personnes ayant fait un commit les dernières 24h
+        $personnes = array();
+        foreach ($logs as $repository => $messages){
+            foreach ($messages as $message){
+                if($message[0] == 'r' && is_numeric($message[1])){
+                    $infos = explode(' | ', $message);
+                    
+                    $date = $infos[2];
+                    if(date('Y-m-d') == substr($date, 0, 10)){
+                        if(empty($personnes[$infos[1]])){
+                            $personnes[$infos[1]]['nombre_de_commit'] = 1;
+                        }else{
+                            $personnes[$infos[1]]['nombre_de_commit']++;
+                        }
+                    }
+                }
+            }
+        }    
+
+        var_dump($personnes);
         die();
         
         
