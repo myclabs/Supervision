@@ -55,6 +55,42 @@ class TestsunitairesController extends MCS_Controller
         exec($commande, $this->view->langues, $retour);
     }
 
+    public function librairiesAction(){
+        // Différences
+        $phpunit = 'phpunit --verbose';
+        $basePath = '/home/dev/';
+        
+        // Utilisateurs
+        $dossier = $basePath . 'utilisateurs/tests';
+        $commande = "$phpunit $dossier 2>&1";
+        $this->view->utilisateurs = array();
+        exec($commande, $this->view->utilisateurs, $retour);
+
+        // Unites
+        $dossier = $basePath . 'unites/tests';
+        $commande = "$phpunit $dossier 2>&1";
+        $this->view->unites = array();
+        exec($commande, $this->view->unites, $retour);
+
+        // Acl
+        $dossier = $basePath . 'acl/tests';
+        $commande = "$phpunit $dossier 2>&1";
+        $this->view->acl = array();
+        exec($commande, $this->view->acl, $retour);
+
+        // Navigation
+        $dossier = $basePath . 'navigation/tests';
+        $commande = "$phpunit $dossier 2>&1";
+        $this->view->navigation = array();
+        exec($commande, $this->view->navigation, $retour);
+
+        // International
+        $dossier = $basePath . 'langues/tests';
+        $commande = "$phpunit $dossier 2>&1";
+        $this->view->langues = array();
+        exec($commande, $this->view->langues, $retour);
+    }
+    
     /**
      * Génerer le rapport de couverture de code
      */
