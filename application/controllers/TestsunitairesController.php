@@ -132,9 +132,17 @@ class TestsunitairesController extends MCS_Controller
             }
         }    
 
-        var_dump($personnes);
-        die();
-        
+        // Si on a des personnes qui ont commit
+        if(!empty($personnes)){
+            $texte .= "\n\n\n";
+            $texte .= "Liste des commits par dépôt :\n";
+            foreach ($personnes as $repository => $commits){
+                $texte .= "-> ".$repository."\n";
+                foreach($commits as $personne => $nombre){
+                    $texte .= "-----> ".$personne. "(".$nombre.")\n";
+                }
+            }
+        }        
         
         // Envoi du mail
         $mail = new Zend_Mail();
