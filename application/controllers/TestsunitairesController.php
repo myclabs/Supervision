@@ -60,11 +60,19 @@ class TestsunitairesController extends MCS_Controller
         $phpunit = 'phpunit --verbose';
         $basePath = '/home/dev/';
         
+        // Tableau contenant les erreurs
+        $erreurs = array();
+        
+        // Résultats de la commande
+        
         // Utilisateurs
         $dossier = $basePath . 'utilisateurs/tests';
         $commande = "$phpunit $dossier 2>&1";
         $this->view->utilisateurs = array();
-        exec($commande, $this->view->utilisateurs, $retour);
+        exec($commande, $resultat, $retour);
+        
+        var_dump($resultat);
+        die();
 
         // Unites
         $dossier = $basePath . 'unites/tests';
