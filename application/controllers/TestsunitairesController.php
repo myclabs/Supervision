@@ -103,7 +103,7 @@ class TestsunitairesController extends MCS_Controller
             $mail->setBodyText($texte);
             $mail->setFrom('rapport@myc-sense.com', 'Rapports Myc-sense');
             //$mail->addTo('dev@myc-sense.com', 'Développeurs');
-            //$mail->addTo('vpreuvot@gmail.com', 'Développeurs');
+            $mail->addTo('vpreuvot@gmail.com', 'Développeurs');
             $mail->setSubject(utf8_encode("Rapport d'erreurs lors de l'exécution des tests unitaires"));
             $mail->send();
             
