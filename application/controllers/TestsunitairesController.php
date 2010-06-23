@@ -80,7 +80,7 @@ class TestsunitairesController extends MCS_Controller
         foreach($resultats as $librairie => $resultat) {
             // Si c'est OK
             if (strpos($resultat[count($resultat)-1], 'OK') == false) {
-                $erreurs[] = 'Une erreur est survenue lors de l\'exécution des tests unitaires sur le module '.$librairie.' de la librairie';
+                $erreurs[] = 'Module '.$librairie;
             }   
         }
         
@@ -97,20 +97,29 @@ class TestsunitairesController extends MCS_Controller
             $texte .= "\nPour voir les details des erreurs, exécutez les tests en allant sur la page http://dev.myc-sense.com/supervision/testsunitaires/librairies";
             
             $texte = utf8_decode($texte);
-            
-            // Envoi du mail
-            $mail = new Zend_Mail();
-            $mail->setBodyText($texte);
-            $mail->setFrom('rapport@myc-sense.com', 'Rapports Myc-sense');
-            //$mail->addTo('dev@myc-sense.com', 'Développeurs');
-            $mail->addTo('vpreuvot@gmail.com', 'Développeurs');
-            $mail->setSubject(utf8_decode("Rapport d'erreurs lors de l'exécution des tests unitaires"));
-            $mail->send();
-            
-            echo 'mail envoye';
         }
         
+        // Création de la liste des personnes ayant fait des commit
+        $commande = "svn log --username vincent.preuvot  --password raxc93x1 svn://localhost/";
+        
+        // Récupération des logs svn
+        $logs = array();
+        foreach($librairies as $librairie){
+            exec($commande . $librairie, $logs[$librairie], $retour);
+        }
+        
+        var_dump($logs);
         die();
+        
+        
+        // Envoi du mail
+        $mail = new Zend_Mail();
+        $mail->setBodyText($texte);
+        $mail->setFrom('rapports@myc-sense.com', 'Rapports Myc-sense');
+        //$mail->addTo('dev@myc-sense.com', 'Développeurs');
+        $mail->addTo('vpreuvot@gmail.com', 'Développeurs');
+        $mail->setSubject(utf8_decode("Rapport journalier"));
+        $mail->send();
     }
     
     /**
