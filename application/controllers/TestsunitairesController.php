@@ -134,12 +134,12 @@ class TestsunitairesController extends MCS_Controller
 
         // Si on a des personnes qui ont commit
         if(!empty($personnes)){
-            $texte .= "\n\n\n";
-            $texte .= "Liste des commits par dépôt :\n";
+            $texte .= "\n\n";
+            $texte .= utf8_decode("Liste des commits par dépôt :\n");
             foreach ($personnes as $repository => $commits){
-                $texte .= "-> ".$repository."\n";
-                foreach($commits as $personne => $nombre){
-                    $texte .= "-----> ".$personne. "(".$nombre.")\n";
+                $texte .= " > ".$repository."\n";
+                foreach($commits as $personne => $donnees){
+                    $texte .= "   > ".$personne. "(".$donnees['nombre_de_commit'].")\n";
                 }
             }
         }        
