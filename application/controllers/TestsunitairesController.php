@@ -99,7 +99,7 @@ class TestsunitairesController extends MCS_Controller
                 $texte .= "  - ".$erreur."\n";
             }
             
-            $texte .= "\nPour voir les details des erreurs, exécutez les tests en allant sur la page http://dev.myc-sense.com/supervision/testsunitaires/librairies";
+            $texte .= "\nPour voir les details des erreurs, exécutez les tests en allant sur la page http://dev.myc-sense.com/supervision/testsunitaires/executer";
             
             $texte = utf8_decode($texte);
         }
