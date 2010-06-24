@@ -123,9 +123,11 @@ class TestsunitairesController extends MCS_Controller
                     $date = $infos[2];
                     if(date('Y-m-d') == substr($date, 0, 10)){
                         if(empty($personnes[$infos[1]])){
+                            echo 'empty';
                             $personnes[$repository][$infos[1]]['nombre_de_commit'] = 1;
                         }else{
-                            $personnes[$repository][$infos[1]]['nombre_de_commit']++;
+                            echo 'pas empty';
+                            $personnes[$repository][$infos[1]]['nombre_de_commit'] = $personnes[$repository][$infos[1]]['nombre_de_commit'] + 1;
                         }
                     }
                 }
@@ -143,14 +145,13 @@ class TestsunitairesController extends MCS_Controller
                 }
             }
         }       
-
-        echo $texte;
         
         // Envoi du mail 
         $mail = new Zend_Mail();
         $mail->setBodyText($texte);
         $mail->setFrom('rapports@myc-sense.com', 'Rapports Myc-sense');
-        $mail->addTo('developpeurs@myc-sense.com', 'Développeurs');
+        //$mail->addTo('developpeurs@myc-sense.com', 'Développeurs');
+        $mail->addTo('vincent.preuvot@myc-sense.com', 'Développeurs');
         $mail->setSubject(utf8_decode("Rapport journalier"));
         $mail->send();
     }
