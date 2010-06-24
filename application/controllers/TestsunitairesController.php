@@ -150,7 +150,7 @@ class TestsunitairesController extends MCS_Controller
         $mail = new Zend_Mail();
         $mail->setBodyText($texte);
         $mail->setFrom('rapports@myc-sense.com', 'Rapports Myc-sense');
-        $mail->addTo('tous@myc-sense.com');
+        $mail->addTo('developpeurs@myc-sense.com', 'Développeurs');
         $mail->setSubject(utf8_decode("Rapport journalier"));
         $mail->send();
     }
