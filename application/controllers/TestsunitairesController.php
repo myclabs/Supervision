@@ -142,7 +142,9 @@ class TestsunitairesController extends MCS_Controller
                     $texte .= "          > ".$personne. "(".$donnees['nombre_de_commit'].")\n";
                 }
             }
-        }        
+        }       
+
+        echo $texte;
         
         // Envoi du mail 
         $mail = new Zend_Mail();
