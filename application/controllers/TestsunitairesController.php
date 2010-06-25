@@ -55,96 +55,99 @@ class TestsunitairesController extends MCS_Controller
         exec($commande, $this->view->langues, $retour);
     }
 
-    public function librairiesAction(){
+    public function librairiesAction()
+    {
         $phpunit = 'phpunit --verbose';
         $basePath = '/home/dev/';
-        
+
         // Tableau contenant les chemins vers les modules de la librairie
         $librairies = array(
             'utilisateurs', 'unites', 'acl', 'navigation', 'langues'
         );
-        
+
         // Tableau contenant les dépôts svn
         $repositories = array(
             'myc-sensecentral', 'myc-sensedev'
         );
-        
+
         $resultats = array();
-        
+
         // Tableau qui va contenir les erreurs
         $erreurs = array();
-        
+
         // Exécution des tests
-        foreach($librairies as $librairie){
+        foreach ($librairies as $librairie) {
             $dossier = $basePath . $librairie;
             $commande = "$phpunit $dossier 2>&1";
             exec($commande, $resultats[$librairie], $retour);
         }
-        
+
         // Recherche d'éventuelles erreurs
-        foreach($resultats as $librairie => $resultat) {
+        foreach ($resultats as $librairie => $resultat) {
             // Si c'est OK
-            if (strpos($resultat[count($resultat)-1], 'OK') == false) {
+            if (strpos($resultat[count($resultat) - 1], 'OK') == false) {
                 $erreurs[] = 'Module '.$librairie;
-            }   
+            }
         }
-        
+
         // Envoi du mail si on a des erreurs
-        if(!empty($erreurs)){
+        if (!empty($erreurs)) {
             // Préparation du texte
             $texte = "Date : ".date('d-m-Y H:i:s')."\n\n";
             $texte .= "Les erreurs suivantes sont survenues lors des tests :\n";
 
-            foreach($erreurs as $erreur){
+            foreach ($erreurs as $erreur) {
                 $texte .= "  - ".$erreur."\n";
             }
-            
-            $texte .= "\nPour voir les details des erreurs, exécutez les tests en allant sur la page http://dev.myc-sense.com/supervision/testsunitaires/executer";
-            
+
+            $texte .= "\nPour voir les details des erreurs, exécutez les tests en allant "
+                . "sur la page http://dev.myc-sense.com/supervision/testsunitaires/executer";
+
             $texte = utf8_decode($texte);
         }
-        
+
         // Création de la liste des personnes ayant fait des commit
         $commande = "svn log --username scripts  --password r9e2dij23a svn://localhost/";
-        
+
         // Récupération des logs svn
         $logs = array();
-        foreach($repositories as $repository){
-            exec($commande . $repository . " 2>&1", $logs[$repository], $retour);
+        foreach ($repositories as $repository) {
+            exec($commande . $repository . " | grep " . date('Y-m-d') . " 2>&1", $logs[$repository], $retour);
         }
-        
+
         // Récupération des personnes ayant fait un commit les dernières 24h
         $personnes = array();
-        foreach ($logs as $repository => $messages){
-            foreach ($messages as $message){
-                if($message[0] == 'r' && is_numeric($message[1])){
+        foreach ($logs as $repository => $messages) {
+            foreach ($messages as $message) {
+                if ($message[0] == 'r' && is_numeric($message[1])) {
                     $infos = explode(' | ', $message);
-                    
+
                     $date = $infos[2];
-                    if(date('Y-m-d') == substr($date, 0, 10)){
-                        if(empty($personnes[$repository][$infos[1]])){
+                    if (date('Y-m-d') == substr($date, 0, 10)) {
+                        if (empty($personnes[$repository][$infos[1]])) {
                             $personnes[$repository][$infos[1]]['nombre_de_commit'] = 1;
                         }else{
-                            $personnes[$repository][$infos[1]]['nombre_de_commit'] = $personnes[$repository][$infos[1]]['nombre_de_commit'] + 1;
+                            $personnes[$repository][$infos[1]]['nombre_de_commit']
+                                = $personnes[$repository][$infos[1]]['nombre_de_commit'] + 1;
                         }
                     }
                 }
             }
-        }    
+        }
 
         // Si on a des personnes qui ont commit
-        if(!empty($personnes)){
+        if (!empty($personnes)) {
             $texte .= "\n\n";
             $texte .= utf8_decode("Liste des commits par dépôt :\n");
-            foreach ($personnes as $repository => $commits){
+            foreach ($personnes as $repository => $commits) {
                 $texte .= " > ".$repository."\n";
-                foreach($commits as $personne => $donnees){
+                foreach ($commits as $personne => $donnees) {
                     $texte .= "          > ".$personne. "(".$donnees['nombre_de_commit'].")\n";
                 }
             }
-        }       
-        
-        // Envoi du mail 
+        }
+
+        // Envoi du mail
         $mail = new Zend_Mail();
         $mail->setBodyText($texte);
         $mail->setFrom('rapports@myc-sense.com', 'Rapports Myc-sense');
@@ -153,7 +156,7 @@ class TestsunitairesController extends MCS_Controller
         $mail->setSubject(utf8_decode("Rapport journalier"));
         $mail->send();
     }
-    
+
     /**
      * Génerer le rapport de couverture de code
      */
