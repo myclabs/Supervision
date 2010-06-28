@@ -12,6 +12,12 @@ class TestsunitairesController extends MCS_Controller
         $phpunit = 'phpunit --verbose';
         $basePath = '/home/dev/';
 
+        // Stations de montagne
+        $dossier = $basePath . 'tests-librairie/tests';
+        $commande = "$phpunit $dossier 2>&1";
+        $this->view->librairie = array();
+        exec($commande, $this->view->librairie, $retour);
+
         // Base carbone
         $dossier = $basePath . 'basecarbone/tests';
         $commande = "$phpunit $dossier 2>&1";
