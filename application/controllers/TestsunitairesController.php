@@ -68,7 +68,7 @@ class TestsunitairesController extends MCS_Controller
 
         // Tableau contenant les chemins vers les modules de la librairie
         $librairies = array(
-            'utilisateurs', 'unites', 'acl', 'navigation', 'langues'
+            'utilisateurs', 'unites', 'acl', 'navigation', 'langues', 'stationsmontagne'
         );
 
         // Tableau contenant les dépôts svn
@@ -96,10 +96,11 @@ class TestsunitairesController extends MCS_Controller
             }
         }
 
+        // Préparation du texte
+        $texte = "Date : ".date('d-m-Y H:i:s')."\n\n";
+
         // Envoi du mail si on a des erreurs
         if (!empty($erreurs)) {
-            // Préparation du texte
-            $texte = "Date : ".date('d-m-Y H:i:s')."\n\n";
             $texte .= "Les erreurs suivantes sont survenues lors des tests :\n";
 
             foreach ($erreurs as $erreur) {
@@ -160,7 +161,7 @@ class TestsunitairesController extends MCS_Controller
         $mail->addTo('developpeurs@myc-sense.com', utf8_decode('Développeurs'));
         //$mail->addTo('vincent.preuvot@myc-sense.com', 'Développeurs');
         $mail->setSubject(utf8_decode("Rapport journalier"));
-        $mail->send();
+        //$mail->send();
     }
 
     /**
