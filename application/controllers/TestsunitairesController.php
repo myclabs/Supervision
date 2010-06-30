@@ -161,7 +161,7 @@ class TestsunitairesController extends MCS_Controller
         $mail->addTo('developpeurs@myc-sense.com', utf8_decode('Développeurs'));
         //$mail->addTo('vincent.preuvot@myc-sense.com', 'Développeurs');
         $mail->setSubject(utf8_decode("Rapport journalier"));
-        //$mail->send();
+        $mail->send();
     }
 
     /**
