@@ -90,8 +90,8 @@ class TestsunitairesController extends MCS_Controller
 
         // Recherche d'éventuelles erreurs
         foreach ($resultats as $librairie => $resultat) {
-            // Si c'est OK
-            if (strpos($resultat[count($resultat) - 1], 'OK') == false) {
+            // Si c'est pas OK
+            if (strpos($resultat[count($resultat) - 1], 'OK') === false) {
                 $erreurs[] = 'Module '.$librairie;
             }
         }
