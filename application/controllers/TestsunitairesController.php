@@ -11,7 +11,8 @@ class TestsunitairesController extends MCS_Controller
         // Différences
         $phpunit = 'phpunit --verbose';
         $basePath = '/home/dev/';
-
+/*
+        
         // Stations de montagne
         $dossier = $basePath . 'tests-librairie/tests';
         $commande = "$phpunit $dossier 2>&1";
@@ -53,6 +54,7 @@ class TestsunitairesController extends MCS_Controller
         $commande = "$phpunit $dossier 2>&1";
         $this->view->navigation = array();
         exec($commande, $this->view->navigation, $retour);
+        */
         
         // Calculs
         $dossier = $basePath . 'calculs/tests';
