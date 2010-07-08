@@ -53,6 +53,12 @@ class TestsunitairesController extends MCS_Controller
         $commande = "$phpunit $dossier 2>&1";
         $this->view->navigation = array();
         exec($commande, $this->view->navigation, $retour);
+        
+        // Calculs
+        $dossier = $basePath . 'calculs/tests';
+        $commande = "$phpunit $dossier 2>&1";
+        $this->view->calculs = array();
+        exec($commande, $this->view->calculs, $retour);
 
         // International
         $dossier = $basePath . 'langues/tests';
@@ -91,7 +97,9 @@ class TestsunitairesController extends MCS_Controller
         // Recherche d'éventuelles erreurs
         foreach ($resultats as $librairie => $resultat) {
             // Si c'est pas OK
-            if (strpos($resultat[count($resultat) - 1], 'OK') === false) {
+            if (strpos($resultat[count($resultat) - 1], 'OK') !== false) {
+                
+            } else {
                 $erreurs[] = 'Module '.$librairie;
             }
         }
