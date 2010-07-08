@@ -8,63 +8,40 @@ class TestsunitairesController extends MCS_Controller
      */
     public function executerAction()
     {
-        // Différences
-        $phpunit = 'phpunit --verbose';
-        $basePath = '/home/dev/';
-        
-        // Stations de montagne
-        $dossier = $basePath . 'tests-librairie/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->librairie = array();
-        exec($commande, $this->view->librairie, $retour);
-
-        // Base carbone
-        $dossier = $basePath . 'basecarbone/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->basecarbone = array();
-        exec($commande, $this->view->basecarbone, $retour);
-
-        // Stations de montagne
-        $dossier = $basePath . 'stationsmontagne/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->stationsmontagne = array();
-        exec($commande, $this->view->stationsmontagne, $retour);
-
-        // Utilisateurs
-        $dossier = $basePath . 'utilisateurs/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->utilisateurs = array();
-        exec($commande, $this->view->utilisateurs, $retour);
-
-        // Unites
-        $dossier = $basePath . 'unites/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->unites = array();
-        exec($commande, $this->view->unites, $retour);
-
-        // Acl
-        $dossier = $basePath . 'acl/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->acl = array();
-        exec($commande, $this->view->acl, $retour);
-
-        // Navigation
-        $dossier = $basePath . 'navigation/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->navigation = array();
-        exec($commande, $this->view->navigation, $retour);
-        
-        // Calculs
-        $dossier = $basePath . 'calculs/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->calculs = array();
-        exec($commande, $this->view->calculs, $retour);
-
-        // International
-        $dossier = $basePath . 'langues/tests';
-        $commande = "$phpunit $dossier 2>&1";
-        $this->view->langues = array();
-        exec($commande, $this->view->langues, $retour);
+        //tests unitaires qui vont etre lancer
+        $librairies = array(
+            'Librairie' => array('nom' => 'librairie', 'chemin' => 'tests-librairie/tests'), 
+            'Base carbone' => array('nom' => 'basecarbone', 'chemin' => 'basecarbone/tests'),
+            'Stations de montagne ' => array('nom' => 'stationsmontagne', 'chemin' => 'stationsmontagne/tests'),
+            'Utilisateurs' => array('nom' => 'utilisateurs', 'chemin' => 'utilisateurs/tests'),
+            'Unites' => array('nom' => 'unites', 'chemin' => 'unites/tests'), 
+            'Navigation' => array('nom' => 'navigation', 'chemin' => 'navigation/tests'),
+            'Acl' => array('nom' => 'acl', 'chemin' => 'acl/tests'),
+            'International' => array('nom' => 'langues', 'chemin' => 'langues/tests'),
+            'Calculs' => array('nom' => 'calculs', 'chemin' => 'calculs/tests'),
+        );
+        //on transmet le tableau à la vue
+        $this->view->librairies = $librairies;
+        $this->view->post = false;
+        //si le formulaire a été validé
+        if ($this->getRequest()->isPost()) {
+            $this->view->post = true;
+            // Différences
+            $phpunit = 'phpunit --verbose';
+            $basePath = '/home/dev/';
+            
+            foreach ($librairies as $librairie) {
+                //on recupere si la case du test a été coché
+                $param = $this->_getParam($librairie['nom']);
+                //si la case été coché alors on lance le test
+                if ($param != null) {
+                    $dossier = $basePath . $librairie['chemin'];
+                    $commande = "$phpunit $dossier 2>&1";
+                    $this->view->$librairie['nom'] = array();
+                    exec($commande, $this->view->$librairie['nom'], $retour);
+                }
+            }
+        }            
     }
 
     public function librairiesAction()

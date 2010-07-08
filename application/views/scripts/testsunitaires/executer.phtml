@@ -6,6 +6,14 @@
             object.style.display = 'none';
         }
     }
+
+    function decocher() {
+        var form = document.forms['tests'];
+        var nbElements = form.elements.length;
+    	for (i=0; i<nbElements; i++) {
+    		form.elements[i].checked = false; 
+    	}
+    }
 </script>
 <?php
 function afficherResultat($tableau)
@@ -13,7 +21,7 @@ function afficherResultat($tableau)
     static $i = 0;
     $i++;
     // Si c'est OK
-    if (strpos($tableau[count($tableau)-1], 'OK') !== false) {
+    if (strpos($tableau[count($tableau) - 1], 'OK') !== false) {
         $resultat = 'OK';
         // Style du résumé
         $style = "background: #94D88B;";
@@ -38,53 +46,34 @@ function afficherResultat($tableau)
     <?php
 }
 ?>
-<h1>
-    Tests unitaires
-</h1>
 
-<h2>
-    Librairie
-</h2>
-<?php afficherResultat($this->librairie) ?>
+<form name="tests" method="post" action="<?=$this->baseUrl?>/testsunitaires/executer">
+    <h1>
+        Tests unitaires
+    </h1>
+    <fieldset>
+    <legend>Choisissez les tests unitaires que vous voulez lancer :</legend>
+        <?php 
+        foreach ($this->librairies as $nom => $test) {
+            $nomTest = $test['nom'];
+            $checked = '';
+            if (isset($_POST[$nomTest])) {
+                $checked = 'checked="true"';
+            }
+            echo '<input type="checkbox" '.$checked.' name="'.$test['nom'].'" /> '. $nom;
+        }
+        ?>       
+    </fieldset>
+    <input type="submit" value='Lancer les tests' />  
+    <input type="button" value='Tout décocher' onClick = "decocher()" />
+</form>
 
-<h2>
-    Base carbone
-</h2>
-<?php afficherResultat($this->basecarbone) ?>
-
-<h2>
-    Stations de montagne
-</h2>
-<?php afficherResultat($this->stationsmontagne)?>
-
-<h2>
-    Utilisateurs
-</h2>
-<?php afficherResultat($this->utilisateurs)?>
-
-<h2>
-    Unites
-</h2>
-<?php afficherResultat($this->unites)?>
-
-<h2>
-    Navigation
-</h2>
-<?php afficherResultat($this->navigation)?>
-
-<h2>
-    Acl
-</h2>
-<?php afficherResultat($this->acl)?>
-
-<h2>
-    International
-</h2>
-<?php
-afficherResultat($this->langues);
-?>
-<h2>
-    Calculs
-</h2>
-<?php
-afficherResultat($this->calculs);
+<?php 
+    if ($this->post) {
+        foreach ($this->librairies as $nom => $test) {             
+            if (isset($this->$test['nom'])) {
+                echo '<h2>'.$nom.'</h2>';  
+                afficherResultat($this->$test['nom']);
+            }
+        }
+    }
