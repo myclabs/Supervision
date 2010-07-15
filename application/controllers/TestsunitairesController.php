@@ -13,6 +13,7 @@ class TestsunitairesController extends MCS_Controller
             'Librairie' => array('nom' => 'librairie', 'chemin' => 'tests-librairie/tests'), 
             'Base carbone' => array('nom' => 'basecarbone', 'chemin' => 'basecarbone/tests'),
             'Stations de montagne ' => array('nom' => 'stationsmontagne', 'chemin' => 'stationsmontagne/tests'),
+        	'Spiritueux ' => array('nom' => 'spiritueux', 'chemin' => 'spiritueux/tests'),
             'Utilisateurs' => array('nom' => 'utilisateurs', 'chemin' => 'utilisateurs/tests'),
             'Unites' => array('nom' => 'unites', 'chemin' => 'unites/tests'), 
             'Navigation' => array('nom' => 'navigation', 'chemin' => 'navigation/tests'),
@@ -51,7 +52,7 @@ class TestsunitairesController extends MCS_Controller
 
         // Tableau contenant les chemins vers les modules de la librairie
         $librairies = array(
-            'utilisateurs', 'unites', 'acl', 'navigation', 'langues', 'stationsmontagne'
+            'utilisateurs', 'unites', 'acl', 'navigation', 'langues', 'stationsmontagne', 'spiritueux'
         );
 
         // Tableau contenant les dépôts svn
