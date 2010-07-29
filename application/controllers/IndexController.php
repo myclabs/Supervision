@@ -11,5 +11,9 @@ class IndexController extends MCS_Controller
     public function accueilAction()
     {
     }
+    
+    public function phpinfoAction() {
+        
+    }
 
 }
