@@ -2,7 +2,6 @@
 
 $htmlMenu = false;
 
-var_dump(Navigation_Model_Menu::getMenusRacine()); /*
 foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
     $listeSousMenu = $menu->getEnfants();
     if (!$htmlMenu) {
@@ -26,7 +25,7 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
                             </li>
 <?php
         $htmlMenu = true;
-    }/*
+    }
 ?>
                             <li class="yuimenubaritem">
                                 <a class="yuimenubaritemlabel" <?php
@@ -49,7 +48,7 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
                                 </div>
                             </li>
 <?php
-}*/
+}
 if ($htmlMenu) {
 ?>
                     </ul>
