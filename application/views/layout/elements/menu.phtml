@@ -1,7 +1,7 @@
 <?php
 
 $htmlMenu = false;
-/*
+
 foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
     $listeSousMenu = $menu->getEnfants();
     if(!$htmlMenu) {
@@ -12,7 +12,16 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
             <div id="productsandservices" class="yuimenubar yuimenubarnav">
                 <div class="bd">
 
-                    <ul class="first-of-type">
+                    <ul class="first-of-type"><li class="yuimenubaritem">
+                                <a class="yuimenubaritemlabel">TEst</a>
+                                <div class="yuimenu">
+                                    <div class="bd">
+                                        <ul>
+                                            <li class="yuimenuitem"><a class="yuimenuitemlabel"><a>TEst encore</a></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
 <?php
         $htmlMenu = true;
     }
@@ -27,6 +36,7 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
                                     <div class="bd">
                                         <ul>
 <?php
+/*
             foreach ($listeSousMenu as $sousMenu) {
 ?>
                                         <li class="yuimenuitem"><a class="yuimenuitemlabel" href="<?=$this->baseURL().$sousMenu->getPage()->url?>"> <?=$sousMenu->nom?></a></li>
@@ -38,7 +48,7 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
                                 </div>
                             </li>
 <?php
-}
+}*/
     if ($htmlMenu) {
 ?>
                     </ul>
@@ -49,5 +59,4 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
 </div>
 <?php
     }
-    */
 ?>
