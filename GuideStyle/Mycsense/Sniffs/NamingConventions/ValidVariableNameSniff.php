@@ -238,4 +238,3 @@ class Mycsense_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_CodeS
 
 }//end class
 
-?>

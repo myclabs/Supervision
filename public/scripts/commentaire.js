@@ -1,21 +1,46 @@
-setCommentaire = function(text, image)
+setCommentaire = function(texte, titre, srcImage)
 {
-    var attributesClear = {top: { to: 62 } };
-    var CommDiv = document.getElementById("Commentaire");
-    CommDiv.style.visibility = "visible";
-    CommDiv.style.top = "88px";
-    var old_text = CommDiv.firstChild;
-    CommDiv.removeChild(old_text);
-    old_text = CommDiv.firstChild;
-    if (old_text)
-        CommDiv.removeChild(old_text);
-    var newText = document.createTextNode(text);
-    var newImage = document.createElement("img");
-    newImage.setAttribute("src",image);
+	var InfoDiv = document.getElementById("Informations");
+    
+	//la partie suppression de message
+	if ((texte == null) || (texte == '')) {
+		InfoDiv.innerHTML = "";
+		return;
+	} else {
+        var html = '';
 
-    CommDiv.appendChild(newImage);
-    CommDiv.appendChild(newText);
-    var animClear = new YAHOO.util.Anim('Commentaire', attributesClear);
+        // Création de la liste et de la croix de fermeture.
+        html += '<ul>';
+        html += '<span id="croix" onclick="setCommentaire(null)"><img  src="../icons/croix.png" alt="fermer"/></span>';
 
-    YAHOO.util.Event.on('Commentaire', 'click', function() { animClear.animate(); });
+        html += '<li>';
+        // Ajout de l'image.
+        if ((srcImage == null) || (srcImage == '')) {
+            // Image par défaut.
+            srcImage = '../icons/information.png';
+        }
+        html += '<img alt="" src="' + srcImage + '" />';
+
+        // Ajout du titre si présent.
+        if ((titre == null) || (titre == '')) {
+            html += '<span class="titre">' + titre + '</span>';
+        }
+
+        html += '<span class="text">' + texte + '</span>';
+
+        html += '</li>';
+        html += '</ul>';
+
+        InfoDiv.innerHTML = html;
+
+        var elements = document.getElementsByTagName('*');
+        var zIndex = 0;
+        for(var i = 0; i < elements.length; i++) {
+            zIndex = Math.max(zIndex,elements[i].style.zIndex);
+        }
+        InfoDiv.style.zIndex = zIndex + 2;
+
+        return;
+        
+	}
 }

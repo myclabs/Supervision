@@ -54,4 +54,3 @@ class Mycsense_Sniffs_Files_LineLengthSniff extends Generic_Sniffs_Files_LineLen
 
 }//end class
 
-?>

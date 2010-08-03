@@ -1,11 +1,12 @@
 /*================================*/
 /*            Body  et Page       */
 /*================================*/
+
 body
 {
     background: #ffffff none repeat scroll 0%;
     font-family: Verdana,Tahoma,Arial,sans-serif;
-    font-size: 1em;
+    font-size: 0.8em;
     margin: 0;
     padding: 0;
     min-width: 600px;
@@ -32,196 +33,183 @@ a img, a:hover img {
 
 
 /*================================*/
-/*            En-tete             */
+/*            En-Tête             */
 /*================================*/
 
-#EnTete {
+#enTete {
+	position: fixed;
+	z-index: 2;
+	height: 20px;
+	width: 100%;
+	background-color: #FCFDFD;
+	font-family: arial;
+	color: black;
+	font-size: 1em;
+}
+
+#enTete #utilisateur li {
+    float: right;
+}
+
+#enTete #menuGeneral li {
+    float: left;
+    margin-left: 25px;
+}
+
+
+#enTete li {
+	margin: 2px 5px 0px 5px;
+	float: right;
+}
+
+
+/*================================*/
+/*            Bandeau             */
+/*================================*/
+
+#bandeau {
     position: fixed;
-    background-color: #B8C2C4; /* gris foncé */
+    top: 20px;
+    z-index: 2;
+    height: 50px;
+    width: 100%;
+    background-color: #EAEAFF; 
     color: #000099;
     margin: 0px;
-    padding: 7px;
-    height: 48px; /* hauteur en-tête fixée */
-    width: 100%;
-    z-index: 2;
-    top: 0px;
+    padding: 10px 0px 5px 5px;
+    border-top: 1px solid #CCCCCC;
     border-bottom: 1px solid #9C9C9C;
 }
 
-#EnTete #logoINSA {
-    position: absolute;
-    left:10px;
-}
-
-#EnTete #logoINSA img {
-    height: 45px;
-    width: 84px;
-}
-
-#EnTete #imgMYCS {
-    position: absolute;
-    left: 120px;
-}
-
-#EnTete #imgMYCS img {
-    height: 48px;
-    width: 91px;
-}
-
-#EnTete #titre {
-    position: absolute;
-    top: 5px;
-    left: 240px;
-    font-size: 300%;
-    font-family: Impact;
-    white-space: nowrap;
-}
-
-#EnTete #deco {
-    position: fixed;
-    float: right;
-    font-size: 80%;
-    font-weight: bold;
-    color: #444948;
-    text-align: center;
-    right: 4px;
-    height: 20px;
-}
-
-#EnTete #deco span {
-    position: relative;
+#bandeau img {
     float: left;
-    height: 100%;
-    line-height: 20px;
-    vertical-align: middle;
 }
 
-#EnTete #CouleurPseudo {
+#bandeau span {
+    float: left;
+    margin-left: 15px;
+    font-size: 250%;
+    font-family: Trebuchet MS;
+    white-space: nowrap;
+    color: #666666;
 }
 
-#EnTete #boutonDeco img {
-    width: 20px;
-    height: 20px;
-}
 
 /*================================*/
-/*           Bloc login           */
+/*           Menu                 */
 /*================================*/
 
-#identification {
-    border: 1px blue dashed;
-    padding: 20px;
-    background-color: #E3EAFF;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
+.yui-skin-sam .yuimenubar {
+	border-right: none;
 }
-
-#identification td{
-    color:#336699;
-}
-
-#identification p.nomargin {
-    text-indent: 0px;
-    margin: 0;
-}
-
-/*================================*/
-/*           Menu   	          */
-/*================================*/
 
 #Menu {
     position: fixed;
-    float: right;
-    top: 31px;
-    right: 6px;
-    z-index: 4;
-}
-
-/*================================*/
-/*    Ariane et langues           */
-/*================================*/
-
-#Ariane {
-    position: fixed;
-    top: 63px; /* fixe où placer le menu en hauteur */
-    border-bottom: 1px solid #9C9C9C;
-    background-color: #D3DEDC; /* gris clair */
-    width: 100%;
-    color: black; /* couleur du texte */
+    top: 85px;
     z-index: 2;
-    height: 24px;
-}
-
-#Ariane #FilAriane {
-    padding: 4px;
-    position: relative;
-    white-space: nowrap;
-    float: left;
-}
-
-
-#Ariane #Langue {
-    position: relative;
-    top: -1px;
-    float: right;
-    right: 4px;
-    font-size: 1em; /* augmenter la valeur pour augmenter la largeur du bouton */
-}
-
-#Commentaire {
-    position: fixed;
-    visibility: hidden;
-    top: 88px;  /* = top Ariane + 26px */
-    background-color: #FFFFC6; /* jaune clair */
-    border-bottom: 1px solid #9C9C9C;
-    overflow:hidden;
-    color: #666666;
-    height:16px;
     width: 100%;
-    padding: 4px;
-    z-index: 1;
 }
 
-#Commentaire img {
-    float: left;
-    position: relative;
-    margin-right: 4px;
-}
 
 /*================================*/
 /*             Masque             */
 /*================================*/
+
 #Masque {
     visibility:hidden;
-    position: absolute;
-    margin-left:auto;
-    margin-right:auto;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
     text-align: center;
-    z-index: 200;
 }
 
 #Masque #CadrePage {
+    visibility: hidden;
     position: fixed;
+    z-index: 100;
     height: 100%;
     width: 100%;
     background-color: #000000;
-    opacity: 0.50;
+    opacity: 0.80;
     filter:alpha(opacity=50);
-    z-index: 200;
 }
 
+
+/*================================*/
+/*     Chargement en cours        */
+/*================================*/
+
 #Masque #CadreChargement {
-    text-align: center;
-    position: fixed;
-    margin: auto;
-    margin-left: 40%;
-    margin-right: 40%;
-    width: 220px;
-    top: 49%;
-    background-color: #DDDDDD;
-    z-index: 201;
+	position: fixed;
+	z-index: 200;
+	top: 40px;
+    padding: 5px;
+	width:200px;
+	text-align: center;
+	font-weight: bold;
+	margin-left: 80%;
+	background-color: #FFFFC6;
+    border: 1px solid #9C9C9C;
+    border-radius: 5px;
+}
+
+
+
+/*================================*/
+/*    Messages d'information	  */
+/*================================*/
+
+#Informations {
+	position: fixed;
+	z-index: 3;
+	top: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+#Informations ul {
+	display: inline-block;
+	background: #FFF1A8;
+    margin-top: 10px;
+	padding: 5px 15px 5px 2px;
+    border: 1px solid #9C9C9C;
+    border-radius: 5px;
+    max-width: 650px;
+}
+
+#Informations ul #croix {
+	float: right;
+    margin: -3px -13px 0px 0px;
+	cursor: pointer;
+}
+
+#Informations ul #croix:hover {
+	float: right;
+	background-image: url("../icons/croix-ff.png");
+	background-repeat: no-repeat;
+}
+
+#Informations li {
+	margin: 2px 5px 2px 10px;
+	text-align: left;
+}
+
+#Informations ul li .titre {
+	font-variant: small-caps;
+	margin-right: 25px;
+}
+
+#Informations ul li .texte {
+	color: gray;
+	font-weight: bold;
+}
+
+#Informations ul li img {
+	position: relative;
+	margin: 0px 5px -2px 0px;
 }
 
 /*================================*/
@@ -230,34 +218,32 @@ a img, a:hover img {
 
 #Corps {
     position: relative;
-    top: 113px;
-    padding: 10px 10px 66px 10px;
+    top: 125px;
     z-index: 0;
+    width: 100%;
+    padding: 10px 10px 66px 10px;
 }
+
 #Corps h1, #Corps h2, #Corps h3 {
     color: #000099;
     font-weight: bold;
     margin-top: 5px;
 }
+
 #Corps h1 {
     font-size: 1.6em;
     margin-bottom: 5px;
 }
+
 #Corps h2 {
     font-size: 1.3em;
     margin-bottom: 4px;
+    color: #232323;
 }
+
 #Corps h3 {
     font-size: 1.1em;
     margin-bottom: 3px;
-}
-#Corps ul {
-    margin: 5px 0;
-    padding-left: 20px;
-}
-#Corps li {
-    margin: 1px 0;
-    list-style-type: disc;
 }
 
 /*================================*/
@@ -265,163 +251,23 @@ a img, a:hover img {
 /*================================*/
 
 #Pied {
+    position: relative;
+    top: 150px;
+    z-index: 0;
+    width: 100%;
+    height: 20px;
+    padding: 3px 0px 2px 0px;
     border-top: 1px solid #9C9C9C;
-    background-color: #B8C2C4;
-    position: fixed;
-    bottom: 0;
+    text-align: center;
+    font-size: 90%;
     color: #336699;
-    font-size: 90%;
-    font-weight: bold;
-    padding: 3px 10px 1px 1px;
-    width: 100%;
-    height: 19px;
-    z-index: 4;
 }
 
-#Pied #PiedTexte{
-    position: relative;
+#Pied ul {
+    display: inline-block;
+}
+
+#Pied li {
     float: left;
-    left: 50%;
-}
-
-#Pied #PiedOutil{
-    position: relative;
-    float: right;
-    padding-right: 10px;
-}
-
-/*================================*/
-/*        Pied - Boutons          */
-/*================================*/
-
-#Edition {
-    background-color:#D3DEDC;
-    position: fixed;
-    bottom: 22px;
-    height: 30px;
-    font-size: 90%;
-    border-top : 1px solid #9C9C9C;
-    padding-top: 4px;
-    width: 100%;
-    z-index: 4;
-    text-align: right;
-}
-
-#validbutton {
-}
-
-#annulbutton {
-}
-
-#ajoutbutton {
-    margin-right: 4px;
-}
-
-/*================================*/
-/*        Formulaire              */
-/*================================*/
-.fieldset-inscription, .fieldset-ins-submitt {
-    float: left;
-    clear: both;
-    margin: 0 0 1.5em 0;
-    padding: 0;
-    border: 1px solid #BFBAB0;
-    background-color: #F2EFE9;
-    background-image: url(images/fieldset_gradient.jpg);
-    background-repeat: repeat-x;
-    width: 600px;
-}
-
-.fieldset-ins-submitt {
-    float: none;
-    width: auto;
-    border-style: none;
-    padding-left: 12em;
-    background-color: transparent;
-    background-image: none;
-}
-
-.fieldset-inscription legend {
-    margin-left: 1em;
-    padding: 0;
-    color: #000;
-    font-weight: bold;
-}
-
-.fieldset-inscription ol {
-    padding: 1em 1em 0 1em;
-    list-style: none;
-}
-
-.fieldset-inscription li {
-    float: left;
-    clear: left;
-    width: 100%;
-    padding-bottom: 1em;
-}
-
-.req {
-    position: absolute;
-    left: 10em;
-    top: 0;
-}
-
-.descriptionForm {
-    display: block;
-    color: grey;
-    font-size: 70%;
-    font-style: italic;
-}
-
-.fieldset-inscription label, .fieldset-ins-submitt label{
-    position: relative;
-    float: left;
-    width: 10em;
-    margin-right: 1em;
-}
-
-.errorsForm {
-    position: relative;
-    display: block;
-    float: left;
-    left: 28em;
-    top: -14px;
-    width: 276px;
-    color: #C00;
-    font-size: 85%;
-    font-weight: normal;
-    text-transform: uppercase;
-}
-
-.errorsForm img {
-    position: absolute;
-    left: -18em;
-}
-
-#fieldset-agree .errorsForm img {
-    position: absolute;
-    left: -2em;
-}
-
-#fieldset-agree .errorsForm {
-    position: absolute;
-    top: 0px;
-}
-
-.fieldset-ins-submitt #CancelButton {
-    position: relative;
-    left : 100px;
-    background-color: #B2CDFB;
-}
-
-.fieldset-ins-submitt #CancelButton:hover {
-    background-color: #CCFFFF;
-}
-
-.fieldset-ins-submitt .submit {
-    background-color: #D8D8DA;
-}
-
-.fieldset-ins-submitt .submit:hover {
-    background-color: #BFDAFF;
+    margin: 2px 15px;
 }

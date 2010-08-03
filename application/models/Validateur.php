@@ -52,10 +52,10 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
     /**
      * Valide le code source d'un projet
      * @param string $dossier Dossier racine du projet (/trunk/)
-     * @return array(	'controleurs' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne'],
-     * 					'vues' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne'],
-     * 					'modele' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne'],
-     * 					'librairie' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne']
+     * @return array(    'controleurs' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne'],
+     *                     'vues' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne'],
+     *                     'modele' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne'],
+     *                     'librairie' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne']
      */
     public function validerProjet($dossier)
     {
@@ -76,7 +76,7 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
     /**
      * Valide le code source de la librairie
      * @param string $dossier Dossier racine du projet (/trunk/)
-     * @return array(	'librairie' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne'] )
+     * @return array(    'librairie' => array[$nomFichier] => array[]['description', 'ligne', 'numLigne'] )
      */
     public function validerLibrairie($dossier)
     {
@@ -111,7 +111,7 @@ class Default_Model_Validateur extends MCS_Modele_ObjetMetier_Singleton
             } else {
                 $extension = strrchr($element, '.');
                 if ((in_array($extension, $this->_extensions))
-                    &&	($dossier . $element != __FILE__)
+                    &&    ($dossier . $element != __FILE__)
                 ) {
                     // Valide le fichier trouvé
                     $erreurs = $this->validerFichier($dossier . $element);

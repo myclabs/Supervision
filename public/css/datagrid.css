@@ -1,0 +1,165 @@
+/*================================*/
+/*            Datagrid	          */
+/*================================*/
+
+
+.yui-skin-sam .yui-dt-mask {
+    display: none !important;
+}
+
+.yui-skin-sam .yui-dt table {
+	width:100%;
+}
+
+.yui-skin-sam .yui-dt-paginator{
+	text-align: right;
+}
+
+.yui-dt0-col-index{
+	display: none;
+}
+
+.yui-dt-first th{
+    text-align: center !important;
+}
+
+.yui-dt-label span{
+    font-weight: bold;
+}
+
+.yui-dt-data .datagrid_alignement_gauche,
+.yui-dt-data .datagrid_alignement_central,
+.yui-dt-data .datagrid_alignement_droite{
+	display: block;
+}
+
+.datagrid_alignement_gauche{
+	text-align: left;
+}
+
+.datagrid_alignement_central{
+	text-align: center;
+}
+
+.datagrid_alignement_droite{
+	text-align: right;
+}
+
+.datagrid_cellule_clickable{
+    cursor: pointer;
+}
+
+.yui-skin-sam th.yui-dt-sortable .yui-dt-liner {
+	background:url(../icons/dt-arrow.png) no-repeat right;
+}
+
+.yui-skin-sam th.yui-dt-asc .yui-dt-liner {
+	background:url(../yui/build/assets/skins/sam/dt-arrow-up.png) no-repeat right;
+}
+
+.yui-skin-sam th.yui-dt-desc .yui-dt-liner {
+	background:url(../yui/build/assets/skins/sam/dt-arrow-dn.png) no-repeat right;
+}
+
+/*================================*/
+/*            Filtres	          */
+/*================================*/
+
+.filtreDatagrid{
+	border-top: 1px solid #cccccc;
+}
+
+.filtreDatagrid > div{
+    display: none;
+}
+
+.filtreDatagrid_Legend{
+	margin-left: 15px;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+}
+
+.filtreDatagrid_Legend img{
+	top: -2px;
+    left: -5px;
+	position: relative;
+}
+
+.filtreDatagrid div{
+	float: left;
+	width: 100%;
+	margin: 5px 10px;
+}
+
+.filtreDatagrid label{
+	display: block;
+	float: left;
+	width:10%; 
+}
+
+.datagridFiltre_corps span{
+	display: block;
+	float: left;
+	width:8%;
+}
+
+.filtreDatagrid input,
+.filtreDatagrid select{
+	display: block;
+	float: left;
+}
+
+.filtreNombre_affichage{
+    cursor: pointer;
+}
+
+.filtreNombre_affichage img{
+	top: -1px;
+    right: -5px;
+	position: relative;
+}
+
+.filtreNombre{
+    display: none;
+}
+
+.filtreNombre div{
+    display: block;
+    float: left;
+    width: 100%;
+	margin-top: 10px;
+	margin-left: -10px;
+	padding: 0;
+}
+
+.filtreNombre span{
+    display: block;
+    float: left;
+	width: 8%;
+	margin-left: 10%;
+	margin-bottom: 10px;
+}
+
+.filtreNombre input{
+    display: block;
+    float: left;
+	margin-left: 0%;
+}
+
+
+/*footer filtre*/
+.datagridFiltre_entete{
+	border-top: 1px solid #cccccc;
+	text-align: center;
+}
+
+.datagridFiltre_entete button{
+	margin: 5px;
+}
+
+.datagridFiltre_entete button img{
+	position: relative;
+	float: left;
+}

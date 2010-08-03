@@ -1,0 +1,49 @@
+#TMD {
+    text-align: center;
+    border-collapse: separate !important;
+}
+
+#TMD .TMD_titre_colonne, #TMD .TMD_valeur_colonne, #TMD .TMD_titre_ligne, #TMD .TMD_valeur_ligne_pair, #TMD .TMD_valeur_ligne_impair, #TMD .TMD_donnees_pair, #TMD .TMD_donnees_impair {
+    border: thin solid #9C9C9C;
+    padding: 5px 5px 5px 5px;
+}
+
+#TMD .TMD_titre_colonne {
+    background: #eff3ff;
+    font-weight: bold;
+}
+
+#TMD .TMD_valeur_colonne {
+    background: #dee3ef;
+    /*font-weight: bold; */
+    font-style: italic;
+}
+
+#TMD .TMD_titre_ligne {
+    background: #eff3ff;
+    font-weight: bold;
+}
+
+#TMD .TMD_valeur_ligne_pair {
+    background: #eff3ff;
+    /*font-weight: bold; */
+    font-style: italic;
+}
+
+#TMD .TMD_valeur_ligne_impair {
+    background: #dee3ef;
+    /*font-weight: bold; */
+    font-style: italic;
+}
+
+#TMD .TMD_donnees_pair {
+    background: #ffffff;
+}
+
+#TMD .TMD_donnees_impair {
+    background: #f7f3f7;
+}
+
+#TMD .TMD_Popup {
+    text-align: left;
+}

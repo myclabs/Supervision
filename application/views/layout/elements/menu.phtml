@@ -1,0 +1,57 @@
+<?php
+
+$htmlMenu = false;
+
+foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
+    $listeSousMenu = $menu->getEnfants();
+    if(!$htmlMenu) {
+?>
+<div id="bd">
+<!-- start: primary column from outer template -->
+<!-- Pour changer les valeurs du menu : Changer les valeurs de la hiérarchie <ul> <li> -->
+    <div id="yui-main">
+        <div class="yui-b">
+            <!-- start: stack grids here -->
+            <div id="productsandservices" class="yuimenubar yuimenubarnav">
+                <div class="bd">
+
+                    <ul class="first-of-type">
+<?php
+        $htmlMenu = true;
+    }
+?>
+                            <li class="yuimenubaritem">
+                                <a class="yuimenubaritemlabel" <?php
+                                if ($menu->getPage()) {
+                                ?> href="<?=$this->baseURL().$menu->getPage()->url?><?php
+                                }
+                                ?>"><?=$menu->nom?></a>
+                                <div class="yuimenu">
+                                    <div class="bd">
+                                        <ul>
+<?php
+            foreach ($listeSousMenu as $sousMenu) {
+?>
+                                        <li class="yuimenuitem"><a class="yuimenuitemlabel" href="<?=$this->baseURL().$sousMenu->getPage()->url?>"> <?=$sousMenu->nom?></a></li>
+<?php
+            }
+?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+<?php
+}
+    if ($htmlMenu) {
+?>
+                    </ul>
+                </div>
+            </div>
+            <!-- end: stack grids here -->
+        </div>
+    </div>
+<!-- end: primary column from outer template -->
+</div>
+<?php
+    }
+?>

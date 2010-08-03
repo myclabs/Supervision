@@ -1,0 +1,13 @@
+#icons table{
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+
+#icons table td{
+	width : 220px;
+	height: 30px; 
+}
+
+#icons #image {
+	text-align : center;
+}

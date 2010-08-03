@@ -62,4 +62,3 @@ class PHP_CodeSniffer_Standards_Mycsense_MycsenseCodingStandard extends PHP_Code
 
 
 }//end class
-?>
