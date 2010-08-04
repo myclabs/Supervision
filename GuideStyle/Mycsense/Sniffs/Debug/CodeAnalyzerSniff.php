@@ -88,7 +88,9 @@ class Mycsense_Sniffs_Debug_CodeAnalyzerSniff implements PHP_CodeSniffer_Sniff
                 $msg = join('\n', $output);
             }
 
-            throw new PHP_CodeSniffer_Exception("Failed invoking ZendCodeAnalyzer, exitcode was [$exitCode], retval was [$retval], output was [$msg]");
+            throw new PHP_CodeSniffer_Exception(
+                "Failed invoking ZendCodeAnalyzer, exitcode was [$exitCode], retval was [$retval], output was [$msg]"
+            );
         }
 
         if (is_array($output) === true) {
