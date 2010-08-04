@@ -11,7 +11,7 @@
         var form = document.forms['tests'];
         var nbElements = form.elements.length;
         for (i=0; i<nbElements; i++) {
-            form.elements[i].checked = false; 
+            form.elements[i].checked = false;
         }
     }
 </script>
@@ -53,7 +53,7 @@ function afficherResultat($tableau)
     </h1>
     <fieldset>
     <legend>Choisissez les tests unitaires que vous voulez lancer :</legend>
-        <?php 
+        <?php
         foreach ($this->librairies as $nom => $test) {
             $nomTest = $test['nom'];
             $checked = '';
@@ -62,17 +62,17 @@ function afficherResultat($tableau)
             }
             echo '<input type="checkbox" '.$checked.' name="'.$test['nom'].'" /> '. $nom;
         }
-        ?>       
+        ?>
     </fieldset>
-    <input type="submit" value='Lancer les tests' />  
+    <input type="submit" value='Lancer les tests' />
     <input type="button" value='Tout décocher' onClick = "decocher()" />
 </form>
 
-<?php 
+<?php
     if ($this->post) {
-        foreach ($this->librairies as $nom => $test) {             
+        foreach ($this->librairies as $nom => $test) {
             if (isset($this->$test['nom'])) {
-                echo '<h2>'.$nom.'</h2>';  
+                echo '<h2>'.$nom.'</h2>';
                 afficherResultat($this->$test['nom']);
             }
         }

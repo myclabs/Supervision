@@ -45,36 +45,19 @@
 '.$this->headStyle();
         ?>
 
-
         <script type="text/javascript" src="<?=$this->baseUrl();?>/scripts/commentaire.js"></script>
         <script type="text/javascript" src="<?=$this->baseUrl();?>/scripts/masque.js"></script>
 
     </head>
-    <?php
-    $bodyOnload = ' ';
-    // Commentaire (popup javascript en haut de page)
-    if (isset($this->message)) {
-        if (!is_array($this->message)) {
-            $e = new MCS_Exception_Systeme("\$this->view->message doit être un tableau : string fournie.");
-            MCS_Erreur_Log::getInstance()->logException($e);
-        }
-        if ($this->message['statut'] === true) {
-            $image = $this->baseUrl().'/icons/tick.png';
-        } else {
-            $image = $this->baseUrl().'/icons/cross.png';
-        }
-        $bodyOnload .= 'onload="javascript:setCommentaire(\''.
-            addslashes($this->message['texte']).'\', \''.addslashes($image).'\');"';
-    }
-    ?>
-    <body class="yui-skin-sam" id="yahoo-com"<?=$bodyOnload?>>
+
+    <body class="yui-skin-sam" id="yahoo-com">
 
         <div id="Page">
 
             <div id="enTete">
                 <?=$this->partial('elements/enTete.phtml', array())?>
             </div>
-            
+
             <div id="bandeau">
                 <?=$this->partial('elements/bandeau.phtml')?>
             </div>
@@ -137,7 +120,7 @@
                             <img alt="erreur" src="<?=Zend_Controller_Front::getInstance()->getBaseUrl()?>/icons/exclamation.png"/>
                             <span class="titre">
                                 Erreur du système
-                            </span>c
+                            </span>
                             <span class="texte">
                                 <?= $erreur->getMessage() ?>
                             </span>

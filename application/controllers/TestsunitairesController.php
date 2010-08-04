@@ -10,12 +10,12 @@ class TestsunitairesController extends MCS_Controller
     {
         //tests unitaires qui vont etre lancer
         $librairies = array(
-            'Librairie' => array('nom' => 'librairie', 'chemin' => 'tests-librairie/tests'), 
+            'Librairie' => array('nom' => 'librairie', 'chemin' => 'tests-librairie/tests'),
             'Base carbone' => array('nom' => 'basecarbone', 'chemin' => 'basecarbone/tests'),
             'Stations de montagne ' => array('nom' => 'stationsmontagne', 'chemin' => 'stationsmontagne/tests'),
             'Spiritueux ' => array('nom' => 'spiritueux', 'chemin' => 'spiritueux/tests'),
             'Utilisateurs' => array('nom' => 'utilisateurs', 'chemin' => 'utilisateurs/tests'),
-            'Unites' => array('nom' => 'unites', 'chemin' => 'unites/tests'), 
+            'Unites' => array('nom' => 'unites', 'chemin' => 'unites/tests'),
             'Navigation' => array('nom' => 'navigation', 'chemin' => 'navigation/tests'),
             'Acl' => array('nom' => 'acl', 'chemin' => 'acl/tests'),
             'International' => array('nom' => 'langues', 'chemin' => 'langues/tests'),
@@ -30,7 +30,7 @@ class TestsunitairesController extends MCS_Controller
             // Différences
             $phpunit = 'phpunit --verbose';
             $basePath = '/home/dev/';
-            
+
             foreach ($librairies as $librairie) {
                 //on recupere si la case du test a été coché
                 $param = $this->_getParam($librairie['nom']);
@@ -42,7 +42,7 @@ class TestsunitairesController extends MCS_Controller
                     exec($commande, $this->view->$librairie['nom'], $retour);
                 }
             }
-        }            
+        }
     }
 
     public function librairiesAction()
@@ -83,7 +83,7 @@ class TestsunitairesController extends MCS_Controller
                 $personnes = array();
                 foreach ($logs as $message) {
                     if ($message[0] == 'r' && is_numeric($message[1])) {
-                        $infos = explode(' | ', $message);    
+                        $infos = explode(' | ', $message);
                         $date = $infos[2];
                         if (empty($personnes[$infos[1]])) {
                             $personnes[$infos[1]] = 1;

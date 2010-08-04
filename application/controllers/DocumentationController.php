@@ -1,5 +1,5 @@
 <?php
-       
+
 class DocumentationController extends MCS_Controller
 {
 
