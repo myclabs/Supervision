@@ -13,16 +13,6 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
                 <div class="bd">
 
                     <ul class="first-of-type">
-                            <li class="yuimenubaritem">
-                                <a class="yuimenubaritemlabel">TEst</a>
-                                <div class="yuimenu">
-                                    <div class="bd">
-                                        <ul>
-                                            <li class="yuimenuitem"><a class="yuimenuitemlabel"><a>TEst encore</a></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
 <?php
         $htmlMenu = true;
     }
@@ -39,7 +29,11 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
 <?php
             foreach ($listeSousMenu as $sousMenu) {
 ?>
-                                        <li class="yuimenuitem"><a class="yuimenuitemlabel" href="<?=$this->baseURL().$sousMenu->getPage()->url?>"> <?=$sousMenu->nom?></a></li>
+                                        <li class="yuimenuitem">
+                                            <a class="yuimenuitemlabel" href="<?=$this->baseURL().$sousMenu->getPage()->url?>">
+                                                <?=$sousMenu->nom?>
+                                            </a>
+                                        </li>
 <?php
             }
 ?>
