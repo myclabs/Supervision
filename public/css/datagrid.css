@@ -51,6 +51,27 @@ td {
 
 .datagrid_cellule_clickable {
     cursor: pointer;
+    color: #336699;
+}
+
+.datagrid_cellule_clickable img:hover {
+    text-decoration: none;
+}
+
+.datagrid_cellule_clickable span:hover {
+    text-decoration: underline;
+}
+
+.yui-skin-sam td a:hover {
+    text-decoration: none;
+}
+
+.yui-skin-sam td a img:hover {
+    text-decoration: none;
+}
+
+.yui-skin-sam td a span:hover {
+    text-decoration: underline;
 }
 
 .yui-skin-sam th.yui-dt-sortable .yui-dt-liner {
