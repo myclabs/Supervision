@@ -14,7 +14,7 @@ class DocumentationController extends MCS_Controller
         $sources = array('/home/dev/librairies/MCS',
                          '/home/dev/librairies/Modules',
                          '/home/dev/basecarbone/application/basecarbone/models');
-        $ignores = array('PHPExcel/');
+        $ignores = array('PHPExcel/', 'dompdf/');
 
         $this->view->commande = "$phpdoc -t $sortie -o $template -d ";
         
