@@ -18,7 +18,11 @@ class DocumentationController extends MCS_Controller
 
         $this->view->commande = "$phpdoc -t $sortie -o $template -d ";
         
+        $sourceDirsExists = true;
         foreach ($sources as $source) {
+            if (!is_dir($source)) {
+                $sourceDirsExists = false;
+            }
             $this->view->commande .= $source.',';
         }
 
@@ -30,7 +34,7 @@ class DocumentationController extends MCS_Controller
 
         $this->view->commande = substr($this->view->commande, 0, -1).' 2>&1';
         
-        if (!is_dir($sortie) || !is_dir($source1) || !is_dir($source2) || !is_dir($source3)) {
+        if (!is_dir($sortie) || !$sourceDirsExists) {
             $this->view->resultatGeneration = 'echec';
             $this->view->detailGeneration = "Les dossiers sources ou destination n'existent pas.";
         } else {
