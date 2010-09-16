@@ -5,15 +5,31 @@ class DocumentationController extends MCS_Controller
 
     public function genererAction()
     {
-        // Execution de phpdoc
+        // Génération de la documentation PHPDoc
+
         $phpdoc = 'phpdoc';
         $sortie = '/home/dev/phpdoc/';
         //$template = 'HTML:Smarty:PHP';
         $template = 'HTML:frames/Extjs:default';
-        $source1 = '/home/dev/librairies/MCS';
-        $source2 = '/home/dev/librairies/Modules';
-        $source3 = '/home/dev/basecarbone/application/basecarbone/models';
-        $this->view->commande = "$phpdoc -t $sortie -o $template -d $source1,$source2,$source3 2>&1";
+        $sources = array('/home/dev/librairies/MCS',
+                         '/home/dev/librairies/Modules',
+                         '/home/dev/basecarbone/application/basecarbone/models');
+        $ignores = array('PHPExcel/');
+
+        $this->view->commande = "$phpdoc -t $sortie -o $template -d ";
+        
+        foreach ($sources as $source) {
+            $this->view->commande .= $source.',';
+        }
+
+        $this->view->commande = substr($this->view->commande, 0, -1).' -i ';
+
+        foreach ($ignores as $ignore) {
+            $this->view->commande .= $ignore.',';
+        }
+
+        $this->view->commande = substr($this->view->commande, 0, -1).' 2>&1';
+        
         if (!is_dir($sortie) || !is_dir($source1) || !is_dir($source2) || !is_dir($source3)) {
             $this->view->resultatGeneration = 'echec';
             $this->view->detailGeneration = "Les dossiers sources ou destination n'existent pas.";
