@@ -220,8 +220,8 @@ a img, a:hover img {
     position: relative;
     top: 125px;
     z-index: 0;
-    width: 100%;
-    padding: 10px 10px 66px 10px;
+    width: 98%;
+    padding: 10px 1% 66px 1%;
 }
 
 #Corps h1, #Corps h2, #Corps h3 {
