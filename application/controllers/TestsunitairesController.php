@@ -20,6 +20,7 @@ class TestsunitairesController extends MCS_Controller
             'Acl' => array('nom' => 'acl', 'chemin' => 'acl/tests'),
             'International' => array('nom' => 'langues', 'chemin' => 'langues/tests'),
             'Calculs' => array('nom' => 'calculs', 'chemin' => 'calculs/tests'),
+            'ModulesComptables' => array('nom' => 'modulescomptables', 'chemin' => 'modulescomptables/tests'),
         );
         //on transmet le tableau à la vue
         $this->view->librairies = $librairies;
@@ -55,12 +56,15 @@ class TestsunitairesController extends MCS_Controller
             'Stations de montagne' => array('tests' => 'stationsmontagne/tests', 'depot' => 'stationsmontagne'),
             'Spiritueux' => array('tests' => 'spiritueux/tests', 'depot' => 'spiritueux'),
             'Librairie' => array('tests' => 'tests-librairie/tests', 'depot' => 'myc-sensedev/trunk/library/MCS'),
-            'Module Utilisateurs' => array('tests' => 'utilisateurs/tests', 'depot' => 'myc-sensecentral/trunk/utilisateurs'),
+            'Module Utilisateurs' => array('tests' => 'utilisateurs/tests',
+                'depot' => 'myc-sensecentral/trunk/utilisateurs'),
             'Module International' => array('tests' => 'langues/tests', 'depot' => 'myc-sensecentral/trunk/locale'),
             'Module Unités' => array('tests' => 'unites/tests', 'depot' => 'myc-sensecentral/trunk/unites'),
             'Module Calculs' => array('tests' => 'unites/tests', 'depot' => 'myc-sensecentral/trunk/calculs'),
             'Module ACL' => array('tests' => 'acl/tests', 'depot' => 'myc-sensecentral/trunk/acl'),
-            'Module Navigation' => array('tests' => 'navigation/tests', 'depot' => 'myc-sensecentral/trunk/navigation')
+            'Module Navigation' => array('tests' => 'navigation/tests', 'depot' => 'myc-sensecentral/trunk/navigation'),
+            'Modules Comptables' => array('tests' => 'modulescomptables/tests',
+                'depot' => 'myc-sensecentral/trunk/modulescomptables'),
         );
 
         $texte = "Rapport journalier des tests unitaires\n\n";
@@ -128,7 +132,7 @@ class TestsunitairesController extends MCS_Controller
         $output[] = '';
 
         // Copie des tests dans le dossier testscomplets
-        $dossiers = array(    'acl', 'langues', 'navigation', 'unites', 'utilisateurs');
+        $dossiers = array('acl', 'langues', 'navigation', 'unites', 'utilisateurs');
         foreach ($dossiers as $dossier) {
             $output[] = 'Copie des fichiers de test du projet "' . $dossier . '"';
             $commande = "cp $basePath/$dossier/tests/*.php $basePath/testscomplets/tests/ 2>&1";
