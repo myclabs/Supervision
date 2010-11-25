@@ -32,7 +32,7 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
                                         <li class="yuimenuitem">
                                         	<?php
                                         	$url = $sousMenu->getPage()->url;
-                                        	if (strncmp($url, 'http://', strlen('http://')) !== 0) {
+                                        	if (strncmp($url, 'http', strlen('http')) !== 0) {
                                         	    $url = $this->baseURL().$url;
                                         	}
                                         	?>
