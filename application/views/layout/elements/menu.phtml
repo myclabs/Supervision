@@ -30,7 +30,13 @@ foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
             foreach ($listeSousMenu as $sousMenu) {
 ?>
                                         <li class="yuimenuitem">
-                                            <a class="yuimenuitemlabel" href="<?=$this->baseURL().$sousMenu->getPage()->url?>">
+                                        	<?php
+                                        	$url = $sousMenu->getPage()->url;
+                                        	if (strncmp($url, 'http://', strlen('http://')) !== 0) {
+                                        	    $url = $this->baseURL().$url;
+                                        	}
+                                        	?>
+                                            <a class="yuimenuitemlabel" href="<?=$url?>">
                                                 <?=$sousMenu->nom?>
                                             </a>
                                         </li>
