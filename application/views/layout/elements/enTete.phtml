@@ -1,62 +1,8 @@
+<?php
+    // Fichier contenant la barre d'entête de l'application.
+?>
 <ul id="menuGeneral">
     <li>
         <a href="http://dev.myc-sense.com">Supervision</a>
     </li>
-</ul>
-
-<?php
-    // Utilisateur
-    $auth = Zend_Auth::getInstance();
-    if ($auth->hasIdentity()) {
-        if ($auth->getIdentity() instanceof Mycsense_Utilisateurs_Utilisateur) {
-           $utilisateurCourant = $auth->getIdentity();
-        } else{
-            $utilisateurCourant = null;
-        }
-    } else {
-        $utilisateurCourant = null;
-    }
-?>
-<!--
-<ul id="utilisateur">
-    <?php
-    if ($utilisateurCourant != null) {
-    ?>
-    <script type="text/javascript">
-        function deconnexion() {
-            window.parent.location.href = '<?php
-            echo $this->url(array('controller' => 'utilisateur', 'action' => 'logout'));?>';
-        }
-    </script>
-    <li id="connecte">
-        Connecté en tant que :
-        <span id="nom_connecte"><?=$utilisateurCourant->login?></span>
-    </li>
-    <li id="mesdonnees">
-            <?php
-            $actif = '';
-            if (($controleur == 'utilisateur') && (($action == 'detailsprofil') || ($action == 'editionprofil'))) {
-                if ($utilisateurCourant->id == $this->layout()->utilisateurEdite->id ) {
-                    $actif = ' class="actif"';
-                }
-            }
-            ?>
-            <a href="<?=$this->baseUrl()?>/utilisateur/detailsprofil?idUtilisateur=<?=$utilisateurCourant->
-            id?>"<?=$actif?>>
-            Mes données personnelles</a>
-    </li>
-    <li><a href="<?=$this->baseUrl()?>/utilisateur/logout?refer=<?=$page?>" title="Déconnexion"> Déconnexion</a></li>
-
-    <?php
-    } else {
-    ?>
-
-    <li>
-        <a href="<?=$this->baseUrl()?>/utilisateur/login" title="Connexion">
-            Se connecter</a>
-    </li>
-     <?php
-    }
-    ?>
--->
 </ul>

@@ -2,39 +2,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <base href="http://<?=$_SERVER["SERVER_NAME"]?><?=$this->baseUrl()?>/" />
         <title>Supervision</title>
-        <link rel="shortcut icon" href="<?=$this->baseUrl();?>/icons/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="<?=$this->baseUrl();?>/icons/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
 
-        <link rel="stylesheet" type="text/css" href="<?=$this->baseUrl();?>/yui/build/reset-fonts-grids/reset-fonts-grids.css" />
-        <link rel="stylesheet" type="text/css" href="<?= $this->baseUrl();?>/yui/build/fonts/fonts-min.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="<?=$this->baseUrl();?>/css/style.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="<?=$this->baseUrl();?>/css/supervision.css" />
-        <!--[if lte IE 7]>
-        <style type="text/css" media="all">
-            @import "<?=$this->baseUrl();?>/css/IE7.css";
-        </style>
-        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="yui/build/reset-fonts-grids/reset-fonts-grids.css" />
+        <link rel="stylesheet" type="text/css" href="yui/build/fonts/fonts-min.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/supervision.css" />
 
         <?php
         // Ajout des Fichiers CSS nécéssaires au Menu.
-        $this->headLink()->appendStylesheet($this->baseUrl().
-            '/yui/build/menu/assets/skins/sam/menu.css');
-        $this->headLink()->appendStylesheet($this->baseUrl().
-            '/yui/build/button/assets/skins/sam/button.css');
-        $this->headLink()->appendStylesheet($this->baseUrl().
-            '/yui/build/container/assets/skins/sam/container.css');
+        $this->headLink()->appendStylesheet(
+            'yui/build/menu/assets/skins/sam/menu.css');
+        $this->headLink()->appendStylesheet(
+            'yui/build/button/assets/skins/sam/button.css');
+        $this->headLink()->appendStylesheet(
+            'yui/build/container/assets/skins/sam/container.css');
         // Ajout des fichiers Javascript nécéssaires au Menu.
-        $this->headScript()->appendFile($this->baseUrl().
-            '/yui/build/yahoo-dom-event/yahoo-dom-event.js', 'text/javascript');
-        $this->headScript()->appendFile($this->baseUrl().
-            '/yui/build/container/container_core-min.js', 'text/javascript');
-        $this->headScript()->appendFile($this->baseUrl().
-            '/yui/build/menu/menu-min.js', 'text/javascript');
-        $this->headScript()->appendFile($this->baseUrl().
-            '/yui/build/animation/animation-min.js', 'text/javascript');
-        $this->headScript()->appendFile($this->baseUrl().
-            '/scripts/menu.js');
+        $this->headScript()->appendFile(
+            'yui/build/yahoo-dom-event/yahoo-dom-event.js', 'text/javascript');
+        $this->headScript()->appendFile(
+            'yui/build/container/container_core-min.js', 'text/javascript');
+        $this->headScript()->appendFile(
+            'yui/build/menu/menu-min.js', 'text/javascript');
+        $this->headScript()->appendFile(
+            'yui/build/animation/animation-min.js', 'text/javascript');
+        $this->headScript()->appendFile(
+            'scripts/menu.js');
 
         // Ajout des link, Scripts et Styles dynamiques.
             echo '
@@ -45,8 +41,8 @@
 '.$this->headStyle();
         ?>
 
-        <script type="text/javascript" src="<?=$this->baseUrl();?>/scripts/commentaire.js"></script>
-        <script type="text/javascript" src="<?=$this->baseUrl();?>/scripts/masque.js"></script>
+        <script type="text/javascript" src="scripts/commentaire.js"></script>
+        <script type="text/javascript" src="scripts/masque.js"></script>
 
     </head>
 
@@ -87,9 +83,9 @@
             if ((count($erreurs) > 0) || (count($messages) > 0) ) {
             ?>
                 <ul>
-                    <span id="croix" onclick="setCommentaire(null);">
-                        <img  src="<?=Zend_Controller_Front::getInstance()->getBaseUrl()?>/icons/croix.png" alt="fermer"/>
-                    </span>
+                    <li id="croix" onclick="setCommentaire(null);">
+                        <img  src="icons/croix.png" alt="fermer"/>
+                    </li>
                 <?php
                 if (count($erreurs > 0)) {
                 ?>
@@ -100,14 +96,14 @@
                             <?php
                             if (is_string($erreur)) {
                             ?>
-                            <img alt="attention" src="<?=Zend_Controller_Front::getInstance()->getBaseUrl()?>/icons/error.png"/>
+                            <img alt="attention" src="icons/error.png"/>
                             <span class="texte">
                                 <?= $erreur ?>
                             </span>
                             <?php
                             } else if (is_a($erreur, 'MCS_Exception_Utilisateur')) {
                             ?>
-                            <img alt="attention" src="<?=Zend_Controller_Front::getInstance()->getBaseUrl()?>/icons/error.png"/>
+                            <img alt="attention" src="icons/error.png"/>
                             <span class="titre">
                                 Erreur d'utilisation
                             </span>
@@ -117,7 +113,7 @@
                             <?php
                             } else if (is_a($erreur, 'MCS_Exception_Systeme')) {
                             ?>
-                            <img alt="erreur" src="<?=Zend_Controller_Front::getInstance()->getBaseUrl()?>/icons/exclamation.png"/>
+                            <img alt="erreur" src="icons/exclamation.png"/>
                             <span class="titre">
                                 Erreur du système
                             </span>
@@ -127,7 +123,7 @@
                             <?php
                             } else if (is_a($erreur, 'Exception')) {
                             ?>
-                            <img alt="erreur" src="<?=Zend_Controller_Front::getInstance()->getBaseUrl()?>/icons/exclamation.png"/>
+                            <img alt="erreur" src="icons/exclamation.png"/>
                             <span class="titre">
                                 Erreur inconnue
                             </span>
@@ -137,7 +133,7 @@
                             <?php
                             } else {
                             ?>
-                            <img alt="erreur" src="<?=Zend_Controller_Front::getInstance()->getBaseUrl()?>/icons/exclamation.png"/>
+                            <img alt="erreur" src="icons/exclamation.png"/>
                             <span class="titre">
                                 <?= $erreur['titre'] ?>
                             </span>
@@ -161,7 +157,7 @@
                         foreach ($messages as $message) {
                         ?>
                         <li>
-                            <img alt="information" src="<?=Zend_Controller_Front::getInstance()->getBaseUrl()?>/icons/information.png"/>
+                            <img alt="information" src="icons/information.png"/>
                             <?php
                             if (is_string($message)) {
                             ?>
