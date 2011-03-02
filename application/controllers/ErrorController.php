@@ -3,7 +3,7 @@
 /**
  * Classe de gestion des erreurs de requetes
  */
-class ErrorController extends MCS_Controller_Error
+class ErrorController extends UI_Controller_Error
 {
 
 }

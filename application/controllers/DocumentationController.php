@@ -1,6 +1,6 @@
 <?php
 
-class DocumentationController extends MCS_Controller
+class DocumentationController extends Core_Controller
 {
 
     public function genererAction()
@@ -17,7 +17,7 @@ class DocumentationController extends MCS_Controller
         $ignores = array('PHPExcel/', 'dompdf/');
 
         $this->view->commande = "$phpdoc -t $sortie -o $template -d ";
-        
+
         $sourceDirsExists = true;
         foreach ($sources as $source) {
             if (!is_dir($source)) {
@@ -33,7 +33,7 @@ class DocumentationController extends MCS_Controller
         }
 
         $this->view->commande = substr($this->view->commande, 0, -1).' 2>&1';
-        
+
         if (!is_dir($sortie) || !$sourceDirsExists) {
             $this->view->resultatGeneration = 'echec';
             $this->view->detailGeneration = "Les dossiers sources ou destination n'existent pas.";

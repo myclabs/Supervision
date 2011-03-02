@@ -1,6 +1,6 @@
 <?php
 
-class IndexController extends MCS_Controller
+class IndexController extends Core_Controller
 {
 
     public function indexAction()

@@ -1,15 +1,15 @@
 <?php
-
-// Initialisation de l'autoloading
 error_reporting(E_ALL);
-// Enregistre la librairie (meme nom que le module mais c'est pas grave)
-$autoloader = Zend_Loader_Autoloader::getInstance();
-$autoloader->registerNamespace('MCS_');
 
-
-class Bootstrap extends MCS_Bootstrap
+class Bootstrap extends Core_Bootstrap
 {
 
+    /**
+     * Surcharge
+     */
+    protected function _initDb()
+    {
+    }
     /**
      * Désactive la prise en compte des droits d'accès
      */

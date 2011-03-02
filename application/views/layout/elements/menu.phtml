@@ -1,52 +1,180 @@
 <?php
+    // Définition du menu sous forme de tableau.
+    $menu = array(
+        1   => array(
+            'nom'     => 'Library',
+            'url'     => null,
+            'contenu' => array(
+                1   => array(
+                    'nom'     => 'UI',
+                    'url'     => 'ui/',
+                ),
+                2   => array(
+                    'nom'     => 'TEC',
+                    'url'     => 'tec/',
+                ),
+                3   => array(
+                    'nom'     => 'Unit',
+                    'url'     => 'unit/',
+                ),
+                4   => array(
+                    'nom'     => 'AF',
+                    'url'     => 'af/',
+                ),
+                5   => array(
+                    'nom'     => 'User & ACL',
+                    'url'     => 'useracl/',
+                ),
+                6   => array(
+                    'nom'     => 'Doc',
+                    'url'     => 'doc/',
+                ),
+            ),
+        ),
+        2   => array(
+            'nom'     => 'Ancienne librairie',
+            'url'     => null,
+            'contenu' => array(
+                1   => array(
+                    'nom'     => 'Interfaces-Génériques',
+                    'url'     => 'interfacesgeneriques/',
+                ),
+                2   => array(
+                    'nom'     => 'Utilisateurs',
+                    'url'     => 'utilisateurs/',
+                ),
+                3   => array(
+                    'nom'     => 'Gestion des droits d\'accès',
+                    'url'     => 'acl/',
+                ),
+                4   => array(
+                    'nom'     => 'Navigation',
+                    'url'     => 'navigation/',
+                ),
+                5   => array(
+                    'nom'     => 'Unités',
+                    'url'     => 'unites/',
+                ),
+                6   => array(
+                    'nom'     => 'Conversions expressions/arbres',
+                    'url'     => 'expressionscalculs/',
+                ),
+                7   => array(
+                    'nom'     => 'Modules comptables',
+                    'url'     => 'modulescomptables/',
+                ),
+                8   => array(
+                    'nom'     => 'Exports',
+                    'url'     => 'exports/',
+                ),
+            ),
+        ),
+        3   => array(
+            'nom'     => 'Base Carbone',
+            'url'     => null,
+            'contenu' => array(
+                1   => array(
+                    'nom'     => 'Version 0.2',
+                    'url'     => 'Basecarbone2/',
+                ),
+                2   => array(
+                    'nom'     => 'Version 0.3',
+                    'url'     => 'Basecarbone/',
+                ),
+            ),
+        ),
+        4   => array(
+            'nom'     => 'Projets Clients',
+            'url'     => null,
+            'contenu' => array(
+                1   => array(
+                    'nom'     => 'Stations de Montagne',
+                    'url'     => 'stationsmontagne/',
+                ),
+                2   => array(
+                    'nom'     => 'Spiritueux',
+                    'url'     => 'spiritueux/',
+                ),
+            ),
+        ),
+    );
+
+    // Page demandée
+    $request = Zend_Controller_Front::getInstance()->getRequest();
+    $controleur = $request->getControllerName();
+    $action = $request->getActionName();
+
+    // Ajout d'options au menu.
+    if (($controleur === 'documentation') && ($action === 'voir')) {
+        $menu[5] = array(
+            'nom'   => 'Générer la phpDoc',
+            'url'   => 'documentation/generer',
+            'contenu' => false,
+        );
+    }
 
 $htmlMenu = false;
 
-foreach (Navigation_Model_Menu::getMenusRacine() as $menu) {
-    $listeSousMenu = $menu->getEnfants();
-    if (!$htmlMenu) {
+foreach ($menu as $noeud) {
+    if (is_array($noeud['contenu'])) {
+        $sousMenu = $noeud;
+    } else {
+        $sousMenu = false;
+    }
+    if ($htmlMenu !== true) {
 ?>
 <div id="bd">
     <div id="yui-main">
         <div class="yui-b">
             <div id="productsandservices" class="yuimenubar yuimenubarnav">
                 <div class="bd">
-
                     <ul class="first-of-type">
 <?php
         $htmlMenu = true;
     }
 ?>
-                            <li class="yuimenubaritem">
-                                <a class="yuimenubaritemlabel" <?php
-                                if ($menu->getPage()) {
-                                ?> href="<?=$this->baseURL().$menu->getPage()->url?><?php
+                        <li class="yuimenubaritem">
+                            <?php
+                                if ($noeud['url'] !== null) {
+                                    $url = ' href="'.$noeud['url'].'"';
+                                } else {
+                                    $url = '';
                                 }
-                                ?>"><?=$menu->nom?></a>
-                                <div class="yuimenu">
-                                    <div class="bd">
-                                        <ul>
+                            ?>
+                            <a class="yuimenubaritemlabel"<?=$url?>>
+                                <?=$noeud['nom']?>
+                            </a>
 <?php
-            foreach ($listeSousMenu as $sousMenu) {
+        if ($sousMenu !== false) {
+?>
+                            <div class="yuimenu">
+                                <div class="bd">
+                                    <ul>
+<?php
+            foreach ($sousMenu['contenu'] as $sousNoeud) {
 ?>
                                         <li class="yuimenuitem">
                                             <?php
-                                            $url = $sousMenu->getPage()->url;
-                                            if (strncmp($url, 'http', strlen('http')) !== 0) {
-                                                $url = $this->baseURL().$url;
-                                            }
+                                                if ($sousNoeud['url'] !== null) {
+                                                    $url = ' href="'.$sousNoeud['url'].'"';
+                                                } else {
+                                                    $url = '';
+                                                }
                                             ?>
-                                            <a class="yuimenuitemlabel" href="<?=$url?>">
-                                                <?=$sousMenu->nom?>
+                                            <a class="yuimenuitemlabel"<?=$url?>>
+                                                    <?=$sousNoeud['nom']?>
                                             </a>
                                         </li>
 <?php
             }
 ?>
-                                        </ul>
-                                    </div>
+                                    </ul>
                                 </div>
-                            </li>
+                            </div>
+<?php
+        }
+?>
+                        </li>
 <?php
 }
 if ($htmlMenu) {

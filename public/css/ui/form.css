@@ -1,0 +1,135 @@
+/*================================*/
+/*              Form              */
+/*================================*/
+
+
+.yui-skin-sam .yui-panel-container {
+    padding: 0;
+}
+
+.yui-skin-sam .yui-panel-container .yui-panel.helpPopup {
+    margin-top: -110px;
+}
+
+.yui-skin-sam .yui-panel-container .yui-panel.helpPopup .hd {
+    display: none;
+}
+
+.yui-skin-sam .yui-panel-container .yui-panel.helpPopup.helpForm .hd {
+    display: block;
+}
+
+.yui-skin-sam .yui-panel.helpPopup div.hd {
+    background: #EEF380;
+}
+
+.yui-skin-sam .yui-panel.helpPopup div.bd {
+    background: #FBFF8D;
+}
+ 
+.form {
+    display: inline-block;
+    width: auto;
+    border: thin solid #BBBBBB;
+    padding: 5px;
+    background-color: #EFEFEF;
+}
+
+.form div.foldGroups {
+    display: inline-block;
+    margin: 10px 0px;
+}
+
+.form button.helpForm, .form img.help {
+    float: right;
+}
+
+/*Permet de garder l'icone d'aide aligné au champ lors de l'affichage des erreurs*/
+.form div.line select + * + * + *, .form div.line label + * + * + * + * + * {
+    position: relative;
+    bottom: 20px;   
+}
+
+.form div.line {
+    margin: 5px 0px 10px 0px;
+    padding: 0px 5px 0px 0px;
+}
+
+.form div.line label {
+    display: inline-block;
+    width: 225px;
+}
+
+.form div.line input[name="captcha[input]"] {
+    margin : 5px 0px 15px 230px;
+    width: 195px;
+}
+
+.form div.line label + * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.form div.line input[type="radio"], .form .line input[type="checkbox"] {
+    margin: 0px 5px 5px 0px;
+}
+
+.form div.line .description {
+    display: inline-block;
+    min-width: 250px;
+    margin-left: 15px;
+    font-style: oblique;
+}
+
+.form div.group-wrap {
+    margin-bottom: 25px;
+    border-top: thin solid #BBBBBB;
+}
+.form div.group {
+    margin: 15px 0px 0px 0px;
+    padding-left: 45px;
+}
+
+.form div.group-head {
+    padding: 5px 25px 5px 25px;
+    font-weight: bold;
+}
+
+.form div.group-head span img {
+    position: relative;
+    top: -0.1em;
+    margin-right: 5px;  
+}
+
+.form input[type="submit"] {
+    position: relative;
+    left: 50%;
+    float: left;
+}
+
+.form input[type="reset"] {
+    position: relative;
+    right: 50%;
+    float: right;
+}
+
+.form ul.errors {
+    margin: 0px 0px 15px 15px;
+}
+
+.form ul.errors li {
+    font-size:0.85em;
+    color: #F00;
+}
+
+.form .captcha {
+    color: blue;
+    position: relative;
+    bottom: 40px !important;
+    right: 150px;   
+    
+}
+.form .captcha:hover {
+    cursor: pointer;
+    
+}

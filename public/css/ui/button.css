@@ -1,0 +1,123 @@
+/*================================*/
+/*            Bouton	          */
+/*================================*/
+
+button,
+button:link,
+.bouton, 
+.bouton:link,
+input[type="button"], 
+input[type="button"]:link,
+input[type="submit"], 
+input[type="submit"]:link,
+input[type="submit"]:visited, 
+input[type="submit"]:active,
+input[type="submit"]:focus,
+input[type="reset"],
+input[type="reset"]:link, 
+input[type="reset"]:visited, 
+input[type="reset"]:active, 
+input[type="reset"]:focus,
+input[type="image"],
+input[type="image"]:link, 
+input[type="image"]:visited, 
+input[type="image"]:active, 
+input[type="image"]:focus {
+    background: url(../../icons/ui/bg-button.png) repeat-x #FFF;
+    background-position: bottom;
+    border: thin solid #999;
+    font-weight: bold;
+    color: #333333;
+    font-size: 1em;
+    cursor: pointer;
+   	padding: 2px 10px 2px 10px;
+    display: inline-block;
+    height: auto;
+    text-align: center;
+   	text-decoration: none;
+    text-indent: 0;
+    text-transform: none;
+    vertical-align: middle;
+    width: auto;
+    word-spacing: normal;
+    z-index: auto;  
+    margin: 5px;
+}
+
+/*========================================*/
+/*          Boutons avec icone            */
+/*========================================*/
+
+button img,
+button:link img,
+.bouton img,
+.bouton:link img,
+input[type="button"] img,
+input[type="button"]:link img,
+input[type="reset"] img,
+input[type="reset"]:link img,
+input[type="reset"]:visited img,
+input[type="reset"]:active img,
+input[type="reset"]:focus img
+input[type="submit"] img,
+input[type="submit"]:link img,
+input[type="submit"]:visited img,
+input[type="submit"]:active img,
+input[type="submit"]:focus img{
+	position: relative;
+    top: 0.2em;
+}
+
+/*====================*/
+/*      Survol        */
+/*====================*/
+
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover
+input[type="image"]:hover,
+.buton:hover,
+.bouton:hover{
+	background: url(../../icons/ui/bg-button-survol.png) repeat-x #FFF;
+	background-position: bottom;
+	border: thin solid #3c7fb1;
+	text-decoration: none;
+}
+
+/*====================*/
+/*      Clique        */
+/*====================*/
+
+button:active,
+a.bouton:active, 
+input[type="button"]:active, 
+input[type="submit"]:active, 
+input[type="reset"]:active, 
+input[type="image"]:active,
+.buton:active,
+.bouton:active{
+    background: url(../../icons/ui/bg-button-clik.png) repeat-x #FFF;
+	background-position: bottom;
+}
+
+/*====================*/
+/*      Désactivé     */
+/*====================*/
+
+button:disabled,
+a.bouton:disabled, 
+input[type="button"]:disabled,
+input[type="submit"]:disabled,
+input[type="reset"]:disabled,
+input[type="image"]:disabled,
+.buton:disabled,
+.bouton:disabled
+{
+    opacity: 0.5;
+    background: url(../../icons/ui/bg-button.png) repeat-x #FFF;
+	background-position: bottom;
+    border: thin solid #AAA;
+	text-decoration: none;
+	color: #aaaaaa;
+    cursor: default;
+}

@@ -1,36 +1,32 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<?php
+    // Layout d'un projet.
+    echo $this->doctype()."\n";
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <base href="http://<?=$_SERVER["SERVER_NAME"]?><?=$this->baseUrl()?>/" />
-        <title>Supervision</title>
+        <title>UI</title>
         <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
 
         <link rel="stylesheet" type="text/css" href="yui/build/reset-fonts-grids/reset-fonts-grids.css" />
         <link rel="stylesheet" type="text/css" href="yui/build/fonts/fonts-min.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="css/supervision.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/ui/layout.css" />
 
         <?php
         // Ajout des Fichiers CSS nécéssaires au Menu.
-        $this->headLink()->appendStylesheet(
-            'yui/build/menu/assets/skins/sam/menu.css');
-        $this->headLink()->appendStylesheet(
-            'yui/build/button/assets/skins/sam/button.css');
-        $this->headLink()->appendStylesheet(
-            'yui/build/container/assets/skins/sam/container.css');
+        $this->headLink()->appendStylesheet('yui/build/menu/assets/skins/sam/menu.css');
+        $this->headLink()->appendStylesheet('yui/build/button/assets/skins/sam/button.css');
+        $this->headLink()->appendStylesheet('yui/build/container/assets/skins/sam/container.css');
         // Ajout des fichiers Javascript nécéssaires au Menu.
-        $this->headScript()->appendFile(
-            'yui/build/yahoo-dom-event/yahoo-dom-event.js', 'text/javascript');
-        $this->headScript()->appendFile(
-            'yui/build/container/container_core-min.js', 'text/javascript');
-        $this->headScript()->appendFile(
-            'yui/build/menu/menu-min.js', 'text/javascript');
-        $this->headScript()->appendFile(
-            'yui/build/animation/animation-min.js', 'text/javascript');
-        $this->headScript()->appendFile(
-            'scripts/menu.js');
+        $this->headScript()->appendFile('yui/build/yahoo-dom-event/yahoo-dom-event.js', 'text/javascript');
+        $this->headScript()->appendFile('yui/build/container/container_core-min.js', 'text/javascript');
+        $this->headScript()->appendFile('yui/build/menu/menu-min.js', 'text/javascript');
+        $this->headScript()->appendFile('yui/build/animation/animation-min.js', 'text/javascript');
+        $this->headScript()->appendFile('scripts/ui/menu.js', 'text/javascript');
+        // Ajout des fichiers nécéssaires aux Messages.
+        UI_Message::addHeader();
 
         // Ajout des link, Scripts et Styles dynamiques.
             echo '
@@ -41,8 +37,7 @@
 '.$this->headStyle();
         ?>
 
-        <script type="text/javascript" src="scripts/commentaire.js"></script>
-        <script type="text/javascript" src="scripts/masque.js"></script>
+        <script type="text/javascript" src="scripts/ui/masque.js"></script>
 
     </head>
 
@@ -51,15 +46,15 @@
         <div id="Page">
 
             <div id="enTete">
-                <?=$this->partial('elements/enTete.phtml', array())?>
+                <?=$this->partial('elements/entete.phtml', array())?>
             </div>
 
             <div id="bandeau">
-                <?=$this->partial('elements/bandeau.phtml')?>
+                <?=$this->partial('elements/bandeau.phtml', array())?>
             </div>
 
             <div id="Menu">
-                <?=$this->partial('elements/menu.phtml')?>
+                <?=$this->partial('elements/menu.phtml', array())?>
             </div>
 
             <div id="Masque">
@@ -68,133 +63,22 @@
                     <span>Chargement en cours ...</span>
                 </div>
             </div>
-            <script type="text/Javascript">
+            <script type="text/javascript">
+            /*<![CDATA[*/
                 setMasque(true, false);
+            /*]]>*/
             </script>
 
             <?php
-                $erreurs = $this->erreurs;
-                $this->erreurs = array();
-                $messages = $this->messages;
-                $this->messages = array();
+            UI_Message::renderStatic();
             ?>
-            <div id="Informations">
-            <?php
-            if ((count($erreurs) > 0) || (count($messages) > 0) ) {
-            ?>
-                <ul>
-                    <li id="croix" onclick="setCommentaire(null);">
-                        <img  src="icons/croix.png" alt="fermer"/>
-                    </li>
-                <?php
-                if (count($erreurs > 0)) {
-                ?>
-                        <?php
-                        foreach ($erreurs as $erreur) {
-                        ?>
-                        <li>
-                            <?php
-                            if (is_string($erreur)) {
-                            ?>
-                            <img alt="attention" src="icons/error.png"/>
-                            <span class="texte">
-                                <?= $erreur ?>
-                            </span>
-                            <?php
-                            } else if (is_a($erreur, 'MCS_Exception_Utilisateur')) {
-                            ?>
-                            <img alt="attention" src="icons/error.png"/>
-                            <span class="titre">
-                                Erreur d'utilisation
-                            </span>
-                            <span class="texte">
-                                <?= $erreur->getMessage() ?>
-                            </span>
-                            <?php
-                            } else if (is_a($erreur, 'MCS_Exception_Systeme')) {
-                            ?>
-                            <img alt="erreur" src="icons/exclamation.png"/>
-                            <span class="titre">
-                                Erreur du système
-                            </span>
-                            <span class="texte">
-                                <?= $erreur->getMessage() ?>
-                            </span>
-                            <?php
-                            } else if (is_a($erreur, 'Exception')) {
-                            ?>
-                            <img alt="erreur" src="icons/exclamation.png"/>
-                            <span class="titre">
-                                Erreur inconnue
-                            </span>
-                            <span class="texte">
-                                <?= $erreur->getMessage() ?>
-                            </span>
-                            <?php
-                            } else {
-                            ?>
-                            <img alt="erreur" src="icons/exclamation.png"/>
-                            <span class="titre">
-                                <?= $erreur['titre'] ?>
-                            </span>
-                            <span class="texte">
-                                <?= $erreur['message'] ?>
-                            </span>
-                            <?php
-                            }
-                            ?>
-                        </li>
-                        <?php
-                        }
-                        ?>
-                <?php
-                }
-                ?>
-                <?php
-                if (count($messages > 0)) {
-                ?>
-                        <?php
-                        foreach ($messages as $message) {
-                        ?>
-                        <li>
-                            <img alt="information" src="icons/information.png"/>
-                            <?php
-                            if (is_string($message)) {
-                            ?>
-                            <span class="texte">
-                                <?= $message ?>
-                            </span>
-                            <?php
-                            } else {
-                            ?>
-                            <span class="titre">
-                                <?= $message['titre'] ?>
-                            </span>
-                            <span class="texte">
-                                <?= $message['texte'] ?>
-                            </span>
-                            <?php
-                            }
-                            ?>
-                        </li>
-                        <?php
-                        }
-                        ?>
-                <?php
-                }
-                ?>
-                </ul>
-            <?php
-            }
-            ?>
-            </div>
 
             <div id="Corps">
                 <?=$this->layout()->content?>
             </div>
 
             <div id="Pied">
-                <?=$this->partial('elements/pied.phtml')?>
+                <?=$this->partial('elements/pied.phtml', array())?>
             </div>
         </div>
     </body>

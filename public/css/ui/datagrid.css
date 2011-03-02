@@ -1,0 +1,310 @@
+/*================================*/
+/*            Datagrid	          */
+/*================================*/
+
+/* Pas de masque dans la Datagrid lors des actions Ajax */
+.yui-skin-sam .yui-dt-mask {
+    display: none !important;
+}
+
+/* La Datagrid prend toute la largeur de son conteneur (la page) */
+.yui-skin-sam .yui-dt table {
+	width:100%;
+    margin: 5px 0px 5px 5px;
+}
+
+/* Paginator à droite */
+.yui-skin-sam .yui-dt-paginator {
+	text-align: right;
+}
+
+/* Pas d'affichage de la colonne contenant les index (correction d'un défaut d'affichage) */
+.yui-skin-sam .yui-dt-col-index {
+	display: none;
+}
+
+/* Titre des colonnes : au centre et en gras */
+.yui-skin-sam .yui-dt-first th {
+    text-align: center !important;
+}
+.yui-skin-sam .yui-dt-label span {
+    font-weight: bold;
+}
+
+/* Curseur par défaut sur les cellules */
+.yui-skin-sam td {
+    cursor: default;
+}
+.yui-skin-sam td.yui-dt-editable {
+    cursor: pointer;
+}
+
+/* Alignement des Cellules */
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_alignement_gauche,
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_alignement_central,
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_alignement_droite {
+	display: block;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_alignement_gauche {
+	text-align: left;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_alignement_central {
+	text-align: center;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_alignement_droite {
+	text-align: right;
+}
+
+/* Curseur pointer et couleur des cellules clickable */
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_cellule_clickable {
+    cursor: pointer;
+    color: #336699;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner:hover .datagrid_cellule_clickable span {
+    text-decoration: underline;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_cellule_clickable img {
+    margin: 0px 5px;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner:hover .datagrid_cellule_clickable img {
+    text-decoration: none !important;
+}
+
+/* Curseur pointer et couleur des cellules désactivé */
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_cellule_desactive {
+    color: #888888;
+    text-decoration: line-through;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_cellule_desactive img {
+    margin: 0px 5px;
+    opacity: 0.5;
+}
+
+/* Curseur et label d'édition des cellules éditables */
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_cellule_editable {
+    display: inline-block;
+    padding: 5px 0px 0px 0px;
+    width: 25px;
+    height: 100%;
+    float: right;
+    text-align: right;
+    font-size: 0.8em;
+    color: #555555;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner:hover .datagrid_cellule_editable {
+    color: #888888;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner .datagrid_cellule_editable img {
+    height: 1.5em;
+    width: auto;
+    opacity: 0.5;
+    margin: 0px 0.2em 0px 15px;
+}
+
+/* Décoration des liens */
+.yui-skin-sam td a:hover {
+    text-decoration: none;
+}
+.yui-skin-sam td a:hover span {
+    text-decoration: underline;
+}
+.yui-skin-sam td a img {
+    margin: 0px 5px;
+}
+.yui-skin-sam .yui-dt-data .yui-dt-liner:hover a:hover + .datagrid_cellule_editable span {
+    text-decoration: none;
+    color: #555555;
+}
+
+/* Style labels des colonnes triable */
+.yui-skin-sam th.yui-dt-sortable .yui-dt-liner {
+	background:url(../../icons/ui/dt-arrow.png) no-repeat right;
+}
+
+.yui-skin-sam th.yui-dt-asc .yui-dt-liner {
+	background:url(../../yui/build/assets/skins/sam/dt-arrow-up.png) no-repeat right;
+}
+
+.yui-skin-sam th.yui-dt-desc .yui-dt-liner {
+	background:url(../../yui/build/assets/skins/sam/dt-arrow-dn.png) no-repeat right;
+}
+
+/*================================*/
+/*            Ajout               */
+/*================================*/
+
+.panelAjout {
+    min-width: 350px;
+}
+.panelAjout .bd > div {
+    float: left;
+    clear: left;
+    width: 100%;
+    margin: 10px;
+    text-align: left;
+}
+
+.panelAjout .bd > div label {
+    display: inline-block;
+    float: left;
+    min-width: 125px;
+}
+
+.panelAjout .bd > div span, .panelAjout .bd > div input, .panelAjout .bd > div select {
+    display: inline-block;
+    float: left;
+}
+
+.panelAjout .bd > div span {
+    margin: 0px 10px 0px 5px;
+}
+
+.panelAjout .bd > div .panelDate {
+    display: none;
+}
+
+
+/*================================*/
+/*            Filtres	          */
+/*================================*/
+
+.filtreDatagrid {
+    border-top: 1px solid #cccccc;
+    margin: 25px 0px 15px 5px;
+}
+
+.filtreDatagrid > div {
+    display: none;
+}
+
+.filtreDatagrid > div.affiche {
+    display: block;
+}
+
+.filtreDatagrid_Legend {
+	margin-left: 15px;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+}
+
+.filtreDatagrid_Legend img {
+	top: -2px;
+    left: -5px;
+	position: relative;
+}
+
+.filtreDatagrid div {
+	float: left;
+	width: 100%;
+	margin: 10px;
+}
+
+.filtreDatagrid .datagridFiltre_corps > div {
+    margin-bottom: 15px;
+}
+
+.filtreDatagrid label {
+	display: block;
+	float: left;
+	width:10%; 
+}
+
+.datagridFiltre_corps span {
+	display: block;
+	float: left;
+	width:8%;
+}
+
+.filtreDatagrid input,
+.filtreDatagrid select {
+	display: block;
+	float: left;
+}
+
+.filtreDatagrid input[type=radio] + label {
+    margin: -2px 25px 0px 10px;
+    min-width: 10px;
+    width: auto;
+}
+
+.filtreNombre_affichage, .filtreDate_affichage {
+    cursor: pointer;
+}
+
+.filtreNombre_affichage img, .filtreDate_affichage img {
+	top: -1px;
+    right: -5px;
+	position: relative;
+}
+
+.filtreDatagrid .filtreNombre, .filtreDatagrid .filtreDate {
+    display: none;
+    margin-bottom: 0px;
+}
+
+.filtreDatagrid .filtreNombre.affiche, .filtreDatagrid .filtreDate.affiche {
+    display: block;
+}
+
+.filtreDatagrid .filtreNombre div, .filtreDatagrid .filtreDate div {
+    display: block;
+    float: left;
+    width: 100%;
+	margin-top: 10px;
+	margin-left: -10px;
+	margin-bottom: 0px;
+	padding: 0;
+}
+
+.filtreDatagrid .filtreNombre span, .filtreDatagrid .filtreDate span {
+    display: block;
+    float: left;
+	width: 8%;
+	margin-left: 10%;
+	margin-bottom: 10px;
+}
+
+.filtreDatagrid .filtreNombre input, .filtreDatagrid .filtreDate input {
+    display: block;
+    float: left;
+	margin-left: 0%;
+}
+.filtreDatagrid .datagridFiltre_corps div .panelDate {
+    display: none;
+}
+
+.yui-skin-sam .panelDate {
+    diplay: none;
+    position: relative;
+    top: -110px;
+}
+
+.yui-skin-sam .panelDate .bd {
+    padding: 10px 0px 0px 0px;
+}
+
+.yui-skin-sam .panelDate .yui-calcontainer {    
+    border: none;
+}
+
+.yui-skin-sam .panelDate .yui-cal-nav button {
+    margin: 0px;
+}
+
+/*footer filtre*/
+.datagridFiltre_entete {
+	border-top: 1px solid #cccccc;
+	text-align: center;
+}
+
+.datagridFiltre_entete button {
+	margin: 5px;
+}
+
+.datagridFiltre_entete button img {
+	position: relative;
+	top: 0px;
+	float: left;
+}
