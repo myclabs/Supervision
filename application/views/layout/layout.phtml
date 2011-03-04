@@ -6,21 +6,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <base href="http://<?=$_SERVER["SERVER_NAME"]?><?=$this->baseUrl()?>/" />
-        <title>Supervision</title>
-        <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+        <title><?=Zend_Registry::get('package')->getName()?></title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 
         <link rel="stylesheet" type="text/css" href="yui/build/reset-fonts-grids/reset-fonts-grids.css" />
         <link rel="stylesheet" type="text/css" href="yui/build/fonts/fonts-min.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/ui/layout.css" />
 
         <?php
+        // Fichier nécéssaire au masque.
+        $this->headScript()->appendFile('yui/build/yahoo-dom-event/yahoo-dom-event.js', 'text/javascript');
+        $this->headScript()->appendFile('scripts/ui/masque.js', 'text/javascript');
         // Ajout des Fichiers CSS nécéssaires au Menu.
         $this->headLink()->appendStylesheet('yui/build/menu/assets/skins/sam/menu.css');
         $this->headLink()->appendStylesheet('yui/build/button/assets/skins/sam/button.css');
         $this->headLink()->appendStylesheet('yui/build/container/assets/skins/sam/container.css');
         // Ajout des fichiers Javascript nécéssaires au Menu.
-        $this->headScript()->appendFile('yui/build/yahoo-dom-event/yahoo-dom-event.js', 'text/javascript');
         $this->headScript()->appendFile('yui/build/container/container_core-min.js', 'text/javascript');
         $this->headScript()->appendFile('yui/build/menu/menu-min.js', 'text/javascript');
         $this->headScript()->appendFile('yui/build/animation/animation-min.js', 'text/javascript');
@@ -36,8 +38,6 @@
             echo '
 '.$this->headStyle();
         ?>
-
-        <script type="text/javascript" src="scripts/ui/masque.js"></script>
 
     </head>
 
