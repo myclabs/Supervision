@@ -26,7 +26,8 @@ class IndexController extends Core_Controller
             ." /home/dev/library/TEC"
             ." /home/dev/library/UI"
             ." /home/dev/library/Unit"
-            ." /home/dev/library/User";
+            ." /home/dev/library/User"
+            ." 2>&1";
         $output = array();
         exec($this->view->command, $output, $retour);
         $this->view->errors = implode("\n", $output);
