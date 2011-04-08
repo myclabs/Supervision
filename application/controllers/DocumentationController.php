@@ -9,8 +9,8 @@ class DocumentationController extends Core_Controller
 
         $phpdoc = 'phpdoc';
         $sortie = '/home/dev/phpdoc/';
-        //$template = 'HTML:Smarty:PHP';
-        $template = 'HTML:frames/Extjs:default';
+        $template = 'HTML:Smarty:PHP';
+        //$template = 'HTML:frames/Extjs:default';
         $sources = array('/home/dev/library/',
                          '/home/dev/basecarbone/application/basecarbone/models');
         $ignores = array('External/', 'Resources/');
@@ -38,7 +38,7 @@ class DocumentationController extends Core_Controller
             $this->view->detailGeneration = "Les dossiers sources ou destination n'existent pas.";
         } else {
             $output = array();
-            exec($this->view->commande, $output, $retour);
+            exec($this->view->commande, $output, c);
             if ($retour == 0) {
                 $this->view->resultatGeneration = 'succès';
                 $this->view->detailGeneration = implode("\n", $output);
