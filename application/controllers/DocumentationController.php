@@ -11,9 +11,22 @@ class DocumentationController extends Core_Controller
         $sortie = '/home/dev/phpdoc/';
         $template = 'HTML:Smarty:PHP';
         //$template = 'HTML:frames/Extjs:default';
-        $sources = array('/home/dev/library',
+        $sources = array('/home/dev/library/AF/trunk',
+                         '/home/dev/library/Calc/trunk',
+                         '/home/dev/library/Core/trunk',
+                         '/home/dev/library/Doc/trunk',
+                         '/home/dev/library/Exec/trunk',
+                         '/home/dev/library/Export/trunk',
+                         '/home/dev/library/Keyword/trunk',
+                         '/home/dev/library/Log/trunk',
+                         '/home/dev/library/News/trunk',
+                         '/home/dev/library/TEC/trunk',
+                         '/home/dev/library/Tree/trunk',
+                         '/home/dev/library/UI/trunk',
+                         '/home/dev/library/Unit/trunk',
+                         '/home/dev/library/User/trunk',
                          '/home/dev/basecarbone/application/basecarbone/models');
-        $ignores = array('External/', 'Resources/');
+        $ignores = array('test/', 'scripts/');
 
         $this->view->commande = "$phpdoc -t $sortie -o $template -d ";
 
