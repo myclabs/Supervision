@@ -9,8 +9,8 @@ class DocumentationController extends Core_Controller
 
         $phpdoc = 'phpdoc';
         $sortie = '/home/dev/phpdoc/';
-        //$template = 'HTML:Smarty:PHP';
-        $template = 'HTML:frames/Extjs:default';
+        $template = 'HTML:Smarty:PHP';
+        //$template = 'HTML:frames/Extjs:default';
         $sources = array('/home/dev/library/Core',
                          '/home/dev/basecarbone/application/basecarbone/models');
         $ignores = array('External/', 'Resourcees/');
