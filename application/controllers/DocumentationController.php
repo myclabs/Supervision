@@ -17,7 +17,7 @@ class DocumentationController extends Core_Controller
                          'Resources/',
                          'branches/',
                          'tags/',
-                         'test/',
+                         'tests/',
                          'scripts/');
 
         $this->view->commande = "$phpdoc -t $sortie -o $template -d ";
