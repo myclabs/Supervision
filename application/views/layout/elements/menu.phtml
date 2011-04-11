@@ -113,7 +113,7 @@ $controleur = $request->getControllerName();
 $action = $request->getActionName();
 
 // Ajout d'options au menu.
-if (($controleur === 'documentation') && ($action === 'voir')) {
+if (($controleur === 'documentation') && (($action === 'voir') || ($action === 'generer'))) {
     $menu[5] = array(
         'nom'   => 'Générer la phpDoc',
         'url'   => 'documentation/generer',
