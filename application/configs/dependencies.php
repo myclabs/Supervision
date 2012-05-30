@@ -11,7 +11,7 @@
  * pour trouver la version indiquée.
  */
 $dependencies = array(
-    'Core' => 'trunk',
+    'Core' => '1.1',
     'UI'   => 'trunk',
 );
 
