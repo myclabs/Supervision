@@ -12,7 +12,7 @@
  */
 $dependencies = array(
     'Core' => '1.1',
-    'UI'   => 'trunk',
+    'UI'   => '1.1',
 );
 
 
