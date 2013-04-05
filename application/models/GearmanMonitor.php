@@ -116,7 +116,7 @@ class Default_Model_GearmanMonitor
             echo "total\t\t| running\t\t| available\t\t| job\n";
             foreach($response as $row)
             {
-                echo "{$row['total']} | {$row['running']} | {$row['available']} | {$row['job']} \n";
+                echo "{$row['total']}\t\t| {$row['running']}\t\t| {$row['available']}\t\t| {$row['job']} \n";
             }
         }
         else if ($cmd == 'workers')
