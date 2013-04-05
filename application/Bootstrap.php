@@ -10,6 +10,7 @@ class Bootstrap extends Core_Bootstrap
     protected function _initDb()
     {
     }
+
     /**
      * Désactive la prise en compte des droits d'accès
      */

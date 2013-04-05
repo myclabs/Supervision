@@ -10,16 +10,54 @@ $baseUrl = 'http://dev.myc-sense.com/';
                 Guide du nouvel arrivant</a>
 
     <h2>
-        Infos diverses
+        Monitoring Gearman
     </h2>
-    <ul>
-        <li>
-            La documentation du code de la librairie est générée tous les jours automatiquement.
-        </li>
-        <li>
-            Le rapport de couverture de code des tests est généré tous les jours automatiquement.
-            Cette génération est assez longue (5 minutes), ne la relancer via le menu que si
-            c'est nécessaire.
-        </li>
-    </ul>
+
+    <?php
+    try {
+        $monitor = new Default_Model_GearmanMonitor();
+    } catch (Exception $e) {
+        $monitor = null;
+    }
+    ?>
+
+    <?php if (!$monitor) : ?>
+
+        <p style="color: darkred; font-weight: bold; font-size: 1.2em">
+            <img src="<?=$this->baseUrl()?>/images/ui/exclamation.png">
+            Statut de Gearman : KO
+        </p>
+
+        <p style="color: darkred">
+            Impossible de se connecter à Gearman (localhost).
+        </p>
+
+    <?php else : ?>
+
+        <p style="margin-top: 10px">
+            Statut de Gearman : OK
+        </p>
+        <p style="margin-top: 10px">
+            Liste des jobs en attente
+        </p>
+        <pre><?php
+            $monitor = new Default_Model_GearmanMonitor();
+
+            $cmd = 'status';
+            $response = $monitor->cmd($cmd);
+            Default_Model_GearmanMonitor::showResponse($response, $cmd);
+        ?></pre>
+
+        <p style="margin-top: 10px">
+            Liste des workers
+        </p>
+        <pre><?php
+            $monitor = new Default_Model_GearmanMonitor();
+
+            $cmd = 'workers';
+            $response = $monitor->cmd($cmd);
+            Default_Model_GearmanMonitor::showResponse($response, $cmd);
+        ?></pre>
+
+    <?php endif; ?>
 </div>
