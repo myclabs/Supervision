@@ -113,7 +113,7 @@ class Default_Model_GearmanMonitor
     {
         if ($cmd == 'status')
         {
-            echo "total\t\t| running\t| available\t| job\n";
+            echo "total\t\t| running\t| workers\t| task\n";
             foreach($response as $row)
             {
                 echo "{$row['total']}\t\t| {$row['running']}\t\t| {$row['available']}\t\t| {$row['job']} \n";
@@ -121,7 +121,7 @@ class Default_Model_GearmanMonitor
         }
         else if ($cmd == 'workers')
         {
-            echo "host\t\t| jobs\n";
+            echo "host\t\t| tasks\n";
             foreach($response as $row)
             {
                 echo "{$row['host']}\t| ".implode(', ',$row['jobs'])."\n";
