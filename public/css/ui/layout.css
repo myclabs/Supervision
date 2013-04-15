@@ -1,216 +1,46 @@
-/*================================*/
-/*            Body  et Page       */
-/*================================*/
+/* On décale le contenu de la page pour qu'elle soit en dessous du menu */
+body { padding-top: 40px; padding-bottom: 40px; }
 
-body
-{
-    background: #ffffff none repeat scroll 0%;
-    font-family: Verdana,Tahoma,Arial,sans-serif;
-    font-size: 0.8em;
-    margin: 0;
-    padding: 0;
-    min-width: 600px;
-}
+/* On supprime l'espace en dessous des bandeaux d'alerte pour qu'ils soient collés les uns en dessous des autres */
+#messageZone { left: 0; margin-bottom: 0; position: fixed; right: 0; z-index: 50; top: 40px; }
+.alert { margin-bottom: 0px; }
 
-#Page {
-    position: relative;
-    text-align: left;
-    background: #FFFFFF;
-}
-
-a {
-    color: #336699;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a img, a:hover img {
-    border: none;
-}
-
-
-/*================================*/
-/*            En-Tête             */
-/*================================*/
-
-#enTete {
-	position: fixed;
-	z-index: 2;
-	height: 20px;
-	width: 100%;
-	background-color: #FCFDFD;
-	font-family: arial;
-	color: black;
-	font-size: 1em;
-}
-
-#enTete #utilisateur li {
-    float: right;
-}
-
-#enTete #menuGeneral li {
-    float: left;
-    margin-left: 25px;
-}
-
-
-#enTete li {
-	margin: 2px 5px 0px 5px;
-	float: right;
-}
-
-
-/*================================*/
-/*            Bandeau             */
-/*================================*/
-
-#bandeau {
-    position: fixed;
-    top: 20px;
-    z-index: 2;
-    height: 50px;
-    width: 100%;
-    background-color: #EAEAFF; 
-    color: #000099;
-    margin: 0px;
-    padding: 10px 0px 5px 5px;
-    border-top: 1px solid #CCCCCC;
-    border-bottom: 1px solid #9C9C9C;
-}
-
-#bandeau img {
-    float: left;
-}
-
-#bandeau h1 {
-    float: left;
-    margin-left: 15px;
-    font-size: 250%;
-    font-family: "Trebuchet MS";
-    white-space: nowrap;
-    color: #666666;
-}
-
-
-/*================================*/
-/*           Menu                 */
-/*================================*/
-
-.yui-skin-sam .yuimenubar {
-	border-right: none;
-}
-
-#Menu {
-    position: fixed;
-    top: 85px;
-    z-index: 2;
-    width: 100%;
-}
-
-
-/*================================*/
-/*             Masque             */
-/*================================*/
-
-#Masque {
-    visibility:hidden;
-    position: fixed;
-    top: 0px;
-    bottom: 0px;
-    z-index: 100;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-}
-
-#Masque #CadrePage {
-    visibility: hidden;
+/* Masque de chargement */
+#loadingMask {
     position: fixed;
     z-index: 100;
     height: 100%;
     width: 100%;
-    background-color: #000000;
-    opacity: 0.80;
+    background-image: url('../../images/ui/ajax-loader_large.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #ffffff;
+    opacity: 0.70;
 }
 
+/* Footer */
+footer { text-align: center; }
+footer ul { display: inline-block; }
+footer ul li { float: left; margin-right: 30px; }
+footer ul li:last-child { margin-right: 0px; }
 
-/*================================*/
-/*     Chargement en cours        */
-/*================================*/
+/* Fil d'ariane */
+.breadcrumb { margin-bottom: 0px; }
 
-#Masque #CadreChargement {
-	position: fixed;
-	z-index: 200;
-	top: 40px;
-    padding: 5px;
-	width:200px;
-	text-align: center;
-	font-weight: bold;
-	margin-left: 80%;
-	background-color: #FFFFC6;
-    border: 1px solid #9C9C9C;
-    border-radius: 5px;
-}
+/* On espace le container-fluid de la page du menu (si on défini un espace sous le menu, on a un blanc avant le masque de loading) */
+.page { margin-top: 20px; }
 
-/*================================*/
-/*             Corps              */
-/*================================*/
+/* Style des légendes dans les wrappers */
+.wrapper legend { cursor: pointer; border-style: solid none none; border-width: 1px 0 0; border-color: #E5E5E5; margin-bottom: 18px; }
+/* Espacement des wrapper successifs */
+.wrapper + .wrapper { margin-top : 15px; }
+.wrapper .wrapper { margin-left: 15px; }
+/*fieldset fieldset { margin-left: 15px; }*/
 
-#Corps {
-    position: relative;
-    top: 125px;
-    z-index: 0;
-    width: 98%;
-    padding: 10px 1% 66px 1%;
-}
+/* Différente tailles de Modaux */
+.modal.large { width: 850px; margin-left: -425px; }
 
-#Corps h1, #Corps h2, #Corps h3 {
-    color: #000099;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-#Corps h1 {
-    font-size: 1.6em;
-    margin-bottom: 5px;
-}
-
-#Corps h2 {
-    font-size: 1.3em;
-    margin-bottom: 4px;
-    color: #232323;
-}
-
-#Corps h3 {
-    font-size: 1.1em;
-    margin-bottom: 3px;
-}
-
-/*================================*/
-/*              Pied             */
-/*================================*/
-
-#Pied {
-    position: relative;
-    top: 150px;
-    z-index: 0;
-    width: 100%;
-    height: 20px;
-    padding: 3px 0px 2px 0px;
-    border-top: 1px solid #9C9C9C;
-    text-align: center;
-    font-size: 90%;
-    color: #336699;
-}
-
-#Pied ul {
-    display: inline-block;
-}
-
-#Pied li {
-    float: left;
-    margin: 2px 15px;
-}
+/* Ajustement des popover */
+.popover { max-width: 476px; }
+.popover .popover-title { border-bottom: none; background-color: #FFFFFF; padding: 1px 15px; }
+.popover .popover-inner { padding: 1px; border-radius: 3px; height: auto; }

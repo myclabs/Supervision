@@ -1,85 +1,105 @@
 <?php
-    // Layout d'un projet.
-    echo $this->doctype()."\n";
+/**
+ * @author valentin.claras
+ * @package Inventory
+ */
+echo $this->doctype()."\n";
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <base href="http://<?=$_SERVER["SERVER_NAME"]?><?=$this->baseUrl()?>/" />
-        <title><?=Core_Package_Manager::getCurrentPackage()->getName()?></title>
-        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="http://<?=$_SERVER["SERVER_NAME"]?><?=$this->baseUrl()?>/" />
+    <title>My C-Tool - Supervision</title>
 
-        <link rel="stylesheet" type="text/css" href="yui/build/reset-fonts-grids/reset-fonts-grids.css" />
-        <link rel="stylesheet" type="text/css" href="yui/build/fonts/fonts-min.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="css/ui/layout.css" />
-
-        <?php
-        // Fichier nécéssaire au masque.
-        $this->headScript()->appendFile('yui/build/yahoo-dom-event/yahoo-dom-event.js', 'text/javascript');
-        $this->headScript()->appendFile('scripts/ui/masque.js', 'text/javascript');
-        // Ajout des Fichiers CSS nécéssaires au Menu.
-        $this->headLink()->appendStylesheet('yui/build/menu/assets/skins/sam/menu.css');
-        $this->headLink()->appendStylesheet('yui/build/button/assets/skins/sam/button.css');
-        $this->headLink()->appendStylesheet('yui/build/container/assets/skins/sam/container.css');
-        // Ajout des fichiers Javascript nécéssaires au Menu.
-        $this->headScript()->appendFile('yui/build/container/container_core-min.js', 'text/javascript');
-        $this->headScript()->appendFile('yui/build/menu/menu-min.js', 'text/javascript');
-        $this->headScript()->appendFile('yui/build/animation/animation-min.js', 'text/javascript');
-        $this->headScript()->appendFile('scripts/ui/menu.js', 'text/javascript');
-        // Ajout des fichiers nécéssaires aux Messages.
-        UI_Message::addHeader();
-
-        // Ajout des link, Scripts et Styles dynamiques.
-            echo '
-'.$this->headLink();
-            echo '
-'.$this->headScript();
-            echo '
-'.$this->headStyle();
-        ?>
-
-    </head>
-
-    <body class="yui-skin-sam" id="yahoo-com">
-
-        <div id="Page">
-
-            <div id="enTete">
-                <?=$this->partial('elements/entete.phtml', array())?>
-            </div>
-
-            <div id="bandeau">
-                <?=$this->partial('elements/bandeau.phtml', array())?>
-            </div>
-
-            <div id="Menu">
-                <?=$this->partial('elements/menu.phtml', array())?>
-            </div>
-
-            <div id="Masque">
-                <div id="CadrePage"></div>
-                <div id="CadreChargement">
-                    <span>Chargement en cours ...</span>
-                </div>
-            </div>
-            <script type="text/javascript">
-            /*<![CDATA[*/
-                setMasque(true, false);
-            /*]]>*/
-            </script>
-
-            <?php
-            UI_Message::renderStatic();
-            ?>
-
-            <div id="Corps">
-                <?=$this->layout()->content?>
-            </div>
-
-            <div id="Pied">
-                <?=$this->partial('elements/pied.phtml', array())?>
-            </div>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="scripts/ui/jquery-1.7.2.min.js"></script>
+    <?php
+    // Layout de l'application.
+    $this->headScript()->prependFile('scripts/ui/translate.js', 'text/javascript');
+    $this->headScript()->prependFile('bootstrap/js/bootstrap.min.js', 'text/javascript');
+    $this->headScript()->prependFile('scripts/ui/jquery.confirm.js', 'text/javascript');
+    $this->headScript()->appendFile('scripts/bootbox.min.js', 'text/javascript');
+    $this->headLink()->prependStylesheet('css/ui/layout.css');
+    $this->headLink()->prependStylesheet('bootstrap/css/bootstrap.css');
+    $this->headLink()->prependStylesheet('bootstrap/css/bootstrap-responsive.css');
+    // Ajout des link, et des Styles dynamiques. //  Les scripts sont ajoutés à la fin.
+    echo "\n" . $this->headLink()->toString(8) . "\n" . $this->headStyle()->toString(8) . "\n";
+    ?>
+</head>
+<body>
+<?=$this->partial('elements/menu.phtml', array())?>
+<?=$this->partial('elements/breadcrumb.phtml', array())?>
+<div id="messageZone" class="subnav subnav-fixed"><?=UI_Message::renderStatic(false)?></div>
+<div id="loadingMask"></div>
+<div class="container-fluid page">
+    <div class="row-fluid">
+        <div class="span12">
+            <?=$this->layout()->content?>
         </div>
-    </body>
+    </div>
+</div>
+<hr />
+<?=$this->partial('elements/footer.phtml', array())?>
+<script type="text/javascript">
+    eraseFirstMessage = function(loop)
+    {
+        loop = typeof loop !== 'undefined' ? loop - 1 : 0;
+        $('#messageZone').children('div:first').alert('close');
+        if (loop > 0) {
+            setTimeout(eraseFirstMessage, 300, (loop - 1));
+        }
+    }
+    addMessage = function(text, type)
+    {
+        var title, divClass;
+        type = typeof type !== 'undefined' ? type : 'alert';
+        switch (type) {
+            case 'info': title = '<?=__('UI', 'message', 'titleInfo')?>'; divClass = ' alert-info'; break;
+            case 'success': title = '<?=__('UI', 'message', 'titleSuccess')?>'; divClass = ' alert-success'; break;
+            case 'error': title = '<?=__('UI', 'message', 'titleError')?>'; divClass = ' alert-error'; break;
+            case 'alert': default : title = '<?=__('UI', 'message', 'titleWarning')?>'; divClass = ''; break;
+        }
+        var messageZone = $('#messageZone');
+        messageZone.append('<div class="alert' + divClass + ' fade in" style="display:none;"></div>');
+        messageZone.children('div:last').append('<button class="close" data-dismiss="alert">×</button>');
+        messageZone.children('div:last').append('<strong>' + title + '</strong> ' + text);
+        messageZone.children('div:last').slideDown(100);
+
+        if ($('#messageZone').children('div').size() > 2) {
+            setTimeout(eraseFirstMessage, 500, 2);
+        }
+    }
+    errorHandler = function(o)
+    {
+        response = (typeof(o.responseText) == 'string') ? $.parseJSON(o.responseText) : o;
+        addMessage(response.message, response.typeError);
+    }
+    setMask = function(display)
+    {
+        if (typeof(indexStackMask) == "undefined") {
+            indexStackMask = 0;
+        }
+        if (display)
+        {
+            indexStackMask++;
+            if ($('#loadingMask').is(':not(:visible)')) {
+                $('#loadingMask').slideDown(100);
+            }
+        } else {
+            indexStackMask--;
+            if (indexStackMask <= 0) {
+                if ($('#loadingMask').is(':visible')) {
+                    $('#loadingMask').slideUp(100);
+                }
+                indexStackMask = 0;
+            }
+        }
+    }
+</script>
+<?=$this->headScript()->toString()."\n" ?>
+<script type="text/javascript">
+    $(document).ready(function(){setMask(false);});
+</script>
+</body>
 </html>

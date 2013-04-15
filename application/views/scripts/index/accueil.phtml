@@ -1,12 +1,9 @@
-<div id="accueil">
-<?php
-$baseUrl = 'http://dev.myc-sense.com/';
-?>
+<div>
     <h2>
         Pour commencer
     </h2>
 
-    <a href="<?=$baseUrl?>wiki/index.php/Guide_du_nouvel_arrivant">
+    <a href="wiki/index.php/Guide_du_nouvel_arrivant">
                 Guide du nouvel arrivant</a>
 
     <h2>
@@ -24,7 +21,7 @@ $baseUrl = 'http://dev.myc-sense.com/';
     <?php if (!$monitor) : ?>
 
         <p style="color: darkred; font-weight: bold; font-size: 1.2em">
-            <img src="<?=$this->baseUrl()?>/images/ui/exclamation.png">
+            <i class="icon-warning-sign"></i>
             Statut de Gearman : KO
         </p>
 

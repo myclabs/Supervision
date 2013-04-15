@@ -1,245 +1,203 @@
 <?php
-// Définition du menu sous forme de tableau.
-$menu = array(
-    1   => array(
-        'nom'     => 'Library',
+$leftMenu = [
+    [
+        'name' => 'Courriels',
+        'url'  =>  'http://mail.google.com/a/myc-sense.com',
+    ],
+    [
+        'name' => 'Documents',
+        'url'  =>  'http://docs.google.com/a/myc-sense.com',
+    ],
+    [
+        'name' => 'Redmine',
+        'url'  =>  'http://dev.myc-sense.com:3000',
+    ],
+    [
+        'name' => 'phpunderControl',
+        'url'  =>  'http://dev.myc-sense.com:8080/cruisecontrol',
+    ],
+    [
+        'name' => 'Wiki',
+        'url'  =>  'wiki/',
+    ],
+    [
+        'name' => 'phpDoc',
+        'url'  =>  'api/',
+    ],
+    [
+        'name' => 'Munin',
+        'url'  =>  'munin',
+    ],
+    [
+        'name'    => 'Library',
         'url'     => null,
-        'contenu' => array(
-            1   => array(
-                'nom'     => 'AF',
-                'url'     => 'af-trunk/',
-            ),
-            2   => array(
-                'nom'     => 'Classif',
-                'url'     => 'classif-trunk/',
-            ),
-            3   => array(
-                'nom'     => 'Doc',
-                'url'     => 'doc-trunk/',
-            ),
-            4   => array(
-                'nom'     => 'DW',
-                'url'     => 'dw-trunk/',
-            ),
-            5   => array(
-                'nom'     => 'Export',
-                'url'     => 'export-trunk/',
-            ),
-            6   => array(
-                'nom'     => 'Inventory',
-                'url'     => 'inventory-trunk/',
-            ),
-            7   => array(
-                'nom'     => 'Keyword',
-                'url'     => 'keyword-trunk/',
-            ),
-            8   => array(
-                'nom'     => 'Log',
-                'url'     => 'log-trunk/',
-            ),
-            9   => array(
-                'nom'     => 'Orga',
-                'url'     => 'orga-trunk/',
-            ),
-            10  => array(
-                'nom'     => 'Simulation',
-                'url'     => 'simulation-trunk/',
-            ),
-            11 => array(
-                'nom'     => 'Social',
-                'url'     => 'social-trunk/',
-            ),
-            12  => array(
-                'nom'     => 'TEC',
-                'url'     => 'tec-trunk/',
-            ),
-            13  => array(
-                'nom'     => 'Techno',
-                'url'     => 'techno-trunk/',
-            ),
-            14  => array(
-                'nom'     => 'TechnoDB',
-                'url'     => 'technodb-trunk/',
-            ),
-            15  => array(
-                'nom'     => 'UI',
-                'url'     => 'ui-trunk/',
-            ),
-            16  => array(
-                'nom'     => 'Unit',
-                'url'     => 'unit-trunk/',
-            ),
-            17  => array(
-                'nom'     => 'User & ACL',
-                'url'     => 'user-trunk/',
-            ),
-        ),
-    ),
-    2   => array(
-        'nom'     => 'Ancienne librairie',
+        'submenu' => [
+            [
+                'name' => 'AF',
+                'url'  => 'af-trunk/',
+            ],
+            [
+                'name' => 'Classif',
+                'url'  => 'classif-trunk/',
+            ],
+            [
+                'name' => 'DW',
+                'url'  => 'dw-trunk/',
+            ],
+            [
+                'name' => 'Export',
+                'url'  => 'export-trunk/',
+            ],
+            [
+                'name' => 'Inventory',
+                'url'  => 'inventory-trunk/',
+            ],
+            [
+                'name' => 'Keyword',
+                'url'  => 'keyword-trunk/',
+            ],
+            [
+                'name' => 'Log',
+                'url'  => 'log-trunk/',
+            ],
+            [
+                'name' => 'Orga',
+                'url'  => 'orga-trunk/',
+            ],
+            [
+                'name' => 'Simulation',
+                'url'  => 'simulation-trunk/',
+            ],
+            [
+                'name' => 'Social',
+                'url'  => 'social-trunk/',
+            ],
+            [
+                'name' => 'TEC',
+                'url'  => 'tec-trunk/',
+            ],
+            [
+                'name' => 'Techno',
+                'url'  => 'techno-trunk/',
+            ],
+            [
+                'name' => 'UI',
+                'url'  => 'ui-trunk/',
+            ],
+            [
+                'name' => 'Unit',
+                'url'  => 'unit-trunk/',
+            ],
+            [
+                'name' => 'User & ACL',
+                'url'  => 'user-trunk/',
+            ],
+        ],
+    ],
+    [
+        'name'    => 'Applications',
         'url'     => null,
-        'contenu' => array(
-            1   => array(
-                'nom'     => 'Conversions expressions/arbres',
-                'url'     => 'expressionscalculs/',
-            ),
-            2   => array(
-                'nom'     => 'Exports',
-                'url'     => 'exports/',
-            ),
-            3   => array(
-                'nom'     => 'Gestion des droits d\'accès',
-                'url'     => 'acl/',
-            ),
-            4   => array(
-                'nom'     => 'Interfaces-Génériques',
-                'url'     => 'interfacesgeneriques/',
-            ),
-            5   => array(
-                'nom'     => 'Modules comptables',
-                'url'     => 'modulescomptables/',
-            ),
-            6   => array(
-                'nom'     => 'Navigation',
-                'url'     => 'navigation/',
-            ),
-            7   => array(
-                'nom'     => 'Unités',
-                'url'     => 'unites/',
-            ),
-            8   => array(
-                'nom'     => 'Utilisateurs',
-                'url'     => 'utilisateurs/',
-            ),
-        ),
-    ),
-    3   => array(
-        'nom'     => 'Applications',
+        'submenu' => [
+            [
+                'name' => 'Démo',
+                'url'  => 'demo/',
+            ],
+            [
+                'name' => 'Stations de Montagne',
+                'url'  => 'stations-montagne/',
+            ],
+            [
+                'name' => 'Spiritueux',
+                'url'  => 'spiritueux/',
+            ],
+            [
+                'name' => 'Bolloré',
+                'url'  => 'bollore/',
+            ],
+            [
+                'name' => 'Bilan Carbone Campus',
+                'url'  => 'bc-campus/',
+            ],
+        ],
+    ],
+    [
+        'name'    => 'Applications archivées',
         'url'     => null,
-        'contenu' => array(
-            1   => array(
-                'nom'     => 'Démo',
-                'url'     => 'demo/',
-            ),
-            2   => array(
-                'nom'     => 'Stations de Montagne',
-                'url'     => 'stations-montagne/',
-            ),
-            3   => array(
-                'nom'     => 'Spiritueux',
-                'url'     => 'spiritueux/',
-            ),
-            4   => array(
-                'nom'     => 'Bolloré',
-                'url'     => 'bollore/',
-            ),
-            5   => array(
-                'nom'     => 'Bilan Carbone Campus',
-                'url'     => 'bc-campus/',
-            ),
-        ),
-    ),
-    4   => array(
-        'nom'     => 'Applications archivées',
-        'url'     => null,
-        'contenu' => array(
-            1   => array(
-                'nom'     => 'Basecarbone version 0.2',
-                'url'     => 'basecarbone2/',
-            ),
-            2   => array(
-                'nom'     => 'Basecarbone version 0.3',
-                'url'     => 'basecarbone/',
-            ),
-        ),
-    ),
-);
+        'submenu' => [
+            [
+                'name' => 'Basecarbone version 0.2',
+                'url'  => 'basecarbone2/',
+            ],
+            [
+                'name' => 'Basecarbone version 0.3',
+                'url'  => 'basecarbone/',
+            ],
+        ],
+    ],
+];
 
-// Page demandée
-$request = Zend_Controller_Front::getInstance()->getRequest();
-$controleur = $request->getControllerName();
-$action = $request->getActionName();
-
-// Ajout d'options au menu.
-if (($controleur === 'documentation') && (($action === 'voir') || ($action === 'generer'))) {
-    $menu[5] = array(
-        'nom'   => 'Générer la phpDoc',
-        'url'   => 'documentation/generer',
-        'contenu' => false,
-    );
-}
-
-$htmlMenu = false;
-
-foreach ($menu as $noeud) {
-    if (is_array($noeud['contenu'])) {
-        $sousMenu = $noeud;
-    } else {
-        $sousMenu = false;
-    }
-    if ($htmlMenu !== true) {
 ?>
-<div id="bd">
-    <div id="yui-main">
-        <div class="yui-b">
-            <div id="productsandservices" class="yuimenubar yuimenubarnav">
-                <div class="bd">
-                    <ul class="first-of-type">
-<?php
-        $htmlMenu = true;
-    }
-?>
-                        <li class="yuimenubaritem">
-                            <?php
-                                if ($noeud['url'] !== null) {
-                                    $url = ' href="'.$noeud['url'].'"';
-                                } else {
-                                    $url = '';
-                                }
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="index">My C-Tool - Supervision</a>
+
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <?php foreach ($leftMenu as $node) {
+                        $liClasses = array();
+                        if (isset($node['active']) && $node['active']) {
+                            $liClasses[] = 'active';
+                        }
+                        if (isset($node['submenu']) && (count($node['submenu']) > 0)) {
+                            $liClasses[] = 'dropdown';
+                        }
+                        $liClass = (count($liClasses) > 0) ? ' class="' . implode(' ', $liClasses) . '"' : '';
+                        $mainLink = (isset($node['url']) && ($node['url'] != '')) ? ' href="' . $node['url'] . '"' : '';
+                        ?>
+                        <?php
+                        if (isset($node['submenu']) && (is_array($node['submenu']))
+                            && (count($node['submenu']) > 0)
+                        ) {
                             ?>
-                            <a class="yuimenubaritemlabel"<?=$url?>>
-                                <?=$noeud['nom']?>
-                            </a>
-<?php
-        if ($sousMenu !== false) {
-?>
-                            <div class="yuimenu">
-                                <div class="bd">
-                                    <ul>
-<?php
-            foreach ($sousMenu['contenu'] as $sousNoeud) {
-?>
-                                        <li class="yuimenuitem">
-                                            <?php
-                                                if ($sousNoeud['url'] !== null) {
-                                                    $url = ' href="'.$sousNoeud['url'].'"';
-                                                } else {
-                                                    $url = '';
-                                                }
+                            <li<?=$liClass?>>
+                                <a<?=$mainLink?> class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <?=$node['name']?>
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <?php foreach ($node['submenu'] as $submenu) { ?>
+                                        <?php
+                                        if (isset($submenu['submenu']) && (is_array($submenu['submenu']))
+                                            && (count($submenu['submenu']) > 0)
+                                        ) {
                                             ?>
-                                            <a class="yuimenuitemlabel"<?=$url?>>
-                                                    <?=$sousNoeud['nom']?>
-                                            </a>
-                                        </li>
-<?php
-            }
-?>
-                                    </ul>
-                                </div>
-                            </div>
-<?php
-        }
-?>
-                        </li>
-<?php
-}
-if ($htmlMenu) {
-?>
-                    </ul>
-                </div>
+                                            <li class="dropdown-submenu">
+                                                <a href="<?=$submenu['url']?>"><?=$submenu['name']?></a>
+                                                <ul class="dropdown-menu">
+                                                    <?php foreach ($submenu['submenu'] as $submenuBis) { ?>
+                                                        <li><a href="<?=$submenuBis['url']?>"><?=$submenuBis['name']?></a></li>
+                                                    <?php } ?>
+                                                </ul>
+                                            </li>
+                                        <?php } else { ?>
+                                            <li><a href="<?=$submenu['url']?>"><?=$submenu['name']?></a></li>
+                                        <?php } ?>
+                                    <?php } ?>
+                                </ul>
+                            </li>
+                        <?php } else { ?>
+                            <li<?=$liClass?>><a<?=$mainLink?>><?=$node['name']?></a></li>
+                        <?php } ?>
+                    <?php } ?>
+                </ul>
             </div>
         </div>
     </div>
 </div>
-<?php
-}
