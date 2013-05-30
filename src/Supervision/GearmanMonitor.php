@@ -1,9 +1,11 @@
 <?php
 
+namespace Supervision;
+
 /**
  * @see https://github.com/qzio/gearman-monitor
  */
-class Default_Model_GearmanMonitor
+class GearmanMonitor
 {
 
     public static $commands = array('status','workers');
@@ -12,10 +14,10 @@ class Default_Model_GearmanMonitor
     {
         $errno = 0;
         $errstr = '';
-        $this->fd = fsockopen($server, $port, $errno, $errstr);
+        $this->fd = @fsockopen($server, $port, $errno, $errstr);
         if ( ! $this->fd )
         {
-            throw new Exception('Failed to connect to socket: '.$errno.' ('.$errstr.')');
+            throw new \Exception('Failed to connect to socket: '.$errno.' ('.$errstr.')');
         }
     }
 
@@ -104,40 +106,34 @@ class Default_Model_GearmanMonitor
 
     /**
      * @todo make this nicer
-     * echo the response in a readable format
-     * @param array $response from gearman
-     * @param string $cmd the command executed
-     * @return void
+     *       echo the response in a readable format
+     * @param array  $response from gearman
+     * @param string $cmd      the command executed
+     * @return string
      */
-    public static function showResponse($response, $cmd)
+    public static function getResponseAsString($response, $cmd)
     {
-        if ($cmd == 'status')
-        {
-            echo "to do\t\t| running\t| workers\t| task\n";
-            foreach($response as $row)
-            {
-                echo "{$row['total']}\t\t| {$row['running']}\t\t| {$row['available']}\t\t| {$row['job']} \n";
+        $return = '';
+
+        if ($cmd == 'status') {
+            $return .= "to do\t\t| running\t| workers\t| task\n";
+            foreach ($response as $row) {
+                $return .= "{$row['total']}\t\t| {$row['running']}\t\t| {$row['available']}\t\t| {$row['job']} \n";
             }
-        }
-        else if ($cmd == 'workers')
-        {
-            echo "host\t\t| tasks\n";
-            foreach($response as $row)
-            {
-                echo "{$row['host']}\t| ".implode(', ',$row['jobs'])."\n";
+        } elseif ($cmd == 'workers') {
+            $return .= "host\t\t| tasks\n";
+            foreach ($response as $row) {
+                $return .= "{$row['host']}\t| " . implode(', ', $row['jobs']) . "\n";
             }
-        }
-        else if ($cmd == 'help')
-        {
-            foreach($response as $row)
-            {
-                echo $row."\n";
+        } elseif ($cmd == 'help') {
+            foreach ($response as $row) {
+                $return .= $row . "\n";
             }
+        } else {
+            $return .= $response;
         }
-        else
-        {
-            var_dump($response);
-        }
+
+        return $return;
     }
 
 }

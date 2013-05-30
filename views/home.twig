@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervision</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ app.request.baseUrl }}/favicon.ico">
+
+    <link href="{{ app.request.baseUrl }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ app.request.baseUrl }}/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="index">My C-Tool - Supervision</a>
+
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li><a href="http://mail.google.com/a/myc-sense.com">Courriels</a></li>
+                        <li><a href="http://docs.google.com/a/myc-sense.com">Documents</a></li>
+                        <li><a href="http://dev.myc-sense.com:3000">Redmine</a></li>
+                        <li><a href="http://dev.myc-sense.com:8080/cruisecontrol">Jenkins</a></li>
+                        <li><a href="http://dev.myc-sense.com/wiki/">Wiki</a></li>
+                        <li><a href="http://dev.myc-sense.com/munin/">Munin</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Library
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://dev.myc-sense.com/af-trunk/">AF</a></li>
+                                <li><a href="http://dev.myc-sense.com/classif-trunk/">Classif</a></li>
+                                <li><a href="http://dev.myc-sense.com/dw-trunk/">DW</a></li>
+                                <li><a href="http://dev.myc-sense.com/export-trunk/">Export</a></li>
+                                <li><a href="http://dev.myc-sense.com/inventory-trunk/">Inventory</a></li>
+                                <li><a href="http://dev.myc-sense.com/keyword-trunk/">Keyword</a></li>
+                                <li><a href="http://dev.myc-sense.com/log-trunk/">Log</a></li>
+                                <li><a href="http://dev.myc-sense.com/orga-trunk/">Orga</a></li>
+                                <li><a href="http://dev.myc-sense.com/simulation-trunk/">Simulation</a></li>
+                                <li><a href="http://dev.myc-sense.com/social-trunk/">Social</a></li>
+                                <li><a href="http://dev.myc-sense.com/tec-trunk/">TEC</a></li>
+                                <li><a href="http://dev.myc-sense.com/techno-trunk/">Techno</a></li>
+                                <li><a href="http://dev.myc-sense.com/ui-trunk/">UI</a></li>
+                                <li><a href="http://dev.myc-sense.com/unit-trunk/">Unit</a></li>
+                                <li><a href="http://dev.myc-sense.com/user-trunk/">User & ACL</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Applications
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://dev.myc-sense.com/inventory/">Inventory</a></li>
+                                <li><a href="http://dev.myc-sense.com/demo/">Démo</a></li>
+                                <li><a href="http://dev.myc-sense.com/stations-montagne/">Stations de Montagne</a></li>
+                                <li><a href="http://dev.myc-sense.com/spiritueux/">Spiritueux</a></li>
+                                <li><a href="http://dev.myc-sense.com/bollore/">Bolloré</a></li>
+                                <li><a href="http://dev.myc-sense.com/bc-campus/">Bilan Carbone Campus</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Applications archivées
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://dev.myc-sense.com/basecarbone2/">Basecarbone version 0.2</a></li>
+                                <li><a href="http://dev.myc-sense.com/basecarbone/">Basecarbone version 0.3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <h2>
+            Pour commencer
+        </h2>
+
+        <div class="row-fluid">
+            <div class="span1">
+                <div class="well">
+                    <i class="icon-tool"></i>
+                    Redmine
+                </div>
+            </div>
+        </div>
+
+        <h2>
+            Monitoring Gearman
+        </h2>
+
+
+        {% if monitor is null %}
+
+            <p style="color: darkred; font-weight: bold; font-size: 1.2em">
+                <i class="icon-warning-sign"></i>
+                Statut de Gearman : KO
+            </p>
+
+            <p style="color: darkred">
+                Impossible de se connecter à Gearman (localhost).
+            </p>
+
+        {% else %}
+
+            <p style="margin-top: 10px">
+                Statut de Gearman : OK
+            </p>
+            <p style="margin-top: 10px">
+                Liste des taches enregistrées
+            </p>
+            <pre>{{ tasks }}</pre>
+
+            <p style="margin-top: 10px">
+                Liste des workers
+            </p>
+            <pre>{{ workers }}</pre>
+
+        {% endif %}
+
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="{{ app.request.baseUrl }}/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
