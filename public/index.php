@@ -17,10 +17,10 @@ $app->get('/', function (Application $app) {
         $monitor = new GearmanMonitor();
 
         $response = $monitor->cmd('status');
-        $tasks = Default_Model_GearmanMonitor::getResponseAsString($response, 'status');
+        $tasks = GearmanMonitor::getResponseAsString($response, 'status');
 
         $response = $monitor->cmd('workers');
-        $workers = Default_Model_GearmanMonitor::getResponseAsString($response, 'workers');
+        $workers = GearmanMonitor::getResponseAsString($response, 'workers');
     } catch (Exception $e) {
         $monitor = null;
         $tasks = '';
