@@ -1,16 +1,40 @@
 <?php
 
-/**
- * Environnement d'exécution de l'application
- * @see http://dev.myc-sense.com/wiki/index.php/Environnement_d%27ex%C3%A9cution
- * @var string
- */
-define('APPLICATION_ENV', 'developpement');
+require_once __DIR__ . '/../vendor/autoload.php';
 
-/**
- * Détermine si l'application est lancée après le Bootstrap
- * @var bool
- */
-define('RUN', true);
+use Silex\Application;
+use Silex\Provider\TwigServiceProvider;
+use Supervision\GearmanMonitor;
 
-require_once realpath(dirname(__FILE__).'/../application/init.php');
+$app = new Application();
+$app->register(new TwigServiceProvider(), ['twig.path' => __DIR__ . '/../views']);
+
+// Home
+$app->get('/', function (Application $app) {
+
+    // Gearman monitoring
+    try {
+        $monitor = new GearmanMonitor();
+
+        $response = $monitor->cmd('status');
+        $tasks = GearmanMonitor::getResponseAsString($response, 'status');
+
+        $response = $monitor->cmd('workers');
+        $workers = GearmanMonitor::getResponseAsString($response, 'workers');
+    } catch (Exception $e) {
+        $monitor = null;
+        $tasks = '';
+        $workers = '';
+    }
+
+    return $app['twig']->render(
+        'home.twig',
+        [
+            'monitor' => $monitor,
+            'tasks'   => $tasks,
+            'workers' => $workers,
+        ]
+    );
+});
+
+$app->run();
