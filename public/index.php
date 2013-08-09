@@ -31,7 +31,7 @@ $app->get(
         ];
         $versions = [];
         foreach ($devSlots as $slot) {
-            $client = new Client('http://localhost/');
+            $client = new Client('http://supervision:superpasswordenclair@dev.myc-sense.com/');
             try {
                 $response = $client->get('/' . $slot . '/version.php')->send();
                 $body = $response->getBody(true);
