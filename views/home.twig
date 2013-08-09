@@ -36,8 +36,8 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="http://dev.myc-sense.com/basecarbone2/">Basecarbone version 0.2</a></li>
-                                <li><a href="http://dev.myc-sense.com/basecarbone/">Basecarbone version 0.3</a></li>
+                                <li><a href="http://dev.myc-sense.com/basecarbone2/">Base Carbone version 0.2</a></li>
+                                <li><a href="http://dev.myc-sense.com/basecarbone/">Base Carbone version 0.3</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -48,9 +48,9 @@
 
     <div class="container-fluid">
 
-        <h2>
+        <h3>
             Outils
-        </h2>
+        </h3>
 
         <div class="row-fluid start">
 
@@ -81,9 +81,9 @@
 
         </div>
 
-        <h2>
+        <h3>
             Applications
-        </h2>
+        </h3>
 
         <div class="row-fluid start">
 
@@ -109,10 +109,40 @@
 
         </div>
 
-        <h2>
-            Monitoring Gearman
-        </h2>
 
+        <h3>
+            Déploiements
+        </h3>
+
+        <h4>Dev</h4>
+
+        <ul>
+            <li>
+                <a href="http://dev.myc-sense.com/inventory1/">Inventory 1</a> : {{ versions['dev']['inventory1'] }}
+            </li>
+            <li>
+                <a href="http://dev.myc-sense.com/inventory2/">Inventory 2</a> : {{ versions['dev']['inventory2'] }}
+            </li>
+            <li>
+                <a href="http://dev.myc-sense.com/inventory3/">Inventory 3</a> : {{ versions['dev']['inventory3'] }}
+            </li>
+        </ul>
+
+        <h4>Test</h4>
+
+        <ul>
+            <li>
+                <a href="http://test.myc-sense.com/inventory1/">Inventory 1</a> : {{ versions['test']['inventory1'] }}
+            </li>
+            <li>
+                <a href="http://test.myc-sense.com/inventory2/">Inventory 2</a> : {{ versions['test']['inventory2'] }}
+            </li>
+        </ul>
+
+
+        <h3>
+            Monitoring Gearman
+        </h3>
 
         {% if monitor is null %}
 
