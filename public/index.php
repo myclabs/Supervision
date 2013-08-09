@@ -31,7 +31,7 @@ $app->get(
         ];
         $versions = [];
         foreach ($devSlots as $slot) {
-            $client = new Client('http://dev.myc-sense.com/');
+            $client = new Client('http://localhost/');
             try {
                 $response = $client->get('/' . $slot . '/version.php')->send();
                 $body = $response->getBody(true);
