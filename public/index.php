@@ -28,6 +28,12 @@ $app->get(
             'inventory2',
         ];
         $prodSlots = [
+            'afd',
+            'art255',
+            'campus',
+            'societe',
+            'demo/1',
+            'demo/10',
         ];
         $versions = [];
         foreach ($devSlots as $slot) {
