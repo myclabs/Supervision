@@ -22,6 +22,7 @@ $app->get(
             'inventory1',
             'inventory2',
             'inventory3',
+            'inventory4',
         ];
         $testSlots = [
             'inventory1',
