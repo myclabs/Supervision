@@ -31,6 +31,7 @@ $app->get(
         ];
         $prodSlots = [
             'afd',
+            'art225',
             'art255',
             'bollore',
             'campus',
