@@ -1,13 +1,8 @@
 {
-    "autoload": {
-        "psr-0": {
-            "Supervision": "src/"
-        }
-    },
-	"require": {
-		"php": ">=5.4.0",
-        "silex/silex": "1.0",
+    "require": {
+        "php": ">=5.4.0",
+        "silex/silex": "~1.0",
         "twig/twig": "~1.8",
         "guzzle/guzzle": "~3.7"
-	}
+    }
 }

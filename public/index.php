@@ -4,7 +4,6 @@ use Guzzle\Http\Client;
 use Guzzle\Http\Exception\BadResponseException;
 use Silex\Application;
 use Silex\Provider\TwigServiceProvider;
-use Supervision\GearmanMonitor;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -49,7 +48,7 @@ $app->get(
         ];
         $versions = [];
         foreach ($devSlots as $slot) {
-            $client = new Client('http://supervision:superpasswordenclair@dev.myc-sense.com/');
+            $client = new Client('http://dev.myc-sense.com/');
             try {
                 $response = $client->get('/' . $slot . '/version.php')->send();
                 $body = $response->getBody(true);
@@ -94,27 +93,9 @@ $app->get(
             $versions['prod'][$slot] = $version;
         }
 
-        // Gearman monitoring
-        try {
-            $monitor = new GearmanMonitor();
-
-            $response = $monitor->cmd('status');
-            $tasks = GearmanMonitor::getResponseAsString($response, 'status');
-
-            $response = $monitor->cmd('workers');
-            $workers = GearmanMonitor::getResponseAsString($response, 'workers');
-        } catch (Exception $e) {
-            $monitor = null;
-            $tasks = '';
-            $workers = '';
-        }
-
         return $app['twig']->render(
             'home.twig',
             [
-                'monitor'  => $monitor,
-                'tasks'    => $tasks,
-                'workers'  => $workers,
                 'versions' => $versions,
             ]
         );
