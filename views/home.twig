@@ -30,6 +30,7 @@
                         <li><a href="http://supervision.myc-sense.com:8080/cruisecontrol">Jenkins</a></li>
                         <li><a href="http://supervision.myc-sense.com/wiki/">Wiki</a></li>
                         <li><a href="http://supervision.myc-sense.com/munin/">Munin</a></li>
+                        <li><a href="https://papertrailapp.com/dashboard">PaperTrail</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 Applications archivées
@@ -59,11 +60,6 @@
                 E-Mail
             </a>
 
-            <a href="http://docs.google.com/a/myc-sense.com" class="span2 btn btn-large">
-                <i class="icon-file-alt icon-large"></i>
-                Google Docs
-            </a>
-
             <a href="http://supervision.myc-sense.com:3000/projects" class="span2 btn btn-large">
                 <i class="icon-comments-alt icon-large"></i>
                 Redmine
@@ -79,55 +75,41 @@
                 Jenkins
             </a>
 
+            <a href="https://papertrailapp.com/dashboard" class="span2 btn btn-large">
+                <i class="icon-tasks"></i>
+                PaperTrail
+            </a>
+
         </div>
 
         <h3>
             Applications
         </h3>
 
-        <div class="row-fluid start">
-
-            <a href="http://dev.myc-sense.com/inventory1/" class="span2 btn btn-large">
-                Inventory 1
-            </a>
-
-            <a href="http://dev.myc-sense.com/inventory2/" class="span2 btn btn-large">
-                Inventory 2
-            </a>
-
-            <a href="http://dev.myc-sense.com/inventory3/" class="span2 btn btn-large">
-                Inventory 3
-            </a>
-
-            <a href="http://dev.myc-sense.com/inventory4/" class="span2 btn btn-large">
-                Inventory 4
-            </a>
-
-            <a href="http://dev.myc-sense.com:15672/" class="span2 btn btn-large">
-                RabbitMQ
-            </a>
-
-        </div>
-
-
-        <h3>
-            Déploiements
-        </h3>
-
         <h4>Dev</h4>
 
         <ul>
             <li>
-                <a href="http://dev.myc-sense.com/inventory1/">Inventory 1</a> : {{ versions['dev']['inventory1'] }}
+                <a href="http://dev.myc-sense.com/inventory1/">Inventory 1</a> :
+                <span class="label label-info">{{ versions['dev']['inventory1'] }}</span>
             </li>
             <li>
-                <a href="http://dev.myc-sense.com/inventory2/">Inventory 2</a> : {{ versions['dev']['inventory2'] }}
+                <a href="http://dev.myc-sense.com/inventory2/">Inventory 2</a> :
+                <span class="label label-info">{{ versions['dev']['inventory2'] }}</span>
             </li>
             <li>
-                <a href="http://dev.myc-sense.com/inventory3/">Inventory 3</a> : {{ versions['dev']['inventory3'] }}
+                <a href="http://dev.myc-sense.com/inventory3/">Inventory 3</a> :
+                <span class="label label-info">{{ versions['dev']['inventory3'] }}</span>
             </li>
             <li>
-                <a href="http://dev.myc-sense.com/inventory4/">Inventory 4</a> : {{ versions['dev']['inventory4'] }}
+                <a href="http://dev.myc-sense.com/inventory4/">Inventory 4</a> :
+                <span class="label label-info">{{ versions['dev']['inventory4'] }}</span>
+            </li>
+            <li>
+                <a href="http://dev.myc-sense.com:15672/">RabbitMQ</a>
+            </li>
+            <li>
+                <a href="http://dev.myc-sense.com/apc.php">APCu</a>
             </li>
         </ul>
 
@@ -135,13 +117,22 @@
 
         <ul>
             <li>
-                <a href="http://test.myc-sense.com/inventory1/">Inventory 1</a> : {{ versions['test']['inventory1'] }}
+                <a href="http://test.myc-sense.com/inventory1/">Inventory 1</a> :
+                <span class="label label-info">{{ versions['test']['inventory1'] }}</span>
             </li>
             <li>
-                <a href="http://test.myc-sense.com/inventory2/">Inventory 2</a> : {{ versions['test']['inventory2'] }}
+                <a href="http://test.myc-sense.com/inventory2/">Inventory 2</a> :
+                <span class="label label-info">{{ versions['test']['inventory2'] }}</span>
             </li>
             <li>
-                <a href="http://test.myc-sense.com/inventory3/">Inventory 3</a> : {{ versions['test']['inventory3'] }}
+                <a href="http://test.myc-sense.com/inventory3/">Inventory 3</a> :
+                <span class="label label-info">{{ versions['test']['inventory3'] }}</span>
+            </li>
+            <li>
+                <a href="http://test.myc-sense.com:15672/">RabbitMQ</a>
+            </li>
+            <li>
+                <a href="http://test.myc-sense.com/apc.php">APCu</a>
             </li>
         </ul>
 
@@ -149,52 +140,68 @@
 
         <ul>
             <li>
-                <a href="http://prod.myc-sense.com/afd/">AFD</a> : {{ versions['prod']['afd'] }}
+                <a href="http://prod.myc-sense.com/afd/">AFD</a> :
+                <span class="label label-info">{{ versions['prod']['afd'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/art225/">Article 225</a> : {{ versions['prod']['art225'] }}
+                <a href="http://prod.myc-sense.com/art225/">Article 225</a> :
+                <span class="label label-info">{{ versions['prod']['art225'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/art255/">Article 255</a> : {{ versions['prod']['art255'] }}
+                <a href="http://prod.myc-sense.com/art255/">Article 255</a> :
+                <span class="label label-info">{{ versions['prod']['art255'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/campus/">Campus</a> : {{ versions['prod']['campus'] }}
+                <a href="http://prod.myc-sense.com/campus/">Campus</a> :
+                <span class="label label-info">{{ versions['prod']['campus'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/bollore/">Bolloré</a> : {{ versions['prod']['bollore'] }}
+                <a href="http://prod.myc-sense.com/bollore/">Bolloré</a> :
+                <span class="label label-info">{{ versions['prod']['bollore'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/societe/">Société</a> : {{ versions['prod']['societe'] }}
+                <a href="http://prod.myc-sense.com/societe/">Société</a> :
+                <span class="label label-info">{{ versions['prod']['societe'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/1/">Démo 1</a> : {{ versions['prod']['demo/1'] }}
+                <a href="http://prod.myc-sense.com/demo/1/">Démo 1</a> :
+                <span class="label label-info">{{ versions['prod']['demo/1'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/2/">Démo 2</a> : {{ versions['prod']['demo/2'] }}
+                <a href="http://prod.myc-sense.com/demo/2/">Démo 2</a> :
+                <span class="label label-info">{{ versions['prod']['demo/2'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/3/">Démo 3</a> : {{ versions['prod']['demo/3'] }}
+                <a href="http://prod.myc-sense.com/demo/3/">Démo 3</a> :
+                <span class="label label-info">{{ versions['prod']['demo/3'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/4/">Démo 4</a> : {{ versions['prod']['demo/4'] }}
+                <a href="http://prod.myc-sense.com/demo/4/">Démo 4</a> :
+                <span class="label label-info">{{ versions['prod']['demo/4'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/5/">Démo 5</a> : {{ versions['prod']['demo/5'] }}
+                <a href="http://prod.myc-sense.com/demo/5/">Démo 5</a> :
+                <span class="label label-info">{{ versions['prod']['demo/5'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/6/">Démo 6</a> : {{ versions['prod']['demo/6'] }}
+                <a href="http://prod.myc-sense.com/demo/6/">Démo 6</a> :
+                <span class="label label-info">{{ versions['prod']['demo/6'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/7/">Démo 7</a> : {{ versions['prod']['demo/7'] }}
+                <a href="http://prod.myc-sense.com/demo/7/">Démo 7</a> :
+                <span class="label label-info">{{ versions['prod']['demo/7'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/8/">Démo 8</a> : {{ versions['prod']['demo/8'] }}
+                <a href="http://prod.myc-sense.com/demo/8/">Démo 8</a> :
+                <span class="label label-info">{{ versions['prod']['demo/8'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/9/">Démo 9</a> : {{ versions['prod']['demo/9'] }}
+                <a href="http://prod.myc-sense.com/demo/9/">Démo 9</a> :
+                <span class="label label-info">{{ versions['prod']['demo/9'] }}</span>
             </li>
             <li>
-                <a href="http://prod.myc-sense.com/demo/10/">Démo 10</a> : {{ versions['prod']['demo/10'] }}
+                <a href="http://prod.myc-sense.com/demo/10/">Démo 10</a> :
+                <span class="label label-info">{{ versions['prod']['demo/10'] }}</span>
             </li>
         </ul>
 
