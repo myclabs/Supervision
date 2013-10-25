@@ -40,11 +40,6 @@ $app->get(
             'demo/3',
             'demo/4',
             'demo/5',
-            'demo/6',
-            'demo/7',
-            'demo/8',
-            'demo/9',
-            'demo/10',
         ];
         $versions = [];
         foreach ($devSlots as $slot) {
