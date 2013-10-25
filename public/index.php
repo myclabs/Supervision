@@ -35,11 +35,11 @@ $app->get(
             'bollore',
             'campus',
             'societe',
-            'demo/1',
-            'demo/2',
-            'demo/3',
-            'demo/4',
-            'demo/5',
+            'demo1',
+            'demo2',
+            'demo3',
+            'demo4',
+            'demo5',
         ];
         $versions = [];
         foreach ($devSlots as $slot) {
