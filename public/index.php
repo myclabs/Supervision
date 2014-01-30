@@ -88,12 +88,25 @@ $app->get(
             $versions['prod'][$slot] = $version;
         }
 
-        return $app['twig']->render(
-            'home.twig',
-            [
-                'versions' => $versions,
-            ]
-        );
+        // Inventory en prod
+        $client = new Client('http://app.myc-sense.com/');
+        try {
+            $response = $client->get('/version.php')->send();
+            $body = $response->getBody(true);
+            if ($response->getStatusCode() == 200 && strpos($body, '<!DOCTYPE html>') === false) {
+                $version = $body;
+            } else {
+                $version = 'unknown';
+            }
+        } catch (BadResponseException $e) {
+            $version = 'unknown (' . $e->getMessage() . ')';
+        }
+        $inventoryVersion = $version;
+
+        return $app['twig']->render('home.twig', [
+            'versions' => $versions,
+            'inventoryVersion' => $inventoryVersion,
+        ]);
     }
 );
 
