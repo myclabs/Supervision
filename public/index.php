@@ -34,6 +34,7 @@ $app->get(
             'art255',
             'bollore',
             'campus',
+            'referentiel',
             'demoreference',
             'demo1',
             'demo2',
