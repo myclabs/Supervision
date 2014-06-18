@@ -29,10 +29,6 @@ $app->get(
             'inventory3',
         ];
         $prodSlots = [
-            'afd',
-            'art225',
-            'art255',
-            'bollore',
             'demo1',
             'demo2',
             'demo3',
